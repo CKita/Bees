@@ -75,6 +75,7 @@ survival <- rma.mv(yi, vi, random = list( ~1|id_code, ~1|bee_specie, ~1|agrochem
 
 summary(survival)
 
+str(survival)
 
 ###Grafico####
 
@@ -121,29 +122,53 @@ dev.off()
 #teste de sensibilidade ####
 
 rs= rstandard(survival) #para ver se tem outliers 
-hat= hatvalues(survival)/mean(hatvalues(survival))#para ver se tem pontos com alta alavancagem 
-plot(hat, rs$resid, ylim = c(-8.0,8), xlim =c(-5,5))
-text(hat, rs$resid, labels = sub$id_code, cex= 1, pos = 2)
+rs
+plot(rs$resid, ylim = c(-8.0,8), xlim =c(-5,50))
+text(rs$resid, labels = dados$id_code, cex= 1, pos = 2)
+
 abline(h = -3)
 abline(h = 3)
-abline( v = 2)
 
-
-# Os pontos C0084 e C0191 são outliers (20 pontos). 
+# Os pontos C0073, C0084, C0189 e C0191  são outliers (28 pontos). 
 # Podemos observar melhor esses pontos vendo o gráfico.  
 
-#modelo sem outliers
+#vamos fazer um modelo sem os outliers
 
-surv_sensi<- read.csv("survival_sensi_out.csv", h= T, dec =".", sep = ",")
+surv_sensi2<- read.csv("survival_sensi_out2.csv", h= T, dec =".", sep = ",")
 
-View(surv_sensi)
+View(surv_sensi2)
 
-model.surv.sensi.out <- rma.mv(yi, vi, random = list( ~1|id_code, ~1|bee_specie, ~1|agrochemical, ~1|hours_after_exposure, ~1|exposure_type), method="REML",  # "REML" = multi-level 
-                                           R = list(bee_specie = cov.matrix),digits = 3, control = list(optimizer="optim", optmethod="Nelder-Mead"), data = surv_sensi)
+##### construindo a matriz de covariancia
 
-summary(model.surv.sensi.out)
+spp <- tnrs_match_names(unique(surv_sensi2$bee_specie), context_name = "Animals") #aqui para procurar os nomes das minhas spp de abelhas
 
-orchard_plot(model.surv.sensi.out, xlab = "Odds ratio") +
+#na categoria "Animals" #do Tree of Life
+
+my_tree = tol_induced_subtree(ott_ids=spp$ott_id) #aqui estou criando uma sub arvore com as minhas especies de abelhas 
+
+#daqui para baixo estou vendos as distancias filogeneticas e criando a matriz de covariancia 
+otl_tips=strip_ott_ids(my_tree$tip.label, remove_underscores=TRUE)
+
+taxon_map=structure(spp$search_string, names=spp$unique_name)
+
+my_tree$tip.label=taxon_map[otl_tips]
+
+my_tree.ult = compute.brlen(my_tree, method = "Grafen")
+
+windows()
+plot(my_tree.ult,no.margin=T) #vamos ver como ficou
+
+cov.matrix = vcv(my_tree.ult,corr=T)
+cov.matrix[,0]
+
+#####
+
+model.surv.sensi.out2 <- rma.mv(yi, vi, random = list( ~1|id_code, ~1|bee_specie, ~1|agrochemical, ~1|hours_after_exposure, ~1|exposure_type), method="REML",  # "REML" = multi-level 
+                                R = list(bee_specie = cov.matrix),digits = 3, control = list(optimizer="optim", optmethod="Nelder-Mead"), data = surv_sensi2)
+
+summary(model.surv.sensi.out2)
+
+orchard_plot(model.surv.sensi.out2, xlab = "Odds ratio") +
         labs(y = "Survival") + # troca o nome do eixo y
         scale_color_manual(values = "pink1") + #troca a cor dos pontos do fundo
         scale_fill_manual(values = "seagreen3") + #troca a cor do ponto central 
@@ -154,8 +179,8 @@ orchard_plot(model.surv.sensi.out, xlab = "Odds ratio") +
               legend.position = "top") + #troca a posicao da legenda 
         coord_flip() 
 
-#continuou negativo e significativo (-1.878; p = 0.022) 
-# isso indica que o efeito do agrotóxico é forte o bastante para não deixar de ser detectado mesmo quando o tamanho amostral é menor.
+#negativo e diferente de zero. Ou seja, os pesticidas afetam a sobrevivenciua das abelhas.
+#isso indica que o efeito do agrotóxico é forte o bastante para não deixar de ser detectado mesmo quando o tamanho amostral é menor.
 
 
 ###Heterogeneidades####

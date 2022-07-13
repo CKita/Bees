@@ -98,7 +98,7 @@ orchard_plot(model.geral, xlab = "Hedges' g") +
 dev.off()
 ###HETEROGENEIDADE - moldelo geral
 
-#Heterogeneidade (I?) do modelo geral ####
+#Heterogeneidade (I^2) do modelo geral ####
 
 dados_completos$wi <- 1/sqrt(dados_completos$vi) # precision = 1 / standard error of effect size (Equation 20; Nakagawa & Santos 2012)
 
@@ -212,7 +212,6 @@ model.1f <- rma.mv(yi, vi, mods = ~pesticide_effect -1, random = list( ~1|id_cod
 
 summary(model.1f)
 
-#d?vida: por que no modelo sem moderador, o efeito sub-letail deu n?o significativo e nesse modelo com o moderador ele deu significativo?
 
 #fazendo o grafico
 
@@ -312,8 +311,9 @@ confint.lm(egger2, level = 0.95)
 #### sensibility test: sub_lethal ####
 
 #vamos fazer um teste de sensibilidade para os efeitos subletais porque ele apresenta pontos extremos. 
-#O que n?o ocorre nos efeitos letais 
+#O que nao ocorre nos efeitos letais 
 
+#so os subletais 
 sub <- read.csv("sub.csv", h= T, dec =".", sep = ",")
 
 View(sub)
@@ -340,39 +340,16 @@ orchard_plot(model.sub, xlab = "Hedges' g") +
 #teste de sensibilidade
 
 rs= rstandard(model.sub) #para ver se tem outliers 
-hat= hatvalues(model.sub)/mean(hatvalues(model.sub))#para ver se tem pontos com alta alavancagem 
-plot(hat, rs$resid, ylim = c(-8.0,8), xlim =c(-5,5))
-text(hat, rs$resid, labels = sub$id_code, cex= 1, pos = 2)
+rs
+
+plot( rs$resid, ylim = c(-10,8), xlim =c(-5,50))
+text(rs$resid, labels = sub$id_code, cex= 1, pos = 2)
+
 abline(h = -3)
 abline(h = 3)
-abline( v = 2)
 
+# os pontos C0091 sao outliers (4 pontos)
 
-#os pontos: C0180, C0143 e C0144 possuem alta alavancagem (4 pontos); os pontos C0091 s?o outliers (4 pontos)
-
-#modelo sem os pontos com alta alavancagem 
-
-sub.sensi.alav <- read.csv("sub_sensi_alav.csv", h= T, dec =".", sep = ",")
-
-View(sub.sensi.alav)
-
-model.sub.sensi.alav <- rma.mv(yi, vi, random = list( ~1|id_code, ~1|study_type, ~1|sampling_method), method="REML",  # "REML" = multi-level 
-                              digits = 3, data = sub.sensi.alav)
-
-summary(model.sub.sensi.alav)
-
-orchard_plot(model.sub.sensi.alav, xlab = "Hedges' g") +
-        labs(y = "Overall effect") + # troca o nome do eixo y
-        scale_color_manual(values = "pink1") + #troca a cor dos pontos do fundo
-        scale_fill_manual(values = "seagreen3") + #troca a cor do ponto central 
-        theme_classic() + #tira a caixa em volta do grafico
-        theme(axis.text = element_text(size = 14, colour = "black"), #muda o tamanho do texto dos eixos e na cor do eixo 
-              axis.title = element_text(size = 16), #muda o tamanho do titulo do eixo
-              axis.text.x = element_blank(), #Isso remove o texto automatico do eixo y
-              legend.position = "top") + #troca a posicao da legenda 
-        coord_flip() 
-
-#continuou negativo e significativo (-0.941; p = 0.015) - overall
 
 #sem outliers 
 
@@ -397,5 +374,45 @@ orchard_plot(model.sub.sensi.out, xlab = "Hedges' g") +
         coord_flip() 
 
 #continuou negativo e diferente de zero. Ficou mais negativo (-0.780; p <.001)
-#isso indica que o efeito deve mesmo ser resultado de um processo biol?gico e n?o um artefato causado por esses outliers
+#isso indica que o efeito deve mesmo ser resultado de um processo biologico e n?o um artefato causado por esses outliers
+
+#### sensibility test: lethal ####
+
+let <- read.csv("let.csv", h= T, dec =".", sep = ",")
+
+View(let)
+
+str(let)
+
+model.let <- rma.mv(yi, vi, random = list( ~1|id_code,  ~1|sampling_method), method="REML",  # "REML" = multi-level 
+                    digits = 3, data = let)
+
+summary(model.let)
+
+#grafico
+
+orchard_plot(model.let, xlab = "Hedges' g") +
+        labs(y = "Overall effect") + # troca o nome do eixo y
+        scale_color_manual(values = "pink1") + #troca a cor dos pontos do fundo
+        scale_fill_manual(values = "seagreen3") + #troca a cor do ponto central 
+        theme_classic() + #tira a caixa em volta do grafico
+        theme(axis.text = element_text(size = 14, colour = "black"), #muda o tamanho do texto dos eixos e na cor do eixo 
+              axis.title = element_text(size = 16), #muda o tamanho do titulo do eixo
+              axis.text.x = element_blank(), #Isso remove o texto automatico do eixo y
+              legend.position = "top") + #troca a posicao da legenda 
+        coord_flip() 
+
+
+#teste de sensibilidade
+
+rs= rstandard(model.let) #para ver se tem outliers 
+rs
+
+plot( rs$resid, ylim = c(-10,8), xlim =c(-5,50))
+text(rs$resid, labels = sub$id_code, cex= 1, pos = 2)
+
+abline(h = -3)
+abline(h = 3)
+
+# nao tem outlier 
 
