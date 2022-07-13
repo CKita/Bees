@@ -1,0 +1,20 @@
+id_code,study_type,nature_x,total_sample_size,sample_size_control,sample_size_treatment,statistic,value,effect_type,plant_specie
+C0120,field,2,12,6,6,r,0.481352262,community, 
+C0135,field,2,15,2,13,F,4.58,community, 
+C0135,field,2,15,2,13,F,4.12,community, 
+C0135,field,2,15,2,13,F,1.16,community, 
+C0135,field,2,15,2,13,F,7.76,community, 
+C0135,field,2,15,2,13,F,10.08,community, 
+C0135,field,2,15,2,13,F,1.95,community, 
+C0135,field,2,15,2,13,F,1.83,community, 
+C0135,field,2,15,2,13,F,5.06,community, 
+C0135,field,2,15,2,13,F,2.79,community, 
+C0135,field,2,15,2,13,r,0.574456265,community, 
+C0135,field,2,15,2,13,r,0.538516481,community, 
+C0135,field,2,15,2,13,r,0.529150262,community, 
+C0179,laboratory,2,80,10,70,F,0.97,pollination,Helianthus annuus L.
+C0179,laboratory,2,80,10,70,F,1.19,pollination,Helianthus annuus L.
+C0179,laboratory,2,80,10,70,F,0.13,pollination,Helianthus annuus L.
+C0179,laboratory,2,80,10,70,F,0.55,pollination,Helianthus annuus L.
+C0179,laboratory,2,80,10,70,F,0.001,pollination,Helianthus annuus L.
+C0143,field,2,22,9,13,t,3.19,pollination,Citrullus lanatus
