@@ -1,6 +1,6 @@
 # Bees
 
-Supplement to the chapter 1 of the dissertation "A meta-analysis of the effects of pesticides on bees and their pollination service in the context of intensive agricultural practices"  
+Supplement to the chapter 1 of the dissertation "A meta-analysis of the effects of pesticides on bees and their pollination service in the context of intensive agricultural practices".  
 
 Ecological Synthesis Lab (SintECO).
 
