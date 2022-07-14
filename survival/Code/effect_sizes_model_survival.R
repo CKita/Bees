@@ -48,7 +48,7 @@ write.csv2(dat_comp, "data_comp.csv", row.names = F)
 
 
 ##############################################
-####MODEL
+#### MODEL - MEAN EFFECT SIZE 
 ##############################################
 
 ##We are going to build a meta-analytic model to calculate the mean effect size.
@@ -211,7 +211,7 @@ dev.off()
 
 
 ###############################################
-####HETEROGENEITY
+#### HETEROGENEITY
 ###############################################
 
 #Now, we are going to calculate the heterogeneity the model and the heterogeneity of each random variable,
@@ -303,7 +303,7 @@ confint(survival)
 
 
 #############################################
-####PUBLICATION BIAS
+#### PUBLICATION BIAS
 #############################################
 
 
