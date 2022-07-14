@@ -18,7 +18,7 @@ rm(list= ls())
 ##### EFFECT SIZES 
 ##############################################
 
-#Now, let's see our the raw data set
+#Now, let's see our raw data set
 
 dat <- read.csv("dados_sobrevivencia.csv", h= T, dec =".", sep = ",")
 
