@@ -5,7 +5,7 @@
 ##############################################
 
 
-#Let's get ready for running the code
+#Let's get ready for running the code provided here. 
 
 #Set the working directory that contains the bee survival data.  
 
