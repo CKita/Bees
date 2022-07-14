@@ -52,7 +52,7 @@ write.csv2(dat_comp, "data_comp.csv", row.names = F)
 ##############################################
 
 ##We are going to build a meta-analytic model to calculate the mean effect size.
-#let's use the complete data set to build our model.  
+#Let's use the complete data set to build our model.  
 
 dados <- read.table("data_comp.csv", h=T, dec=",", sep = ";")
 
