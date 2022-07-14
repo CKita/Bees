@@ -5,8 +5,6 @@
 #######################################
 
 
-
-
 #Let's get ready for running the code provided here. 
 
 #Set the working directory that contains the lethal and sublethal data.  
@@ -14,8 +12,6 @@
 #Delete all previous objects
 
 rm(list= ls())
-
-
 
 
 ###############################################################
@@ -184,9 +180,9 @@ I2.sampling - qchisq(.95, df=1)/2; I2.sampling + qchisq(.95, df=1)/2
 confint(model.geral)
 
 
-######################################################################
+##############################################################################
 #### PUBLICATION BIAS - model: overall lethal and sublethal pesticide effects 
-######################################################################
+##############################################################################
 
 
 #Publication bias in each model using an adapted version of Egger’s regression (Nakagawa & Santos, 2012)
@@ -263,7 +259,6 @@ summary(model.sub)
 
 #graphic 
 
-
 orchard_plot(model.sub, xlab = "Hedges' g") +
         labs(y = "Overall effect") + 
         scale_color_manual(values = "pink1") + 
@@ -274,7 +269,6 @@ orchard_plot(model.sub, xlab = "Hedges' g") +
               axis.text.x = element_blank(), 
               legend.position = "top") + 
         coord_flip() 
-
 
 
 #here, the sensibility test that we are going to do is evaluating the standardized residuals   
@@ -292,7 +286,6 @@ abline(h = 3)
 
 
 # There are four outliers (C0091)
-
 
 #Let's build a models without outliers 
 
@@ -325,7 +318,9 @@ dev.off()
 #Result: mean effect size is negative and different from zero. In other words, sublethal effects are strong enough to be detected
 #even when we remove the outliers. 
 
+
 #### sensibility test: lethal ####
+
 
 #Let us see only the lethal effect sizes
 
@@ -369,6 +364,7 @@ abline(h = 3)
 
 # There is no outliers 
 
+
 ################################################################
 #### HETEROGENEITY - model: pesticide effect type as a moderator
 ################################################################
@@ -389,7 +385,6 @@ I2.model.1
 
 ## and 95% CI for I2.total:
 I2.model.1 - qchisq(.95, df=1)/2; I2.model.1 + qchisq(.95, df=1)/2
-
 
 
 #Calculating I² for each random factor 
