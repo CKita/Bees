@@ -171,10 +171,10 @@ str(effects_prontos)
 
 #saving 
 
-#em txt
+#.txt
 write.table(effects_prontos, "effect_sizes_cat.txt", dec = ".", sep = ",", row.names = F )
 
-#em csv 
+#.csv 
 
 write.csv(effects_prontos, "effect_sizes_cat.csv", row.names = F)
 
