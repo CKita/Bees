@@ -56,5 +56,5 @@
 "C0189","laboratory","categorical",180,90,0.32,0.47,90,0.07,0.19,"pollination",NA,-0.694467089999435,0.0235619014974786,NA,NA
 "C0189","laboratory","categorical",180,90,0.67,0.47,90,0.59,0.57,"pollination",NA,-0.152493539251161,0.0222868174430926,NA,NA
 "C0197","field ","categorical",18,8,2.9,1.98,10,3.5,2.53,"community","",0.2478132453159,0.226705872348722,NA,NA
-"C0142","field","categorical",25,12,NA,NA,13,NA,NA,"community","",0.32,0.16,"F",0.62
-"C0142","field","categorical",25,12,NA,NA,13,NA,NA,"community","",0,0.16,"F",0
+"C0142","field","categorical",25,12,NA,NA,13,NA,NA,"community","",0.3,0.15,"F",0.62
+"C0142","field","categorical",25,12,NA,NA,13,NA,NA,"community","",0,0.15,"F",0

@@ -106,7 +106,7 @@ effect_c0142 <- fes(C0142_BRUTO$value, C0142_BRUTO$sample_size_control, C0142_BR
 
 View(effect_c0142)
 
-es_f_d_var <- cbind(effect_c0142$d, effect_c0142$var.d) #picking the data
+es_f_d_var <- cbind(effect_c0142$g, effect_c0142$var.g) #picking the g and var.g 
 
 colnames(es_f_d_var) <- c("yi", "vi") #naming the columns 
 
@@ -172,9 +172,6 @@ str(effects_prontos)
 
 
 #saving 
-
-#.txt
-write.table(effects_prontos, "effect_sizes_cat.txt", dec = ".", sep = ",", row.names = F )
 
 #.csv 
 
