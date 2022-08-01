@@ -36,6 +36,7 @@ dados_completos$pesticide_effect <- as.factor(dados_completos$pesticide_effect)
 
 str(dados_completos)
 
+#Exploring data 
 table(dados_completos$pesticide_effect)
 table(dados_completos$study_type)
 
@@ -191,7 +192,7 @@ confint(model.geral)
 
 egger = lm(residuals(model.geral)~sqrt(dados_completos$vi)) 
 
-summary(egger) #tem vies de publicacao pq o intercepto deu diferente de zero e deu significativo 
+summary(egger)  
 
 confint.lm(egger, level = 0.95)
 
@@ -207,7 +208,7 @@ confint.lm(egger, level = 0.95)
 
 
 model.1 <- rma.mv(yi, vi, mods= ~pesticide_effect, random = list( ~1|id_code, ~1|study_type, ~1|sampling_method), method="REML",  # "REML" = multi-level 
-                  digits = 3, data = dados_completos)
+                  digits = 3, data = dados_completos, control = list(optimizer="optim", optmethod="Nelder-Mead"))
 
 
 summary(model.1) 
@@ -445,7 +446,7 @@ confint(model.1)
 
 egger2 = lm(residuals(model.1)~sqrt(dados_completos$vi)) 
 
-summary(egger2) #tem vies de publicacao pq o intercepto deu diferente de zero e deu significativo 
+summary(egger2)  
 
 confint.lm(egger2, level = 0.95)
 
