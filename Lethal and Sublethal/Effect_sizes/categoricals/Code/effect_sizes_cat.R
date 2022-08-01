@@ -51,14 +51,16 @@ summary(AG_cat)
 
 #2
 #Our metric of effect size is Hedges’ g. 
-#Therefore, we are going to use the measure "standardized mean difference" (SMD).
+#Therefore, we are going to use the measure argument "standardized mean difference" (SMD).
+#OBS: For measure="SMD", the positive bias in the standardized mean difference (i.e., in a Cohen's d value)
+#is automatically corrected for within the function, yielding Hedges' g (Hedges, 1981). 
 
 #3
 #We are going to use the treatment group as a reference (with pesticide application), subtracting
 #from it the mean value of the control group (without pesticide application or organic farms).
 
 #4
-#We need to input the following information in the escalc function:
+#We need to input the following values in the escalc function:
 
 #m1i = mean_treatment
 #m2i = mean_control
@@ -79,7 +81,7 @@ effect_sizes <- escalc("SMD", m1i = mean_treatment, m2i = mean_control,
 View(effect_sizes) #effect size (yi) and variance (vi) 
 
 
-#Now, let's use the compute.es function to calculate the hedge's g value from the statistic F reported in the paper C0142.
+#Now, let's use the compute.es function to calculate the Hedge's g value from the statistic F reported in the paper C0142.
 
 #First, let's pick the data from C0142. 
 

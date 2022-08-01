@@ -1,13 +1,32 @@
-## CONVERTENDO AS ESTATISTICAS PARA HEDGES 
+#######################################
+
+#Effect sizes - continuous data 
+
+#######################################
 
 
-#baixando o pacaote para fazer as conversoes
+#Let's get ready for running the code provided here. 
 
-install.packages("compute.es")
+#Set the working directory that contains the continuous data.  
 
-library(compute.es )
+#Delete all previous objects
 
-#vamos abrir a planilha dos dados continuos
+rm(list= ls())
+
+
+#Now,load the required package:
+
+library("compute.es")
+
+
+
+###############################################################
+#### EFFECT SIZES - CONTINUOUS DATA 
+###############################################################
+
+
+#First, let's see our data set
+
 
 AG_cont <- read.csv("continuous.csv", h=T, dec = ",")
 
@@ -15,23 +34,33 @@ View(AG_cont)
 
 summary(AG_cont)
 
-#arrumando a classe da coluna "value" para numeric 
+
+#Changing some columns to the class "numeric"
 
 AG_cont$value <- as.numeric(AG_cont$value)
 
 
-#agora vamos comecar as conversoes das estatisticas 
-
-#convertendo F
-
-#fes(f, n.1, n.2)
-
-#f =  valor da estatastica
-#n.1 =  tamanho amostral do tratamento
-#n.2 = o tamanho amostral do controle 
+#let's use the compute.es function to calculate the hedge's g value from the statistic reported in the papers.
 
 
-#entao vou pegar os dados que tem a estatistica F
+##############################################################################################################
+
+#converting statistic F to Hedges'g: 
+
+
+#########################################
+# remember that:                        #
+#                                       #
+# fes(f, n.1, n.2)                      #
+#                                       #
+# f =  statistic value                  #
+# n.1 =  sample size of treatment group #
+# n.2 =  sample size of control group   #
+#                                       #
+#########################################
+
+#Let's pick the data 
+
 AG_cont
 
 C0135_ <- AG_cont[AG_cont$id_code == "C0135", ]
@@ -44,14 +73,15 @@ C0179_ <- AG_cont[AG_cont$id_code ==  "C0179", ]
 
 C0179_
 
-#vamos juntar esses dados 
+#binding 
+
 C0135_C0179 <- rbind(C0135_, C0179_)
 
 C0135_C0179
 
 summary(C0135_C0179)
 
-#tranformando para a classe numeric
+#Changing some columns to the class "numeric"
 
 for (i in 4:6){
         C0135_C0179 [ ,i] <- as.numeric(C0135_C0179[,i] )
@@ -61,29 +91,38 @@ C0135_C0179$value <- as.numeric(C0135_C0179$value)
 
 summary(C0135_C0179)
 
-#convertendo 
+#converting  
 
 es_f <- fes(C0135_C0179$value, C0135_C0179$sample_size_control, C0135_C0179$sample_size_treatment)
 
 View(es_f)
 
-es_f_g_var <- cbind(es_f$g, es_f$var.g) #pegando as colunas que me interessam 
+es_f_g_var <- cbind(es_f$g, es_f$var.g) #picking the data 
 
-colnames(es_f_g_var) <- c("yi", "vi") #nomeando 
+colnames(es_f_g_var) <- c("yi", "vi") #naming the columns 
 
 View(es_f_g_var)
 
-es_F_prontos <- cbind(C0135_C0179, es_f_g_var) #juntando os tamanhos de efeito com os outros dados 
+es_F_prontos <- cbind(C0135_C0179, es_f_g_var) ##binding the data
 
 View(es_F_prontos)
 
+##############################################################################################################
 
-#convertendo a estatistica t
+#converting statistic t to Hedges'g: 
 
-#tes(t, n.1, n.2)
-#t = t-test value reported in primary study.
-#n.1 = Sample size of treatment group.
-#n.2 = Sample size of comparison group
+###############################################
+# remember that:                              #
+#                                             #
+# tes(t, n.1, n.2)                            #
+#                                             #
+# t = t-test value reported in primary study. #
+# n.1 = Sample size of treatment group.       #
+# n.2 = Sample size of control group.         #
+#                                             #
+###############################################
+
+#Let's pick the data 
 
 AG_cont
 
@@ -96,29 +135,39 @@ str(dado_t)
 dado_t$sample_size_control <- as.numeric(dado_t$sample_size_control)
 dado_t$sample_size_treatment <- as.numeric(dado_t$sample_size_treatment)
 
-#convertendo 
+#converting 
 
 es_t <- tes(dado_t$value, dado_t$sample_size_control, dado_t$sample_size_treatment)  
 
 View(es_t)
 
-es_t_d_var <- cbind(es_t$g, es_t$var.g) #pegando as colunas que me interessam
+es_t_d_var <- cbind(es_t$g, es_t$var.g) #picking the data
 
 es_t_d_var
 
-colnames(es_t_d_var) <- c("yi", "vi") #nomeando as colunas 
+colnames(es_t_d_var) <- c("yi", "vi") #naming the columns 
 
-es_t_prontos <- cbind(dado_t, es_t_d_var) #juntando os tamanhos de efeito com os outros dados 
+es_t_prontos <- cbind(dado_t, es_t_d_var) #binding 
 
 View(es_t_prontos)
 
+##############################################################################################################
+#converting statistic r to Hedges'g:
 
-#agora convertendo a estatistica r
+########################################################################
+# Remember that:                                                       #
+#                                                                      #
+# res(r, var.r = NULL, n)                                              #
+#                                                                      #
+# r = Correlation coefficient.                                         #
+#                                                                      #
+# var.r = Variance of r. If value is not reported then leave it blank  #
+# and variances will be computed based on sample size.                 #
+#                                                                      #
+# n = Total sample size.                                               #            
+########################################################################
 
-#res(r, var.r = NULL, n)
-#r = Correlation coefficient.
-#var.r = Variance of r. If value is not reported then leave it blank and variances will be computed based on sample size. 
-#n = Total sample size.                                                            
+#Let's pick the data 
 
 AG_cont
 
@@ -140,22 +189,22 @@ dado_r$total_sample_size <- as.numeric(dado_r$total_sample_size)
 dado_r$sample_size_control <- as.numeric(dado_r$sample_size_control)
 dado_r$sample_size_treatment <- as.numeric(dado_r$sample_size_treatment)
 
-#convertendo 
+#converting  
 
 es_r <- res(dado_r$value, var.r = NULL, dado_r$total_sample_size)
 
 View(es_r)
 
-es_r_d_var <- cbind(es_r$d, es_r$var.d) #pegando as colunas que me interessam
+es_r_d_var <- cbind(es_r$d, es_r$var.d) #picking the data
 
-colnames(es_r_d_var) <- c("yi", "vi") #nomeando as colunas 
+colnames(es_r_d_var) <- c("yi", "vi") #naming the columns 
 
-as.data.frame(es_r_d_var) #tem que passar para hedges g
+as.data.frame(es_r_d_var) #we need to convert to Hedges'g 
 
 
-#vou fazer uma funcao para conversao de hedges'd para hedges'g porque o R nao esta dando o valor de g e var.g
+#Let's make a function to convert hedges' d to hedges' g because the function res only provides d and var.d values.
 
-#pegando as informacoes necessarias para fazer a conversao
+#picking the information needed
 d <- es_r$d
 d
 
@@ -166,7 +215,7 @@ vd
 df <- dado_r$total_sample_size - 2
 
 
-#para calcular o j do hedge's g 
+#to calulate the "j" from hedge's g 
 
 j <- function(x){
         
@@ -176,7 +225,7 @@ j <- function(x){
 Js <- j(df)
 Js
 
-#para calcular o g
+#to calculate the g
 
 g <- function(y){
         
@@ -185,7 +234,7 @@ g <- function(y){
 
 G <- g(Js)
 
-#para calcular a variancia de g
+#to calculate the variance of g (i.e., var.g)
 
 var.g <- function(z){
         
@@ -195,7 +244,7 @@ var.g <- function(z){
 
 Var.g <- var.g(Js)
 
-#agora juntando 
+#now, let's bind 
 
 es_r_g_var.g <- cbind(G, Var.g)
 
@@ -203,31 +252,31 @@ colnames(es_r_g_var.g) <- c("yi", "vi")
 
 es_r_g_var.g
 
-es_r_prontos <- cbind(dado_r, es_r_g_var.g) #juntando os tamanhos de efeito com os outros dados 
+es_r_prontos <- cbind(dado_r, es_r_g_var.g)  
 
 View(es_r_prontos)
 
 
-#juntando todos os dados convertidos
+#binding all the statistics converted 
 
 es_cont <- rbind(es_r_prontos, es_F_prontos, es_t_prontos )
 
 View(es_cont)
 
-es_cont <- es_cont[-18,] #vi que esse dado nao estava atrelado a polinzacao por abelhas
+es_cont <- es_cont[-18,] #not related to bee pollination
 
-#alguns dos valores tiveream que ser multiplicados por -1 ja que quando eu faco a conversao das estatisticas para
-#valores de tamanho de efeito, todos os valores sao positivos, o que nao refletem o efeito negativo dos pesticidas, 
-#mas valores positivos nao condizem com o resultado dos artigos.
-#entao nesses casos, a gente tem que colocar o sinal manualmente.
-#para ver quais valores eu tinha que multiplicar por -1, eu voltei nos artigos originais e vi o que os autores falaram sobre o
-#efeito do pesticida. Se ele foi negativo, eu multipliquei por -1 
+#OBS:
+#some values of effect size need to be multiplied by -1, because when we convert the statistics,the effect size is always positive.
+#In cases in which authors reported a negative effect of pesticide application, positive values of effect sizes do not make sense.
+#Therefore, in this cases, we need to manually multiply the effect size by -1. 
+
+#let's multiply by -1 the effect sizes of papers that reported a negative effect of pesticide application. 
 
 es_cont$yi[c(1,2,3,4,5,8,9,12,14,15,18)] <- es_cont$yi[c(1,2,3,4,5,8,9,12,14,15,18)] * -1
 
 View(es_cont)
 
-#salvando a planilha pronta
+#saving 
 
 write.csv(es_cont, file = "effect_sizes_cont.csv", row.names = F)
 
