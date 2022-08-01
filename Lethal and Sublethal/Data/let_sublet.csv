@@ -56,8 +56,8 @@ C0189,laboratory,categorical,180,90,0.49,0.47,90,0.39,0.47,pollination,NA,-0.211
 C0189,laboratory,categorical,180,90,0.32,0.47,90,0.07,0.19,pollination,NA,-0.69446709,0.023561901,NA,NA,china ,directly_from_the_colony ,NA,sub_lethal
 C0189,laboratory,categorical,180,90,0.67,0.47,90,0.59,0.57,pollination,NA,-0.152493539,0.022286817,NA,NA,china ,directly_from_the_colony ,NA,sub_lethal
 C0197,field,categorical,18,8,2.9,1.98,10,3.5,2.53,community,,0.247813245,0.226705872,NA,NA,usa,observation,monoculture ,lethal
-C0142,field,categorical,25,12,NA,NA,13,NA,NA,community,,0.32,0.16,F,0.62,usa,observation ,polyculture,lethal
-C0142,field,categorical,25,12,NA,NA,13,NA,NA,community,,0,0.16,F,0,usa,observation ,polyculture,lethal
+C0142,field,categorical,25,12,NA,NA,13,NA,NA,community,,0.3,0.15,F,0.62,usa,observation ,polyculture,lethal
+C0142,field,categorical,25,12,NA,NA,13,NA,NA,community,,0,0.15,F,0,usa,observation ,polyculture,lethal
 C0120,field,continuous,12,6,NA,NA,6,NA,NA,community, ,-1.015384615,0.400473373,r,0.481352262,kenya,observation ,monoculture ,lethal
 C0135,field,continuous,15,2,NA,NA,13,NA,NA,community, ,-1.317647059,0.380899654,r,0.574456265,usa,pan_trap ,monoculture ,lethal
 C0135,field,continuous,15,2,NA,NA,13,NA,NA,community, ,-1.204705882,0.35432526,r,0.538516481,usa,pan_trap ,monoculture ,lethal
