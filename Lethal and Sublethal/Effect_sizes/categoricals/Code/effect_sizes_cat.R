@@ -13,7 +13,7 @@
 
 rm(list= ls())
 
-#Now,load the required package:
+#Now,load the required packages:
 
 library("metafor")
 library("compute.es")
