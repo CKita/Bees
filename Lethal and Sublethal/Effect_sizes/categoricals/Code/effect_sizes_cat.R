@@ -1,32 +1,39 @@
-#TAMANHOS DE EFEITO - DADOS CATEGORICOS 
+#######################################
 
-#instalando os pacotes metafor e o compute.es
+#Effect sizes - categorical data 
 
-install.packages("metafor")
-install.packages("compute.es")
+#######################################
 
-#abrindo os pacotes
+
+#Let's get ready for running the code provided here. 
+
+#Set the working directory that contains the categorical data.  
+
+#Delete all previous objects
+
+rm(list= ls())
+
+#Now,load the required package:
+
 library("metafor")
 library("compute.es")
 
-#explorando o metafor
-?metafor
 
-#vamos usar a funcao escalc para calcular os tamanhos de efeito
 
-?escalc
+###############################################################
+#### EFFECT SIZES - CATEGORICAL DATA 
+###############################################################
 
-#como vamos calcular os tamanhos de efeito por Hedges'g, vamos usar "Measures for Quantitative Variables",
-# e o argumento para "standardized mean difference" = "SMD"
 
-#carregadndo os dados
+#First, let's see our data set
+
 AG_cat <- read.csv("cat.csv", h=T, dec = ",")
 
 View(AG_cat)
 
 summary(AG_cat)
 
-#arrumando a classe das colunas
+#Changing some columns to the class "numeric"
 
 for (i in 4:10){
         AG_cat[ ,i] <- as.numeric(AG_cat[,i] )
@@ -35,39 +42,46 @@ for (i in 4:10){
 summary(AG_cat)
 
 
-####agora vamos calcular os tamanhos de efeito####
+####################################################################################################
+#Before starting to calculate the effect sizes,
+#Let's remember some points:
 
-#lembrando que estamos fazendo tratamento(com agrotoxico) - controle (sem agrotoxico),
-#entao valores de hedges (yi) negativos indicam efeito negativo do agrotoxico 
+#1
+#To calculate the effect sizes, we are going to use the "escalc" function.
 
-#nesse caso, para a funcao escalc dar certo, temos que entrar com as seguintes informacoes:
+#2
+#Our metric of effect size is Hedges’ g. 
+#Therefore, we are going to use the measure "standardized mean difference" (SMD).
+
+#3
+#We are going to use the treatment group as a reference (with pesticide application), subtracting
+#from it the mean value of the control group (without pesticide application or organic farms).
+
+#4
+#We need to input the following information in the escalc function:
 
 #m1i = mean_treatment
 #m2i = mean_control
-#sd1i = sd_treatment
-#sd2i = sd_control
+#sd1i = sd_treatment (standard deviation)
+#sd2i = sd_control (standard deviation)
 #n1i = sample_size_treatment
 #n2i = sample_size_control
 
-#entao vamos fazer isso
+####################################################################################################
+
+#Let's calculate the effect sizes
 
 effect_sizes <- escalc("SMD", m1i = mean_treatment, m2i = mean_control, 
                        sd1i = sd_treatment, sd2i= sd_control, 
                        n1i=sample_size_treatment, n2i= sample_size_control, 
                        data = AG_cat)
 
-View(effect_sizes) #tamanho de efeito (yi) e variancia (vi) 
-
-#vamos salvar essa planilha com os tamanhos de efeito
-
-write.table(effect_sizes, "just_effect_sizes_cat.txt", dec = ".", sep = ",", row.names = F )
-
-write.csv(effect_sizes, "just_effect_sizes_cat.csv", row.names = F)
+View(effect_sizes) #effect size (yi) and variance (vi) 
 
 
-#o dado do id C0142 da para ser utilizado, pois embora nao tenha sido dado informacoes
-#para calcular o tamanho de efeito pelas medias e sds, foi dado a estatistica F que pode ser 
-#convertida para hedges. Entao vamos aproveitar o dado
+#Now, let's use the compute.es function to calculate the hedge's g value from the statistic F reported in the paper C0142.
+
+#First, let's pick the data from C0142. 
 
 d_brutos <- read.csv("planilha_bruta.csv", h =T, dec= ",")
 
@@ -83,16 +97,16 @@ C0142_BRUTO$value <- as.numeric(C0142_BRUTO$value)
 
 C0142_BRUTO$value
 
-#calculando o tamanho de efeito hedges a partir da estatistica F 
-#para isso vamos utilizar o pacote compute.es, especificamente a funcao fes
+
+#Now, Let's use the function fes 
 
 effect_c0142 <- fes(C0142_BRUTO$value, C0142_BRUTO$sample_size_control, C0142_BRUTO$sample_size_treatment)
 
 View(effect_c0142)
 
-es_f_d_var <- cbind(effect_c0142$d, effect_c0142$var.d) #pegando as colunas que me interessam 
+es_f_d_var <- cbind(effect_c0142$d, effect_c0142$var.d) #picking the data
 
-colnames(es_f_d_var) <- c("yi", "vi") #nomeando 
+colnames(es_f_d_var) <- c("yi", "vi") #naming the columns 
 
 es_f_d_var
 
@@ -105,9 +119,11 @@ C0142_stat <- cbind (C0142_BRUTO$id_code, C0142_BRUTO$study_type, C0142_BRUTO$na
 
 colnames(C0142_stat) <- c("id_code", "study_type", "nature_x", "total_sample_size", "sample_size_control", "sample_size_treatment", "statistic", "value")
 
-es_F_prontos <- cbind(C0142_stat, es_f_d_var) #juntando os tamanhos de efeito com os outros dados 
+es_F_prontos <- cbind(C0142_stat, es_f_d_var) #binding the data
 
 es_F_prontos
+
+#adding some information 
 
 effect_type <- as.data.frame(rep("community", 2))
 
@@ -126,7 +142,7 @@ View(pronto)
 
 str(pronto)
 
-#arrumando as classes das colunas
+#Changing the class of some columns
 
 for (i in 4:6){
         pronto [ ,i] <- as.numeric(pronto[,i] )
@@ -140,8 +156,8 @@ for (i in 8:10){
 
 str(pronto)
 
-#vamos juntar entao esse dado C0142 com o restante
 
+#combining the data from escalc and fes functions 
 
 str(effect_sizes)
 
@@ -152,7 +168,8 @@ effects_prontos <- dplyr::bind_rows( effect_sizes, pronto)
 View(effects_prontos)
 str(effects_prontos)
 
-#salvando 
+
+#saving 
 
 #em txt
 write.table(effects_prontos, "effect_sizes_cat.txt", dec = ".", sep = ",", row.names = F )
@@ -160,3 +177,5 @@ write.table(effects_prontos, "effect_sizes_cat.txt", dec = ".", sep = ",", row.n
 #em csv 
 
 write.csv(effects_prontos, "effect_sizes_cat.csv", row.names = F)
+
+############################################################################################################################
