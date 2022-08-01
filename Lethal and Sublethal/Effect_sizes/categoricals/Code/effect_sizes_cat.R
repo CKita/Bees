@@ -159,7 +159,7 @@ for (i in 8:10){
 str(pronto)
 
 
-#combining the data from escalc and fes functions 
+#combining the data from "escalc" and "fes" functions 
 
 str(effect_sizes)
 
