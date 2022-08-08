@@ -9,7 +9,7 @@
 
 #Set the working directory that contains the bee survival data.  
 
-#Delete all previous objects
+#Delete all previous objects.
 
 rm(list= ls())
 
@@ -125,7 +125,7 @@ library(tidyverse)
 library(metafor)
 
 
-#Let's generate a figure .tiff  
+#Let's generate a figure (.tiff)  
 
 tiff('survival.tiff', units="in", width=5, height=6, res=1200, compression = 'lzw')
 
@@ -157,7 +157,7 @@ abline(h = 3)
 
 text(rs$resid, labels = dados$id_code, cex= 1, pos = 2)
 
-#So, the effect sizes C0073, C0084, C0189 e C0191  are outliers (28 effect sizes). 
+#So, the effect sizes C0073, C0084, C0189 e C0191 are outliers (28 effect sizes). 
 
 #Let's build a models without outliers 
 

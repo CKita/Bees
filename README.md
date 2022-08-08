@@ -14,7 +14,7 @@ Disclaimer: You may freely use the software and data provided here for commercia
 
 # Functionality 
 
-The data, scripts, and functions provided here aim at making or study fully reproducible. You will find code to reproduce both the analysis and the figures, as well as the main supplementary material.
+The data, scripts, and functions provided here aim at making our study fully reproducible. You will find code to reproduce both the analysis and the figures, as well as the main supplementary material.
 
 # List of folders and files 
 
