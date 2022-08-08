@@ -86,6 +86,7 @@ install.packages("Rtools42")
 
 devtools::install_github("itchyshin/orchard_plot", subdir = "orchaRd", force = TRUE, build_vignettes = TRUE)
 
+install.packages("rlang")
 library(devtools)
 library(orchaRd)
 library(patchwork)
@@ -303,10 +304,11 @@ summary(model.sub.sensi.out)
 
 tiff('sensibility_test_sublet.tiff', units="in", width=5, height=6, res=1200, compression = 'lzw')
 
+
 orchard_plot(model.sub.sensi.out, xlab = "Hedges' g") +
         labs(y = "Overall effect") + 
-        scale_color_manual(values = "pink1") + 
-        scale_fill_manual(values = "seagreen3") + 
+        scale_color_manual(values = "#00A087B2") +
+        scale_fill_manual(values = "sienna1") + 
         theme_classic() + 
         theme(axis.text = element_text(size = 14, colour = "black"), 
               axis.title = element_text(size = 16), 
