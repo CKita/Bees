@@ -23,13 +23,17 @@ Bee survival (folder)
 1. Data (folder)
  
     a. dados_sobrevivencia.csv -> data set with raw data.
+    
     b. data.comp.csv -> data set with raw data and effect sizes.
+    
     c. data.comp.2 -> data set with raw abd effect sizes.
+    
     d. survival_sensi_out2.csv -> data set used in sensibility test. 
  
  2. Figures (folder)
  
     a. survival.tiff -> overall effect size of pesticide application on bee survival.
+    
     b. survival_sensibility_test.tiff -> overall effect size of pesticide application on bee survival without outliers. 
    
  3. Code (folder)
@@ -42,27 +46,37 @@ Lethal and Sublethal (folder)
 
 1. Data (folder)
     
-    a. let_sublet.csv -> data set with all raw data and effect sizes used. 
+    a. let_sublet.csv -> data set with all raw data and effect sizes used.
+    
     b. let.csv -> data set with raw and effect sizes of lethal.
+    
     c. sub.csv -> data set with raw and effect sizes of sublethal.
+    
     d. sub_sensi_out.csv -> data set used in sensibility test.
      
   1.1 effect sizes (folder):
       
      - categorical (folder)
          a. cat.csv -> data set with raw categorical data.
+         
          b. effect_sizes_cat.csv  -> data set with categorical data and effect sizes. 
+         
          c. just_effect_sizes.csv -> data set only with effect sizes.
+         
          d. planilha_bruta.csv -> all raw data. 
    
      - continuous (folder)
          a. continuous.csv -> data set with raw continuous data. 
+         
          b. effect_sizes_cont.csv -> data set with raw continuous data and effect sizes. 
+         
   
 2. Figures (folder)
    
      a. overall.tiff -> overall effect size of pesticide application on the bee community and its pollination service.
+     
      b. let_sublet.tiff -> mean effect sizes of lethal and sublethal effects of pesticide application on the bee community and its pollination service.
+     
      c. sensibility_test_sublet.tiff -> mean sublethal effect size of pesticide application on the bee community and its pollination service without outliers. 
 
 3. Code (folder)
@@ -81,7 +95,9 @@ Lethal and Sublethal (folder)
          
 
 
+
 Papers.xlsx -> List of papers used in this meta-analysis
+
 
             
 # Instructions 
