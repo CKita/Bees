@@ -24,7 +24,7 @@ dat <- read.csv("dados_sobrevivencia.csv", h= T, dec =".", sep = ",")
 
 View(dat)
 
-#To calculate the effect sizes, Load the required package: 
+#To calculate the effect sizes, load the required package: 
 
 library(metafor)
 
@@ -58,7 +58,7 @@ dados <- read.table("data_comp.csv", h=T, dec=",", sep = ";")
 
 View(dados)
 
-#Considering that bee survival rate is correlated with life history, we built a phylogenetic covariance matrix
+#Considering that bee survival rate is correlated with life history, we are going to build a phylogenetic covariance matrix
 #using the Interactive Tree of Life online tree generator database. 
 #So, let's do this
 
@@ -78,7 +78,7 @@ spp <- tnrs_match_names(unique(dados$bee_specie), context_name = "Animals")
 
 my_tree = tol_induced_subtree(ott_ids=spp$ott_id) #here, we are creating a sub tree with our bee species. 
 
-#Now we are calculating the phylogenetic distances and creating the covariance matrix 
+#Now we are going to calculate the phylogenetic distances and build the covariance matrix 
 
 otl_tips=strip_ott_ids(my_tree$tip.label, remove_underscores=TRUE)
 
@@ -142,16 +142,16 @@ orchard_plot(survival, xlab = "Odds ratio") +
 
 dev.off()
 
-#We can see that some effect sizes are extreme comparing to the mean effect size.
+#We can see that some effect sizes are extreme points comparing to the mean effect size.
 #So, let's do a sensibility test to analyse the influence of these effect sizes.
 
-#here, the sensibility test that we are going to do is evaluating the standardized residuals   
+#In our the sensibility test, let's evaluate the standardized residuals   
 
 #Calculating the standardized residuals
 rs = rstandard(survival) 
 plot(rs$resid, ylim = c(-8.0,8), xlim =c(-8,50))
 
-#If our residuals are +/-3, then it means that something extremely unusual is happening. 
+#If our residuals are > or <3, it means that something extremely unusual is happening. 
 abline(h = -3)
 abline(h = 3)
 
@@ -159,7 +159,7 @@ text(rs$resid, labels = dados$id_code, cex= 1, pos = 2)
 
 #So, the effect sizes C0073, C0084, C0189 e C0191 are outliers (28 effect sizes). 
 
-#Let's build a models without outliers 
+#Let's build a model without outliers 
 
 surv_sensi2<- read.csv("survival_sensi_out2.csv", h= T, dec =".", sep = ",")
 
@@ -197,7 +197,7 @@ orchard_plot(model.surv.sensi.out2, xlab = "Odds ratio") +
         labs(y = "Survival") + 
         scale_color_manual(values = "slateblue1") + 
         scale_fill_manual(values = "yellow") +
-        theme_classic() + #tira a caixa em volta do grafico
+        theme_classic() + 
         theme(axis.text = element_text(size = 14, colour = "black"), 
               axis.title = element_text(size = 16), 
               axis.text.x = element_blank(), 
@@ -214,7 +214,7 @@ dev.off()
 #### HETEROGENEITY
 ###############################################
 
-#Now, we are going to calculate the heterogeneity the model and the heterogeneity of each random variable,
+#Now, we are going to calculate the heterogeneity of the model and the heterogeneity of each random variable,
 #using the I² statistic with a 95% confidence interval (CI).
 
 
@@ -229,7 +229,7 @@ I2.survival <- ((survival$sigma2[1] + survival$sigma2[2] +  survival$sigma2[3] +
                  (survival$sigma2[1] + survival$sigma2[2] +  survival$sigma2[3] + survival$sigma2[4] + survival$sigma2[5] + s2m.0)) * 100 
 
 #The values of heterogeneity 25%, 50%, and 75% 
-#were considered as small, medium, and high, respectively, as suggested by Higgins (2003).
+#are considered as small, medium, and high, respectively, as suggested by Higgins (2003).
 
 I2.survival #mean 
 
