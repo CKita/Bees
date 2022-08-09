@@ -266,7 +266,7 @@ View(es_cont)
 es_cont <- es_cont[-18,] #not related to bee pollination
 
 #OBS:
-#some values of effect size need to be multiplied by -1, because when we convert the statistics,the effect size is always positive.
+#There are values of effect size need to be multiplied by -1, because when we convert the statistics,the effect size is always positive.
 #In cases in which authors reported a negative effect of pesticide application, positive values of effect sizes do not make sense.
 #Therefore, in this cases, we need to manually multiply the effect size by -1. 
 
