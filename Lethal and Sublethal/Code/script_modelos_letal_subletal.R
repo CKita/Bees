@@ -356,7 +356,7 @@ orchard_plot(model.let, xlab = "Hedges' g") +
 
 rs= rstandard(model.let) 
 rs
-rs= rstandard(model.sub) #para ver se tem outliers 
+rs= rstandard(model.sub) 
 
 plot( rs$resid, ylim = c(-10,8), xlim =c(-5,50))
 text(rs$resid, labels = sub$id_code, cex= 1, pos = 2)
