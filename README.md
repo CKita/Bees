@@ -56,7 +56,7 @@ Lethal and Sublethal (folder)
      
   1.1 effect sizes (folder):
       
-    - categorical (folder)
+     - categorical (folder)
     
          a. cat.csv -> data set with raw categorical data.
          
@@ -66,7 +66,8 @@ Lethal and Sublethal (folder)
          
          d. planilha_bruta.csv -> all raw data. 
    
-    - continuous (folder)
+ 
+      - continuous (folder)
     
          a. continuous.csv -> data set with raw continuous data. 
          
