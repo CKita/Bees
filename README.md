@@ -54,7 +54,7 @@ The data and scripts provided here aim at making our study fully reproducible. Y
     
     d. sub_sensi_out.csv -> data set used in sensibility test.
      
-     effect sizes (folder)
+     *effect sizes (folder)*
      
       - categorical (folder)
     
@@ -86,7 +86,7 @@ The data and scripts provided here aim at making our study fully reproducible. Y
      
      a. script_modelos_letal_subletal.R -> main script in a tutorial format to help you reproduce the analyses and figures.
    
-    effect sizes(folder)
+   *effect sizes(folder)* 
    
       - categorical (folder)
        
