@@ -20,14 +20,14 @@ The data and scripts provided here aim at making our study fully reproducible. Y
 
 Bee survival (folder)
 
-1. data (folder)
+1. Data (folder)
  
     a. dados_sobrevivencia.csv -> data set with raw data.
     b. data.comp.csv -> data set with raw data and effect sizes.
     c. data.comp.2 -> data set with raw abd effect sizes.
     d. survival_sensi_out2.csv -> data set used in sensibility test. 
  
- 2. figures (folder)
+ 2. Figures (folder)
  
     a. survival.tiff -> overall effect size of pesticide application on bee survival.
     b. survival_sensibility_test.tiff -> overall effect size of pesticide application on bee survival without outliers. 
@@ -40,7 +40,7 @@ Bee survival (folder)
 
 Lethal and Sublethal (folder)
 
-1. data (folder)
+1. Data (folder)
     
     a. let_sublet.csv -> data set with all raw data and effect sizes used. 
     b. let.csv -> data set with raw and effect sizes of lethal.
@@ -49,17 +49,17 @@ Lethal and Sublethal (folder)
      
   1.1 effect sizes (folder):
       
-      1.1.1 categorical (folder)
+      - categorical (folder)
          a. cat.csv -> data set with raw categorical data.
          b. effect_sizes_cat.csv  -> data set with categorical data and effect sizes. 
          c. just_effect_sizes.csv -> data set only with effect sizes.
          d. planilha_bruta.csv -> all raw data. 
    
-      1.1.2 continuous (folder)
+      - continuous (folder)
          a. continuous.csv -> data set with raw continuous data. 
          b. effect_sizes_cont.csv -> data set with raw continuous data and effect sizes. 
   
-2. figures (folder)
+2. Figures (folder)
    
      a. overall.tiff -> overall effect size of pesticide application on the bee community and its pollination service.
      b. let_sublet.tiff -> mean effect sizes of lethal and sublethal effects of pesticide application on the bee community and its pollination service.
@@ -71,14 +71,16 @@ Lethal and Sublethal (folder)
    
    3.1 effect sizes(folder)
    
-       3.1.1categorical (folder)
+       - categorical (folder)
        
          a. effect_sizes_cat.R -> script in a tutorial format to help you calculate the categorical effect sizes.
          
-       3.1.2 continuous (folder)
+       - continuous (folder)
        
          a. effect_sizes_cont.R -> script in a tutorial format to help you calculate the continuos effect sizes.
          
+
+
 Papers.xlsx -> List of papers used in this meta-analysis
 
             
