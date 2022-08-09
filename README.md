@@ -18,7 +18,7 @@ The data and scripts provided here aim at making our study fully reproducible. Y
 
 # List of folders and files 
 
-Bee survival (folder)
+*Bee survival (folder)
 
 1. Data (folder)
  
@@ -42,7 +42,7 @@ Bee survival (folder)
    
    
 
-Lethal and Sublethal (folder)
+*Lethal and Sublethal (folder)
 
 1. Data (folder)
     
