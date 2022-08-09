@@ -53,7 +53,7 @@ table(dados_completos$study_type)
 #2
 #We used the treatment group as a reference (with pesticide application).
 #In other words, we subtracted from it the mean value of the control group (without pesticide application or organic farms).
-#Therefore, negative values of Hedges’ g occur when the mean from the control group was higher than that of the treatment group.
+#Therefore, negative values of Hedges’ g occur when the mean from the control group is higher than that of the treatment group.
 #It indicates a negative effect of pesticide application on the bee community and its pollination service. 
 
 #OK. Let's get started.  
@@ -86,7 +86,6 @@ install.packages("Rtools42")
 
 devtools::install_github("itchyshin/orchard_plot", subdir = "orchaRd", force = TRUE, build_vignettes = TRUE)
 
-install.packages("rlang")
 library(devtools)
 library(orchaRd)
 library(patchwork)
@@ -134,7 +133,7 @@ I2.model.g #mean
 I2.model.g - qchisq(.95, df=1)/2; I2.model.g + qchisq(.95, df=1)/2
 
 #The values of heterogeneity 25%, 50%, and 75% 
-#were considered as small, medium, and high, respectively, as suggested by Higgins (2003).
+#are considered as small, medium, and high, respectively, as suggested by Higgins (2003).
 
 #Calculating I² for each random factor 
 
@@ -244,11 +243,11 @@ orchard_plot(model.1f, mod = "pesticide_effect", xlab = "Hedges' g") +
 dev.off()
 
 #In the sublethal group, we can see that some effect sizes are extreme comparing to the mean effect size.
-#So, let us do a sensibility test to analyze the influence of these effect sizes.
+#So, let's do a sensibility test to analyze the influence of these effect sizes.
 
 #### sensibility test: sub_lethal ####
 
-#Let us see only the sublethal effect sizes
+#Let's see only the sublethal effect sizes
 
 sub <- read.csv("sub.csv", h= T, dec =".", sep = ",")
 
@@ -273,7 +272,7 @@ orchard_plot(model.sub, xlab = "Hedges' g") +
         coord_flip() 
 
 
-#here, the sensibility test that we are going to do is evaluating the standardized residuals   
+#In the sensibility test, let's evaluate the standardized residuals   
 
 #Calculating the standardized residuals
 
@@ -283,13 +282,13 @@ plot( rs$resid, ylim = c(-10,8), xlim =c(-5,50))
 
 text(rs$resid, labels = sub$id_code, cex= 1, pos = 4)
 
+#If our residuals are > or <3, then it means that something extremely unusual is happening.
 abline(h = -3)
 abline(h = 3)
 
-
 # There are four outliers (C0091)
 
-#Let's build a models without outliers 
+#Let's build a model without outliers 
 
 sub.sensi.out <- read.csv("sub_sensi_out.csv", h= T, dec =".", sep = ",")
 
@@ -325,7 +324,7 @@ dev.off()
 #### sensibility test: lethal ####
 
 
-#Let us see only the lethal effect sizes
+#Let's see only the lethal effect sizes
 
 let <- read.csv("let.csv", h= T, dec =".", sep = ",")
 
@@ -350,8 +349,6 @@ orchard_plot(model.let, xlab = "Hedges' g") +
         coord_flip() 
 
 
-##here, the sensibility test that we are going to do is evaluating the standardized residuals   
-
 #Calculating the standardized residuals
 
 rs= rstandard(model.let) 
@@ -361,7 +358,7 @@ rs= rstandard(model.sub)
 plot( rs$resid, ylim = c(-10,8), xlim =c(-5,50))
 text(rs$resid, labels = sub$id_code, cex= 1, pos = 2)
 
-#If our residuals are +/-3, then it means that something extremely unusual is happening.
+#If our residuals are > or <3, then it means that something extremely unusual is happening.
 abline(h = -3)
 abline(h = 3)
 
