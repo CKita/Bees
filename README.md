@@ -18,7 +18,7 @@ The data and scripts provided here aim at making our study fully reproducible. Y
 
 # List of folders and files 
 
-*Bee survival (folder)
+**Bee survival (folder)**
 
 1. Data (folder)
  
@@ -42,7 +42,7 @@ The data and scripts provided here aim at making our study fully reproducible. Y
    
    
 
-*Lethal and Sublethal (folder)
+**Lethal and Sublethal (folder)**
 
 1. Data (folder)
     
@@ -56,22 +56,22 @@ The data and scripts provided here aim at making our study fully reproducible. Y
      
   1.1 effect sizes (folder)
       
-     - categorical (folder)
+       - categorical (folder)
     
-         a. cat.csv -> data set with raw categorical data.
+          a. cat.csv -> data set with raw categorical data.
          
-         b. effect_sizes_cat.csv  -> data set with categorical data and effect sizes. 
+          b. effect_sizes_cat.csv  -> data set with categorical data and effect sizes. 
          
-         c. just_effect_sizes.csv -> data set only with effect sizes.
+          c. just_effect_sizes.csv -> data set only with effect sizes.
          
-         d. planilha_bruta.csv -> all raw data. 
+          d. planilha_bruta.csv -> all raw data. 
    
  
-      - continuous (folder)
+       - continuous (folder)
     
-         a. continuous.csv -> data set with raw continuous data. 
+          a. continuous.csv -> data set with raw continuous data. 
          
-         b. effect_sizes_cont.csv -> data set with raw continuous data and effect sizes. 
+          b. effect_sizes_cont.csv -> data set with raw continuous data and effect sizes. 
          
   
 2. Figures (folder)
@@ -99,7 +99,7 @@ The data and scripts provided here aim at making our study fully reproducible. Y
 
 
 
-Papers.xlsx -> List of papers used in this meta-analysis
+**Papers.xlsx -> List of papers used in this meta-analysis**
 
 
             
