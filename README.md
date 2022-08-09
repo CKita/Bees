@@ -26,7 +26,7 @@ The data and scripts provided here aim at making our study fully reproducible. Y
     
     b. data.comp.csv -> data set with raw data and effect sizes.
     
-    c. data.comp.2 -> data set with raw abd effect sizes.
+    c. data.comp.2 -> data set with raw and effect sizes.
     
     d. survival_sensi_out2.csv -> data set used in sensibility test. 
  
