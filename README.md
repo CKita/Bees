@@ -54,7 +54,7 @@ Lethal and Sublethal (folder)
     
     d. sub_sensi_out.csv -> data set used in sensibility test.
      
-  1.1 effect sizes (folder):
+  1.1 effect sizes (folder)
       
      - categorical (folder)
     
