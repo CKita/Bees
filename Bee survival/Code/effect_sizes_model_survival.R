@@ -194,14 +194,14 @@ summary(model.surv.sensi.out2)
 tiff('survival_sensibility_test.tiff', units="in", width=5, height=6, res=1200, compression = 'lzw')
 
 orchard_plot(model.surv.sensi.out2, xlab = "Odds ratio") +
-        labs(y = "Survival") + # troca o nome do eixo y
-        scale_color_manual(values = "slateblue1") + #troca a cor dos pontos do fundo
-        scale_fill_manual(values = "yellow") + #troca a cor do ponto central 
+        labs(y = "Survival") + 
+        scale_color_manual(values = "slateblue1") + 
+        scale_fill_manual(values = "yellow") +
         theme_classic() + #tira a caixa em volta do grafico
-        theme(axis.text = element_text(size = 14, colour = "black"), #muda o tamanho do texto dos eixos e na cor do eixo 
-              axis.title = element_text(size = 16), #muda o tamanho do titulo do eixo
-              axis.text.x = element_blank(), #Isso remove o texto automatico do eixo y
-              legend.position = "top") + #troca a posicao da legenda 
+        theme(axis.text = element_text(size = 14, colour = "black"), 
+              axis.title = element_text(size = 16), 
+              axis.text.x = element_blank(), 
+              legend.position = "top") + 
         coord_flip() 
 
 dev.off()
