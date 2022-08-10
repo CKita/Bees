@@ -1,8 +1,16 @@
-##############################################
+################################################################################
+#### Ecological Synthesis Lab (SintECO): https://marcomellolab.wordpress.com
 
-# Bee survival  
+#### Authors: Cristina A. Kita, Laura C. Leal & Marco A. R. Mello
 
-##############################################
+#### See README for further info:
+#### https://github.com/CKita/Bees#readme
+################################################################################
+
+
+################################################################################
+############################ BEE SURVIVAL ###################################### 
+################################################################################
 
 
 #Let's get ready for running the code provided here. 
@@ -14,9 +22,8 @@
 rm(list= ls())
 
 
-##############################################
-##### EFFECT SIZES 
-##############################################
+############################ EFFECT SIZES  #####################################
+
 
 #Now, let's see our raw data set
 
@@ -46,10 +53,8 @@ View(dat_comp)
 write.csv2(dat_comp, "data_comp.csv", row.names = F) 
 
 
+############################ MODEL - MEAN EFFECT SIZE #########################
 
-##############################################
-#### MODEL - MEAN EFFECT SIZE 
-##############################################
 
 ##We are going to build a meta-analytic model to calculate the mean effect size.
 #Let's use the complete data set to build our model.  
@@ -210,9 +215,8 @@ dev.off()
 #even when our sampling size is reduced.  
 
 
-###############################################
-#### HETEROGENEITY
-###############################################
+############################ HETEROGENEITY #####################################
+
 
 #Now, we are going to calculate the heterogeneity of the model and the heterogeneity of each random variable,
 #using the I² statistic with a 95% confidence interval (CI).
@@ -302,9 +306,7 @@ I2.exp - qchisq(.95, df=1)/2; I2.exp + qchisq(.95, df=1)/2
 confint(survival)
 
 
-#############################################
-#### PUBLICATION BIAS
-#############################################
+############################ PUBLICATION BIAS ##################################
 
 
 #Publication bias in each model using an adapted version of Egger’s regression (Nakagawa & Santos, 2012)
@@ -317,5 +319,6 @@ summary(eggsm3)
 
 confint.lm(eggsm3, level = 0.95)
 
-##############################################################################
+
+################################################################################
 

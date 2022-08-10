@@ -1,8 +1,16 @@
-#######################################
+################################################################################
+#### Ecological Synthesis Lab (SintECO): https://marcomellolab.wordpress.com
 
-#Effect sizes - categorical data 
+#### Authors: Cristina A. Kita, Laura C. Leal & Marco A. R. Mello
 
-#######################################
+#### See README for further info:
+#### https://github.com/CKita/Bees#readme
+################################################################################
+
+
+################################################################################
+################## EFFECT SIZES: CATEGORICAL DATA ############################## 
+################################################################################
 
 
 #Let's get ready for running the code provided here. 
@@ -17,12 +25,6 @@ rm(list= ls())
 
 library("metafor")
 library("compute.es")
-
-
-
-###############################################################
-#### EFFECT SIZES - CATEGORICAL DATA 
-###############################################################
 
 
 #First, let's see our data set
@@ -42,7 +44,6 @@ for (i in 4:10){
 summary(AG_cat)
 
 
-##########################################################################################################################
 #Before starting to calculate the effect sizes,
 #Let's remember some points:
 
@@ -69,7 +70,6 @@ summary(AG_cat)
 #n1i = sample_size_treatment
 #n2i = sample_size_control
 
-#############################################################################################################################
 
 #Let's calculate the effect sizes
 
@@ -177,4 +177,3 @@ str(effects_prontos)
 
 write.csv(effects_prontos, "effect_sizes_cat.csv", row.names = F)
 
-############################################################################################################################

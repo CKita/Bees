@@ -1,8 +1,16 @@
-#######################################
+################################################################################
+#### Ecological Synthesis Lab (SintECO): https://marcomellolab.wordpress.com
 
-#Lethal and sublethal effects 
+#### Authors: Cristina A. Kita, Laura C. Leal & Marco A. R. Mello
 
-#######################################
+#### See README for further info:
+#### https://github.com/CKita/Bees#readme
+################################################################################
+
+
+################################################################################
+###################### LETHAL AND SUBLETHAL EFFECTS ############################
+################################################################################
 
 
 #Let's get ready for running the code provided here. 
@@ -14,9 +22,8 @@
 rm(list= ls())
 
 
-###############################################################
-#### MODEL -  Overall lethal and sublethal pesticide effects 
-###############################################################
+############## MODEL -  Overall lethal and sublethal pesticide effects ######### 
+
 
 # First, let's see our data set
 
@@ -40,7 +47,7 @@ str(dados_completos)
 table(dados_completos$pesticide_effect)
 table(dados_completos$study_type)
 
-#################################################################################################################################
+
 #Before starting to build the model to calculate the overall mean effect size, 
 #let's remember how we calculate the effect sizes.  
 
@@ -57,8 +64,6 @@ table(dados_completos$study_type)
 #It indicates a negative effect of pesticide application on the bee community and its pollination service. 
 
 #OK. Let's get started.  
-
-#################################################################################################################################
 
 #To calculate the overall mean effect size, load the required package:
 
@@ -109,9 +114,8 @@ orchard_plot(model.geral, xlab = "Hedges' g") +
 dev.off()
 
 
-###########################################################################
-#### HETEROGENEITY - model: overall lethal and sublethal pesticide effects 
-###########################################################################
+###### HETEROGENEITY - model: overall lethal and sublethal pesticide effects ###
+
 
 #Now, we are going to calculate the heterogeneity the model and the heterogeneity of each random variable,
 #using the I² statistic with a 95% confidence interval (CI).
@@ -181,10 +185,10 @@ I2.sampling - qchisq(.95, df=1)/2; I2.sampling + qchisq(.95, df=1)/2
 confint(model.geral)
 
 
-##############################################################################
-#### PUBLICATION BIAS - model: overall lethal and sublethal pesticide effects 
-##############################################################################
+############################### PUBLICATION BIAS ###############################
 
+
+## MODEL: overall lethal and sublethal pesticide effects
 
 #Publication bias in each model using an adapted version of Egger’s regression (Nakagawa & Santos, 2012)
 
@@ -197,11 +201,7 @@ summary(egger)
 confint.lm(egger, level = 0.95)
 
 
-
-###################################################
-#### MODEL -  Pesticide effect type as a moderator
-###################################################
-
+## MODEL: Pesticide effect type as a moderator
 
 #We used pesticide effect type (i.e., lethal or sublethal) as a moderator to estimate 
 #the magnitude of lethal and sublethal effects separately
@@ -365,9 +365,10 @@ abline(h = 3)
 # There is no outliers 
 
 
-################################################################
-#### HETEROGENEITY - model: pesticide effect type as a moderator
-################################################################
+######################### HETEROGENEITY ########################################
+
+
+## MODEL: pesticide effect type as a moderator
 
 
 #Now, we are going to calculate the heterogeneity the model and the heterogeneity of each random variable,
@@ -433,10 +434,10 @@ I2.sampling.1 - qchisq(.95, df=1)/2; I2.sampling.1 + qchisq(.95, df=1)/2
 confint(model.1)
 
 
-###################################################################
-#### PUBLICATION BIAS - model: pesticide effect type as a moderator
-###################################################################
+######################### PUBLICATION BIAS #####################################
 
+
+## MODEL: pesticide effect type as a moderator
 
 #Publication bias in each model using an adapted version of Egger’s regression (Nakagawa & Santos, 2012)
 
@@ -450,4 +451,3 @@ summary(egger2)
 confint.lm(egger2, level = 0.95)
 
 
-################################################################################################################################

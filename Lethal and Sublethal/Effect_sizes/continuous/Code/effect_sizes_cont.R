@@ -1,8 +1,16 @@
-#######################################
+################################################################################
+#### Ecological Synthesis Lab (SintECO): https://marcomellolab.wordpress.com
 
-#Effect sizes - continuous data 
+#### Authors: Cristina A. Kita, Laura C. Leal & Marco A. R. Mello
 
-#######################################
+#### See README for further info:
+#### https://github.com/CKita/Bees#readme
+################################################################################
+
+
+################################################################################
+################## EFFECT SIZES: CONTINUOUS DATA ############################### 
+################################################################################
 
 
 #Let's get ready for running the code provided here. 
@@ -17,12 +25,6 @@ rm(list= ls())
 #Now,load the required package:
 
 library("compute.es")
-
-
-
-###############################################################
-#### EFFECT SIZES - CONTINUOUS DATA 
-###############################################################
 
 
 #First, let's see our data set
@@ -43,10 +45,7 @@ AG_cont$value <- as.numeric(AG_cont$value)
 #let's use the compute.es function to calculate the hedge's g value from the statistic reported in the papers.
 
 
-##############################################################################################################
-
 #converting statistic F to Hedges'g: 
-
 
 #########################################
 # remember that:                        #
@@ -107,7 +106,6 @@ es_F_prontos <- cbind(C0135_C0179, es_f_g_var) ##binding the data
 
 View(es_F_prontos)
 
-##############################################################################################################
 
 #converting statistic t to Hedges'g: 
 
@@ -151,7 +149,7 @@ es_t_prontos <- cbind(dado_t, es_t_d_var) #binding
 
 View(es_t_prontos)
 
-##############################################################################################################
+
 #converting statistic r to Hedges'g:
 
 ########################################################################

@@ -12,15 +12,13 @@ Run in R version 4.2.0 (2022-04-22 ucrt) -- "Vigorous Calisthenics".
 
 Disclaimer: You may freely use the software and data provided here for commercial or non-commercial purposes at your own risk. We assume no responsibility or liability for the use of this material, convey no license or title under any patent, copyright, or mask work right to the product. We reserve the right to make changes in the material without notification. We also make no representation or warranty that such application will be suitable for the specified use without further testing or modification. If this material helps you produce any academic work (paper, book, chapter, monograph, dissertation, thesis, report, talk, keynote, lecture or similar), please acknowledge the authors and cite the source.
 
-
-# Functionality
+## Functionality
 
 The data and scripts provided here aim at making our study fully reproducible. You will find code to reproduce both the analysis and the figures, as well as the main supplementary material.
 
+## List of folders and files
 
-# List of folders and files
-
-**Bee survival (folder)**
+### **Bee survival (folder)**
 
 1.  Data (folder)
 
@@ -42,8 +40,7 @@ The data and scripts provided here aim at making our study fully reproducible. Y
 
     a.  effect_sizes_model_survival.R -\> main script formatted as a tutorial to help you reproduce the analyses and figures.
 
-
-**Lethal and Sublethal (folder)**
+### **Lethal and Sublethal (folder)**
 
 1.  Data (folder)
 
@@ -73,7 +70,6 @@ The data and scripts provided here aim at making our study fully reproducible. Y
 
         b.  effect_sizes_cont.csv -\> data frame with raw continuous data and effect sizes.
 
-
 2.  Figures (folder)
 
     a.  overall.tiff -\> overall effect sizes of pesticide application on the bee community and its pollination service.
@@ -81,7 +77,6 @@ The data and scripts provided here aim at making our study fully reproducible. Y
     b.  let_sublet.tiff -\> mean effect sizes of lethal and sublethal effects of pesticide application on the bee community and its pollination service.
 
     c.  sensibility_test_sublet.tiff -\> mean sublethal effect sizes of pesticide application on the bee community and its pollination service without outliers.
-
 
 3.  Code (folder)
 
@@ -97,10 +92,11 @@ The data and scripts provided here aim at making our study fully reproducible. Y
 
         a.  effect_sizes_cont.R -\> script formatted as a tutorial to help you calculate continuous effect sizes.
 
-**Papers.xlsx -\> List of papers used in our meta-analysis**
+### **Papers.xlsx (file)**
 
+List of papers included in our meta-analysis.
 
-# Instructions
+## Instructions
 
 1.  Choose between the two types of analyses (survival vs. lethal/sublethal) and got to the respective folder;
 
@@ -108,11 +104,9 @@ The data and scripts provided here aim at making our study fully reproducible. Y
 
 3.  Follow the instructions provided in each script.
 
-
 ## Feedback
 
 If you have any questions, corrections, or suggestions, please feel free to open an [issue](https://github.com/CKita/Bees/issues) or make a [pull request](https://github.com/CKita/Bees/pulls).
-
 
 ## Acknowledgments
 
