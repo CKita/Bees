@@ -77,10 +77,8 @@ if(!require(Rtools42)){
   library(Rtools42)
 }
 
-devtools::install_github("itchyshin/orchard_plot", 
-                         subdir = "orchaRd", 
-                         force = TRUE, 
-                         build_vignettes = TRUE)
+devtools::install_github("daniel1noble/orchaRd", force = TRUE)
+library(orchaRd)
 
 
 ############################ EFFECT SIZES  #####################################
@@ -113,17 +111,23 @@ write.csv2(dat_comp, "../Data/data_comp.csv", row.names = F)
 ##We are going to build a meta-analytic model to calculate the mean effect size.
 #Let's use the complete data set to build our model.  
 dados <- read.table("../Data/data_comp.csv", h=T, dec=",", sep = ";")
+class(dados)
+str(dados)
 head(dados)
+tail(dados)
 
 #Considering that bee survival rate is correlated with life history, we are
 # going to build a phylogenetic covariance matrix using the Interactive Tree
 # of Life online tree generator database. 
-
 #Let's search for our bee species in the Tree of Life.
 spp <- tnrs_match_names(unique(dados$bee_specie), context_name = "Animals") 
+spp
 
 #Create a sub tree with our bee species.
 my_tree = tol_induced_subtree(ott_ids=spp$ott_id) 
+class(my_tree)
+str(my_tree)
+my_tree
 
 #Now we calculate the phylogenetic distances and build the covariance matrix. 
 otl_tips=strip_ott_ids(my_tree$tip.label, remove_underscores=TRUE)
