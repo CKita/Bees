@@ -3,8 +3,7 @@
 
 #### Authors: Cristina A. Kita, Laura C. Leal & Marco A. R. Mello
 
-#### See README for further info:
-#### https://github.com/CKita/Bees#readme
+#### See README for further info: https://github.com/CKita/Bees#readme
 ################################################################################
 
 
@@ -15,42 +14,97 @@
 
 #Let's get ready for running the code provided here. 
 
-#Set the working directory that contains the bee survival data.  
+#Set the working directory to the origin of this script.  
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+getwd()
 
 #Delete all previous objects.
-
 rm(list= ls())
+
+#Load or install the required packages
+if(!require(metafor)){
+  install.packages("metafor")
+  library(metafor)
+}
+
+if(!require(scales)){
+  install.packages("scales")
+  library(scales)
+}
+
+if(!require(ape)){
+  install.packages("ape")
+  library(ape)
+}
+
+if(!require(rotl)){
+  install.packages("rotl")
+  library(rotl)
+}
+
+if(!require(dplyr)){
+  install.packages("dplyr")
+  library(dplyr)
+}
+
+if(!require(devtools)){
+  install.packages("devtools")
+  library(devtools)
+}
+
+if(!require(tidyverse)){
+  install.packages("tidyverse")
+  library(tidyverse)
+}
+
+if(!require(patchwork)){
+  install.packages("patchwork")
+  library(patchwork)
+}
+
+if(!require(R.rsp)){
+  install.packages("R.rsp")
+  library(R.rsp)
+}
+
+if(!require(ggplot2)){
+  install.packages("ggplot2")
+  library(ggplot2)
+}
+
+if(!require(Rtools42)){
+  install.packages("Rtools42")
+  library(Rtools42)
+}
+
+devtools::install_github("itchyshin/orchard_plot", 
+                         subdir = "orchaRd", 
+                         force = TRUE, 
+                         build_vignettes = TRUE)
 
 
 ############################ EFFECT SIZES  #####################################
 
 
-#Now, let's see our raw data set
-
-dat <- read.csv("dados_sobrevivencia.csv", h= T, dec =".", sep = ",")
-
-View(dat)
-
-#To calculate the effect sizes, load the required package: 
-
-library(metafor)
+#Now, let's import and check the raw data
+dat <- read.csv("../Data/dados_sobrevivencia.csv", h= T, dec =".", sep = ",")
+class(dat)
+str(dat)
+head(dat)
+tail(dat)
 
 #To calculate the effect sizes, we are going to use the "escalc" function.
-#To calculate the bee survival probability, we are going to use odds ratio ("OR") as a metric of effect size.
-
+#To calculate the bee survival probability, we are going to use odds ratio
+#("OR") as a metric of effect size.
 effects_t <- escalc("OR", dat$ai,dat$bi, dat$ci, dat$di, dat$n1i, dat$n2i)
-
-View(effects_t)
+head(effects_t)
 
 #Now, let's bind the effect sizes with the raw data by columns 
-
 dat_comp <- cbind(dat, effects_t)
-
-View(dat_comp)
+head(dat_comp)
 
 #OK. Let's save the complete data set
-
-write.csv2(dat_comp, "data_comp.csv", row.names = F) 
+write.csv2(dat_comp, "../Data/data_comp.csv", row.names = F) 
 
 
 ############################ MODEL - MEAN EFFECT SIZE #########################
@@ -58,80 +112,36 @@ write.csv2(dat_comp, "data_comp.csv", row.names = F)
 
 ##We are going to build a meta-analytic model to calculate the mean effect size.
 #Let's use the complete data set to build our model.  
+dados <- read.table("../Data/data_comp.csv", h=T, dec=",", sep = ";")
+head(dados)
 
-dados <- read.table("data_comp.csv", h=T, dec=",", sep = ";")
+#Considering that bee survival rate is correlated with life history, we are
+# going to build a phylogenetic covariance matrix using the Interactive Tree
+# of Life online tree generator database. 
 
-View(dados)
-
-#Considering that bee survival rate is correlated with life history, we are going to build a phylogenetic covariance matrix
-#using the Interactive Tree of Life online tree generator database. 
-#So, let's do this
-
-#install the packages: 
-
-install.packages("scales")
-install.packages("ape")
-install.packages("rotl")
-
-library(scales)
-library(ape)
-library(rotl)
-
-#Let's search our bee species in the Tree of Life 
-
+#Let's search for our bee species in the Tree of Life.
 spp <- tnrs_match_names(unique(dados$bee_specie), context_name = "Animals") 
 
-my_tree = tol_induced_subtree(ott_ids=spp$ott_id) #here, we are creating a sub tree with our bee species. 
+#Create a sub tree with our bee species.
+my_tree = tol_induced_subtree(ott_ids=spp$ott_id) 
 
-#Now we are going to calculate the phylogenetic distances and build the covariance matrix 
-
+#Now we calculate the phylogenetic distances and build the covariance matrix. 
 otl_tips=strip_ott_ids(my_tree$tip.label, remove_underscores=TRUE)
-
 taxon_map=structure(spp$search_string, names=spp$unique_name)
-
 my_tree$tip.label=taxon_map[otl_tips]
-
 my_tree.ult = compute.brlen(my_tree, method = "Grafen")
-
 plot(my_tree.ult,no.margin=T) #let's see
-
 cov.matrix = vcv(my_tree.ult,corr=T)
 cov.matrix[,0]
 
-#OK. Now, let's build our model
-
-#We are going to build a meta-analytic mixed-effects model.
-#We are going to use the function rma.mv from the metafor package because of the non-independence of our data. 
-
+#Now we are going to build a meta-analytic mixed-effects model.
+#We are going to use the function rma.mv from the metafor package because
+#of the non-independence of our data. 
 survival <- rma.mv(yi, vi, random = list( ~1|id_code, ~1|bee_specie, ~1|agrochemical, ~1|hours_after_exposure, ~1|exposure_type), method="REML",  #"REML" = multi-level 
             R = list(bee_specie = cov.matrix),digits = 3, data = dados)                   
-
 summary(survival)
 
-
-#Let's see the result in a graphic 
-
-#install the required packages:
-
-install.packages("dplyr")
-install.packages("devtools")
-install.packages("tidyverse")
-install.packages("patchwork")
-install.packages("R.rsp")
-install.packages("ggplot2")
-install.packages("Rtools42")
-
-devtools::install_github("itchyshin/orchard_plot", subdir = "orchaRd", force = TRUE, build_vignettes = TRUE)
-
-library(devtools)
-library(orchaRd)
-library(patchwork)
-library(tidyverse)
-library(metafor)
-
-
-#Let's generate a figure (.tiff)  
-
+#Let's plot the result 
 tiff('survival.tiff', units="in", width=5, height=6, res=1200, compression = 'lzw')
 
 orchard_plot(survival, xlab = "Odds ratio") +
@@ -147,28 +157,25 @@ orchard_plot(survival, xlab = "Odds ratio") +
 
 dev.off()
 
-#We can see that some effect sizes are extreme points comparing to the mean effect size.
-#So, let's do a sensibility test to analyse the influence of these effect sizes.
+#We can see that some effect sizes are extreme points comparing to the mean
+#effect size. So, let's do a sensibility test to analyse the influence of
+#these effect sizes.
 
-#In our the sensibility test, let's evaluate the standardized residuals   
-
-#Calculating the standardized residuals
+#In our the sensibility test, let's evaluate the standardized residuals.   
+#Calculating the standardized residuals.
 rs = rstandard(survival) 
 plot(rs$resid, ylim = c(-8.0,8), xlim =c(-8,50))
 
-#If our residuals are > or <3, it means that something extremely unusual is happening. 
+#If our residuals are > or <3, it means that something extremely unusual is
+# happening. 
 abline(h = -3)
 abline(h = 3)
-
 text(rs$resid, labels = dados$id_code, cex= 1, pos = 2)
 
 #So, the effect sizes C0073, C0084, C0189 e C0191 are outliers (28 effect sizes). 
-
-#Let's build a model without outliers 
-
+#Let's build a model without outliers.
 surv_sensi2<- read.csv("survival_sensi_out2.csv", h= T, dec =".", sep = ",")
-
-View(surv_sensi2)
+head(surv_sensi2)
 
 #Building a covariance matrix using only the bee species of our data set without outliers 
 
