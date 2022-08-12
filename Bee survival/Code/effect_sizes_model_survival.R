@@ -12,7 +12,7 @@
 ################################################################################
 
 
-#Let's get ready for running the code provided here. 
+#Let's get ready for running the code. 
 
 #Set the working directory to the origin of this script.  
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
@@ -80,8 +80,11 @@ if(!require(emmeans)){
   install.packages("emmeans")
   library(emmeans)
 }  
-devtools::install_github("daniel1noble/orchaRd", force = TRUE)
-library(orchaRd)
+
+if(!require(orchaRd)){
+  devtools::install_github("daniel1noble/orchaRd", force = TRUE)
+  library(orchaRd)
+}
 
 
 ############################ EFFECT SIZES  #####################################
@@ -144,14 +147,21 @@ cov.matrix[,0]
 #Now we are going to build a meta-analytic mixed-effects model.
 #We are going to use the function rma.mv from the metafor package because
 #of the non-independence of our data. 
-survival <- rma.mv(yi, vi, random = list( ~1|id_code, ~1|bee_specie, ~1|agrochemical, ~1|hours_after_exposure, ~1|exposure_type), method="REML",  #"REML" = multi-level 
+survival <- rma.mv(yi, vi, random = list( ~1|id_code,
+                                          ~1|bee_specie,
+                                          ~1|agrochemical,
+                                          ~1|hours_after_exposure,
+                                          ~1|exposure_type),
+                   method="REML",  #"REML" = multi-level 
             R = list(bee_specie = cov.matrix),digits = 3, data = dados)                   
 summary(survival)
 
 #Let's plot the result 
-tiff('survival.tiff', units="in", width=10, height=5, res=1200, compression = 'lzw')
+tiff("../Figures/survival.tiff", units="in", width=10,
+     height=5, res=1200, compression = 'lzw')
 
-orchaRd::orchard_plot(survival, data= dados, group = "id_code", xlab = "Odds ratio") +
+orchaRd::orchard_plot(survival, data= dados,
+                      group = "id_code", xlab = "Odds ratio") +
         labs(x = "Survival") +
         scale_fill_manual(values="slateblue1") +
         scale_colour_manual(values="slateblue1")+
@@ -163,12 +173,11 @@ orchaRd::orchard_plot(survival, data= dados, group = "id_code", xlab = "Odds rat
 
 dev.off()
 
-#We can see that some effect sizes are extreme points comparing to the mean
+#We can see that some effect sizes are outliers compared to the mean
 #effect size. So, let's do a sensibility test to analyse the influence of
-#these effect sizes.
-
-#In our the sensibility test, let's evaluate the standardized residuals.   
-#Calculating the standardized residuals.
+#these outliers.
+#In our sensibility test, let's evaluate the standardized residuals.   
+#Calculate the standardized residuals.
 rs = rstandard(survival) 
 plot(rs$resid, ylim = c(-8.0,8), xlim =c(-8,50))
 
@@ -190,40 +199,47 @@ rs <-as.data.frame(rs$resid)
 residuals <- cbind(only_id_code, rs)
 residuals
 
-#So, the effect sizes C0073, C0084, C0189 e C0191 are outliers (28 effect sizes). 
-#Let's build a model without outliers.
-surv_sensi2<- read.csv("survival_sensi_out2.csv", h= T, dec =".", sep = ",") #data frame without outliers 
+#So, the effect sizes C0073, C0084, C0189 and C0191 are outliers
+# (28 effect sizes). 
+#Let's build a model without them
+surv_sensi2<- read.csv("../Data/survival_sensi_out2.csv",
+                       h= T, dec =".", sep = ",") #data frame without outliers 
 head(surv_sensi2)
 
-#Building a covariance matrix using only the bee species of our data set without outliers 
-
-spp <- tnrs_match_names(unique(surv_sensi2$bee_specie), context_name = "Animals") 
-
+#Building a covariance matrix using only the bee species of our data set
+# without outliers.
+spp <- tnrs_match_names(unique(surv_sensi2$bee_specie),
+                        context_name = "Animals") 
 my_tree = tol_induced_subtree(ott_ids=spp$ott_id)
-
 otl_tips=strip_ott_ids(my_tree$tip.label, remove_underscores=TRUE)
-
 taxon_map=structure(spp$search_string, names=spp$unique_name)
-
 my_tree$tip.label=taxon_map[otl_tips]
-
 my_tree.ult = compute.brlen(my_tree, method = "Grafen")
-
 plot(my_tree.ult,no.margin=T) 
-
 cov.matrix = vcv(my_tree.ult,corr=T)
 cov.matrix[,0]
 
-#our model without outliers 
-
-model.surv.sensi.out2 <- rma.mv(yi, vi, random = list( ~1|id_code, ~1|bee_specie, ~1|agrochemical, ~1|hours_after_exposure, ~1|exposure_type), method="REML",  # "REML" = multi-level 
-                                R = list(bee_specie = cov.matrix),digits = 3, control = list(optimizer="optim", optmethod="Nelder-Mead"), data = surv_sensi2)
+#Our model without outliers 
+model.surv.sensi.out2 <- rma.mv(yi, vi, 
+                                random = list( ~1|id_code,
+                                                       ~1|bee_specie,
+                                                       ~1|agrochemical,
+                                                       ~1|hours_after_exposure,
+                                                       ~1|exposure_type),
+                                method="REML",  # "REML" = multi-level 
+                                R = list(bee_specie = cov.matrix),
+                                digits = 3, 
+                                control = list(optimizer="optim",
+                                                           optmethod="Nelder-Mead"),
+                                data = surv_sensi2)
 
 summary(model.surv.sensi.out2)
 
-tiff('survival_sensibility_test.tiff', units="in", width=5, height=6, res=1200, compression = 'lzw')
+tiff("../Figures/survival_sensibility_test.tiff", units="in", width=5,
+     height=6, res=1200, compression = 'lzw')
 
-orchaRd::orchard_plot(model.surv.sensi.out2, data= surv_sensi2, group = "id_code", xlab = "Odds ratio") +
+orchaRd::orchard_plot(model.surv.sensi.out2, data= surv_sensi2,
+                      group = "id_code", xlab = "Odds ratio") +
         labs(x = "Survival") + 
         scale_fill_manual(values="slateblue1") +
         scale_colour_manual(values="slateblue1")+
@@ -235,42 +251,41 @@ orchaRd::orchard_plot(model.surv.sensi.out2, data= surv_sensi2, group = "id_code
 
 dev.off()
 
-#Result: mean effect size is negative and different from zero. In other words, pesticide effects are strong enough to be detected
-#even when our sampling size is reduced.  
+#Result: mean effect size is negative and different from zero. In other words,
+#pesticide effects are strong enough to be detected even when sample size
+#is reduced.  
 
 
 ############################ HETEROGENEITY #####################################
 
 
-#Now, we are going to calculate the heterogeneity of the model and the heterogeneity of each random variable,
-#using the I² statistic with a 95% confidence interval (CI).
-
-
-dados$wi <- 1/sqrt(dados$vi) # precision = 1 / standard error of effect size (Equation 20; Nakagawa & Santos 2012)
-
+#Now, we are going to calculate the heterogeneity of the model and the
+#heterogeneity of each random variable, using the I² statistic with a 
+#95% confidence interval (CI).
+dados$wi <- 1/sqrt(dados$vi)
+#precision = 1 / standard error of effect size (Equation 20; Nakagawa & Santos 2012)
 s2m.0 <- sum(dados$wi*(length(dados$wi)-1))/(sum(dados$wi)^2-sum(dados$wi^2)) # Equation 22
 
-#Let's calculate the total heterogeneity. In other words, the heterogeneity that is explained by our model 
+#Let's calculate the total heterogeneity. In other words, the heterogeneity
+#that is explained by our model 
 #including predictor and response variables
+I2.survival <- ((survival$sigma2[1] + survival$sigma2[2] +
+                   survival$sigma2[3] + survival$sigma2[4] +
+                   survival$sigma2[5])/  
+                 (survival$sigma2[1] + survival$sigma2[2] +
+                    survival$sigma2[3] + survival$sigma2[4] +
+                    survival$sigma2[5] + s2m.0)) * 100 
 
-I2.survival <- ((survival$sigma2[1] + survival$sigma2[2] +  survival$sigma2[3] + survival$sigma2[4] + survival$sigma2[5])/  
-                 (survival$sigma2[1] + survival$sigma2[2] +  survival$sigma2[3] + survival$sigma2[4] + survival$sigma2[5] + s2m.0)) * 100 
-
-#The values of heterogeneity 25%, 50%, and 75% 
-#are considered as small, medium, and high, respectively, as suggested by Higgins (2003).
-
+#The values of heterogeneity 25%, 50%, and 75% are considered small, medium,
+#and high, respectively, as suggested by Higgins (2003).
 I2.survival #mean 
 
-
 ## and 95% CI for I2.total:
-
 I2.survival - qchisq(.95, df=1)/2; I2.survival + qchisq(.95, df=1)/2
 
 
 #Calculating I² for each random factor 
-
 #--- study ID ---
-
 I2.study.bee <- ((survival$sigma2[1])/(
         survival$sigma2[1]+ survival$sigma2[2] +  survival$sigma2[3]  +  survival$sigma2[4] + survival$sigma2[5] +
                 s2m.0)) * 100
@@ -278,11 +293,9 @@ I2.study.bee <- ((survival$sigma2[1])/(
 I2.study.bee
 
 ## and 95% CI for I2.study.bee:
-
 I2.study.bee - qchisq(.95, df=1)/2; I2.study.bee + qchisq(.95, df=1)/2
 
 #--- bee_specie ---
-
 I2.bee <- ((survival$sigma2[2])/(
         survival$sigma2[1]+ survival$sigma2[2] +  survival$sigma2[3] + survival$sigma2[4] + survival$sigma2[5] +
                 s2m.0)) * 100
@@ -293,7 +306,6 @@ I2.bee
 I2.bee - qchisq(.95, df=1)/2; I2.bee + qchisq(.95, df=1)/2
 
 #--- agrochemical ---
-
 I2.agro<- ((survival$sigma2[3])/(
         survival$sigma2[1]+survival$sigma2[2] +  survival$sigma2[3] + survival$sigma2[4] + survival$sigma2[5] +
                 s2m.0)) * 100
@@ -304,7 +316,6 @@ I2.agro
 I2.agro - qchisq(.95, df=1)/2; I2.agro + qchisq(.95, df=1)/2
 
 #----hours ---
-
 I2.hours<- ((survival$sigma2[4])/(
         survival$sigma2[1]+survival$sigma2[2] +  survival$sigma2[3] + survival$sigma2[4] + survival$sigma2[5] +
                 s2m.0)) * 100
@@ -315,7 +326,6 @@ I2.hours
 I2.hours - qchisq(.95, df=1)/2; I2.hours + qchisq(.95, df=1)/2
 
 #---exposure type
-
 I2.exp<- ((survival$sigma2[5])/(
         survival$sigma2[1]+survival$sigma2[2] +  survival$sigma2[3] + survival$sigma2[4] + survival$sigma2[5] +
                 s2m.0)) * 100
@@ -326,23 +336,18 @@ I2.exp
 I2.exp - qchisq(.95, df=1)/2; I2.exp + qchisq(.95, df=1)/2
 
 #confidence intervals for sigma2
-
 confint(survival)
 
 
 ############################ PUBLICATION BIAS ##################################
 
 
-#Publication bias in each model using an adapted version of Egger’s regression (Nakagawa & Santos, 2012)
-
-#A publication bias is pointed out when the intercept of the regression significantly deviates from zero
-
+#Publication bias in each model using an adapted version of Egger’s regression
+#(Nakagawa & Santos, 2012). A publication bias is pointed out when the
+#intercept of the regression significantly deviates from zero
 eggsm3 = lm(residuals(survival)~sqrt(dados$vi)) 
-
 summary(eggsm3) 
-
 confint.lm(eggsm3, level = 0.95)
 
 
-################################################################################
-
+############################ END ###############################################

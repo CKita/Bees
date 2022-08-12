@@ -16,36 +16,33 @@
 #Let's get ready for running the code provided here. 
 
 #Set the working directory that contains the continuous data.  
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+getwd()
 
 #Delete all previous objects
-
 rm(list= ls())
 
-
 #Now,load the required package:
+if(!require(compute.es)){
+  install.packages("compute.es")
+  library(compute.es)
+}
 
-library("compute.es")
-
-
-#First, let's see our data set
-
-
-AG_cont <- read.csv("continuous.csv", h=T, dec = ",")
-
-View(AG_cont)
-
+#First, let's see our data.
+AG_cont <- read.csv("../Data/continuous.csv", h=T, dec = ",")
+class(AG_cont)
+str(AG_cont)
+head(AG_cont)
+tail(AG_cont)
 summary(AG_cont)
 
-
-#Changing some columns to the class "numeric"
-
+#Change some columns to the class "numeric"
 AG_cont$value <- as.numeric(AG_cont$value)
 
+#Let's use the compute.es function to calculate the hedge's g value from the
+# statistic reported in the papers.
 
-#let's use the compute.es function to calculate the hedge's g value from the statistic reported in the papers.
-
-
-#converting statistic F to Hedges'g: 
+#Convert statistic F to Hedges'g: 
 
 #########################################
 # remember that:                        #
@@ -166,12 +163,10 @@ View(es_t_prontos)
 ########################################################################
 
 #Let's pick the data 
-
 AG_cont
 
 dado_C0120 <- AG_cont[AG_cont$id_code == "C0120", ]
 dado_C0120
-
 
 dado_C0135 <- AG_cont[AG_cont$id_code == "C0135", ]
 dado_C0135
@@ -187,10 +182,10 @@ dado_r$total_sample_size <- as.numeric(dado_r$total_sample_size)
 dado_r$sample_size_control <- as.numeric(dado_r$sample_size_control)
 dado_r$sample_size_treatment <- as.numeric(dado_r$sample_size_treatment)
 
-#converting  
-
+#Convert  
 es_r <- res(dado_r$value, var.r = NULL, dado_r$total_sample_size)
 
+es_r
 View(es_r)
 
 es_r_d_var <- cbind(es_r$d, es_r$var.d) #picking the data
@@ -279,3 +274,6 @@ View(es_cont)
 write.csv(es_cont, file = "effect_sizes_cont.csv", row.names = F)
 
 write.table(es_cont, file = "effect_sizes_cont.txt", row.names = F, col.names = T, dec = ".", sep = ",")
+
+
+############################ END ###############################################
