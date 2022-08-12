@@ -182,6 +182,7 @@ abline(h = 3)   ##above this line
 text(rs$resid, labels = dados$id_code, cex= 1, pos = 2)
 
 #let's check better creating a data frame
+only_id_code <- dados$id_code
 only_id_code <- as.data.frame(only_id_code)
 
 rs <-as.data.frame(rs$resid)
