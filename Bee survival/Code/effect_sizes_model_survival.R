@@ -76,7 +76,10 @@ if(!require(Rtools42)){
   install.packages("Rtools42")
   library(Rtools42)
 }
-
+if(!require(emmeans)){
+  install.packages("emmeans")
+  library(emmeans)
+}  
 devtools::install_github("daniel1noble/orchaRd", force = TRUE)
 library(orchaRd)
 
