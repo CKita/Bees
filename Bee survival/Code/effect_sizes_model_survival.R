@@ -146,18 +146,17 @@ survival <- rma.mv(yi, vi, random = list( ~1|id_code, ~1|bee_specie, ~1|agrochem
 summary(survival)
 
 #Let's plot the result 
-tiff('survival.tiff', units="in", width=5, height=6, res=1200, compression = 'lzw')
+tiff('survival.tiff', units="in", width=10, height=5, res=1200, compression = 'lzw')
 
-orchard_plot(survival, xlab = "Odds ratio") +
-        labs(y = "Survival") +
-        scale_color_manual(values = "slateblue1") +
-        scale_fill_manual(values = "yellow") +
+orchaRd::orchard_plot(survival, data= dados, group = "id_code", xlab = "Odds ratio") +
+        labs(x = "Survival") +
+        scale_fill_manual(values="slateblue1") +
+        scale_colour_manual(values="slateblue1")+
         theme_classic() + 
         theme(axis.text = element_text(size = 14, colour = "black"),
               axis.title = element_text(size = 16),
-              axis.text.x = element_blank(),
-              legend.position = "top") +
-        coord_flip()
+              axis.text.y = element_blank(),
+              legend.position = "top") 
 
 dev.off()
 
@@ -172,13 +171,24 @@ plot(rs$resid, ylim = c(-8.0,8), xlim =c(-8,50))
 
 #If our residuals are > or <3, it means that something extremely unusual is
 # happening. 
-abline(h = -3)
-abline(h = 3)
+abline(h = -3)  #below this line
+abline(h = 3)   ##above this line
+#28 points. In other words, 28 outliers
+
+#let's identify them
 text(rs$resid, labels = dados$id_code, cex= 1, pos = 2)
+
+#let's check better creating a data frame
+only_id_code <- as.data.frame(only_id_code)
+
+rs <-as.data.frame(rs$resid)
+
+residuals <- cbind(only_id_code, rs)
+residuals
 
 #So, the effect sizes C0073, C0084, C0189 e C0191 are outliers (28 effect sizes). 
 #Let's build a model without outliers.
-surv_sensi2<- read.csv("survival_sensi_out2.csv", h= T, dec =".", sep = ",")
+surv_sensi2<- read.csv("survival_sensi_out2.csv", h= T, dec =".", sep = ",") #data frame without outliers 
 head(surv_sensi2)
 
 #Building a covariance matrix using only the bee species of our data set without outliers 
@@ -209,16 +219,15 @@ summary(model.surv.sensi.out2)
 
 tiff('survival_sensibility_test.tiff', units="in", width=5, height=6, res=1200, compression = 'lzw')
 
-orchard_plot(model.surv.sensi.out2, xlab = "Odds ratio") +
-        labs(y = "Survival") + 
-        scale_color_manual(values = "slateblue1") + 
-        scale_fill_manual(values = "yellow") +
+orchaRd::orchard_plot(model.surv.sensi.out2, data= surv_sensi2, group = "id_code", xlab = "Odds ratio") +
+        labs(x = "Survival") + 
+        scale_fill_manual(values="slateblue1") +
+        scale_colour_manual(values="slateblue1")+
         theme_classic() + 
-        theme(axis.text = element_text(size = 14, colour = "black"), 
-              axis.title = element_text(size = 16), 
-              axis.text.x = element_blank(), 
-              legend.position = "top") + 
-        coord_flip() 
+        theme(axis.text = element_text(size = 14, colour = "black"),
+              axis.title = element_text(size = 16),
+              axis.text.y = element_blank(),
+              legend.position = "top") 
 
 dev.off()
 
