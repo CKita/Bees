@@ -81,18 +81,11 @@ summary(model.geral)
 
 #install the required packages:
 
-install.packages("dplyr")
-install.packages("devtools")
-install.packages("tidyverse")
-install.packages("patchwork")
-install.packages("R.rsp")
-install.packages("ggplot2")
-install.packages("Rtools42")
-
-devtools::install_github("itchyshin/orchard_plot", subdir = "orchaRd", force = TRUE, build_vignettes = TRUE)
+devtools::install_github("daniel1noble/orchaRd", force = TRUE)
+library(orchaRd)
 
 library(devtools)
-library(orchaRd)
+library(ggplot2)
 library(patchwork)
 library(tidyverse)
 
@@ -100,16 +93,15 @@ library(tidyverse)
 
 tiff('overall.tiff', units="in", width=5, height=6, res=1200, compression = 'lzw')
 
-orchard_plot(model.geral, xlab = "Hedges' g") +
-        labs(y = "Overall effect") + 
+orchard_plot(model.geral, xlab = "Hedges' g", data = dados_completos, group = "id_code") +
+        labs(x = "Overall effect") + 
         scale_color_manual(values = "pink1") + 
-        scale_fill_manual(values = "seagreen3") + 
+        scale_fill_manual(values = "pink1") + 
         theme_classic() + 
         theme(axis.text = element_text(size = 14, colour = "black"),  
               axis.title = element_text(size = 16), 
-              axis.text.x = element_blank(), 
-              legend.position = "top") + 
-        coord_flip() 
+              axis.text.y = element_blank(), 
+              legend.position = "top")  
 
 dev.off()
 
@@ -229,16 +221,13 @@ summary(model.1f)
 
 tiff('let_sublet.tiff', units="in", width=5, height=6, res=1200, compression = 'lzw')
 
-
-orchard_plot(model.1f, mod = "pesticide_effect", xlab = "Hedges' g") +
-        labs(y = " ") +
-        scale_fill_manual(values = c( "slateblue1", "sienna1")) +
+orchard_plot(model.1f, mod = "pesticide_effect", xlab = "Hedges' g", data = dados_completos , group = "id_code" ) +
+     
+        scale_fill_manual(values = c( "#00A087B2", "sienna1")) +
         theme_classic() + 
         theme(axis.text = element_text(size = 14, colour = "black"),
               axis.title = element_text(size = 16),
-              legend.position = "top") +
-        coord_flip() +
-        scale_y_discrete(labels = c("Lethal", "Sublethal"))
+              legend.position = "top") 
 
 dev.off()
 
@@ -260,31 +249,29 @@ summary(model.sub)
 
 #graphic 
 
-orchard_plot(model.sub, xlab = "Hedges' g") +
-        labs(y = "Overall effect") + 
-        scale_color_manual(values = "pink1") + 
-        scale_fill_manual(values = "seagreen3") + 
+orchard_plot(model.sub, xlab = "Hedges' g", data = sub , group = "id_code") +
+        labs(x= "Sublethal") +
+        scale_color_manual(values = "sienna1") + 
+        scale_fill_manual(values = "sienna1") + 
         theme_classic() + 
         theme(axis.text = element_text(size = 14, colour = "black"), 
               axis.title = element_text(size = 16), 
-              axis.text.x = element_blank(), 
-              legend.position = "top") + 
-        coord_flip() 
+              axis.text.y = element_blank(), 
+              legend.position = "top")
 
 
-#In the sensibility test, let's evaluate the standardized residuals   
-
+#In our sensibility test, let's evaluate the standardized residuals.   
 #Calculating the standardized residuals
 
 rs= rstandard(model.sub) 
-
 plot( rs$resid, ylim = c(-10,8), xlim =c(-5,50))
 
-text(rs$resid, labels = sub$id_code, cex= 1, pos = 4)
-
 #If our residuals are > or <3, then it means that something extremely unusual is happening.
-abline(h = -3)
-abline(h = 3)
+abline(h = -3) #below this line
+abline(h = 3) #above this line
+
+#let's identify them
+text(rs$resid, labels = sub$id_code, cex= 1, pos = 4)
 
 # There are four outliers (C0091)
 
@@ -304,16 +291,15 @@ summary(model.sub.sensi.out)
 tiff('sensibility_test_sublet.tiff', units="in", width=5, height=6, res=1200, compression = 'lzw')
 
 
-orchard_plot(model.sub.sensi.out, xlab = "Hedges' g") +
-        labs(y = "Overall effect") + 
-        scale_color_manual(values = "#00A087B2") +
+orchard_plot(model.sub.sensi.out, xlab = "Hedges' g", data = sub.sensi.out, group = "id_code") +
+        labs(x= "Sublethal") +
+        scale_color_manual(values = "sienna1") + 
         scale_fill_manual(values = "sienna1") + 
         theme_classic() + 
         theme(axis.text = element_text(size = 14, colour = "black"), 
               axis.title = element_text(size = 16), 
-              axis.text.x = element_blank(), 
-              legend.position = "top") + 
-        coord_flip() 
+              axis.text.y = element_blank(), 
+              legend.position = "top") 
 
 dev.off() 
 
@@ -337,30 +323,30 @@ summary(model.let)
 
 #grafico
 
-orchard_plot(model.let, xlab = "Hedges' g") +
-        labs(y = "Overall effect") + 
-        scale_color_manual(values = "pink1") + 
-        scale_fill_manual(values = "seagreen3") + 
+orchard_plot(model.let, xlab = "Hedges' g", data = let, group = "id_code" ) +
+        labs(x = "Lethal") + 
+        scale_color_manual(values = "#00A087B2") + 
+        scale_fill_manual(values = "#00A087B2") + 
         theme_classic() + 
         theme(axis.text = element_text(size = 14, colour = "black"), 
               axis.title = element_text(size = 16), 
-              axis.text.x = element_blank(), 
-              legend.position = "top") +  
-        coord_flip() 
+              axis.text.y = element_blank(), 
+              legend.position = "top")  
 
 
+#In our sensibility test, let's evaluate the standardized residuals.
 #Calculating the standardized residuals
 
 rs= rstandard(model.let) 
-rs
-rs= rstandard(model.sub) 
-
 plot( rs$resid, ylim = c(-10,8), xlim =c(-5,50))
-text(rs$resid, labels = sub$id_code, cex= 1, pos = 2)
 
 #If our residuals are > or <3, then it means that something extremely unusual is happening.
 abline(h = -3)
 abline(h = 3)
+
+
+#let's identify them
+text(rs$resid, labels = let$id_code, cex= 1, pos = 2)
 
 # There is no outliers 
 
