@@ -13,16 +13,16 @@
 ################################################################################
 
 
-#Let's get ready for running the code provided here. 
+#Let's get ready for running the code. 
 
-#Set the working directory that contains the continuous data.  
+#Set the working directory to the source of this script file.  
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 getwd()
 
-#Delete all previous objects
+#Delete all previous objects.
 rm(list= ls())
 
-#Now,load the required package:
+#Now,load or install the required packages.
 if(!require(compute.es)){
   install.packages("compute.es")
   library(compute.es)
@@ -36,12 +36,12 @@ head(AG_cont)
 tail(AG_cont)
 summary(AG_cont)
 
-#Change some columns to "numeric"
+#Change some columns to "numeric".
 AG_cont$value <- as.numeric(AG_cont$value)
 str(AG_cont)
 
 #Let's use the compute.es function to calculate the hedge's g value from the
-# statistic reported in the papers.
+#statistic reported in the papers.
 
 #Convert statistic F to Hedges'g: 
 
@@ -56,8 +56,7 @@ str(AG_cont)
 #                                       #
 #########################################
 
-#Let's pick the data 
-
+#Let's pick the data.
 AG_cont
 C0135_ <- AG_cont[AG_cont$id_code == "C0135", ]
 C0135_ <- C0135_[c(1:9),]
@@ -65,12 +64,12 @@ C0135_
 C0179_ <- AG_cont[AG_cont$id_code ==  "C0179", ]
 C0179_
 
-#Binding 
+#Bind the data. 
 C0135_C0179 <- rbind(C0135_, C0179_)
 C0135_C0179
 summary(C0135_C0179)
 
-#Changing some columns to the class "numeric"
+#Change some columns to the class "numeric".
 for (i in 4:6){
         C0135_C0179 [ ,i] <- as.numeric(C0135_C0179[,i] )
 }
@@ -78,21 +77,23 @@ for (i in 4:6){
 C0135_C0179$value <- as.numeric(C0135_C0179$value)
 summary(C0135_C0179)
 
-#Converting  
-es_f <- fes(C0135_C0179$value, C0135_C0179$sample_size_control, C0135_C0179$sample_size_treatment)
+#Convert the data. 
+es_f <- fes(C0135_C0179$value, 
+            C0135_C0179$sample_size_control, 
+            C0135_C0179$sample_size_treatment)
 class(es_f)
 str(es_f)
 
-es_f_g_var <- cbind(es_f$g, es_f$var.g) #picking the data 
-colnames(es_f_g_var) <- c("yi", "vi") #naming the columns 
+es_f_g_var <- cbind(es_f$g, es_f$var.g) #pick the data 
+colnames(es_f_g_var) <- c("yi", "vi") #name the columns 
 class(es_f_g_var)
 str(es_f_g_var)
 
-es_F_prontos <- cbind(C0135_C0179, es_f_g_var) ##binding the data
+es_F_prontos <- cbind(C0135_C0179, es_f_g_var) ##bind the data
 class(es_F_prontos)
 str(es_F_prontos)
 
-#Convert the t statistic to Hedges'g: 
+#Convert the t statistic to Hedges' g: 
 
 ###############################################
 # remember that:                              #
@@ -105,7 +106,7 @@ str(es_F_prontos)
 #                                             #
 ###############################################
 
-#Let's pick the data 
+#Let's pick the data.
 AG_cont
 dado_t <- AG_cont[AG_cont$id_code == "C0143", ]
 dado_t
@@ -114,8 +115,9 @@ str(dado_t)
 dado_t$sample_size_control <- as.numeric(dado_t$sample_size_control)
 dado_t$sample_size_treatment <- as.numeric(dado_t$sample_size_treatment)
 
-#Converting 
-es_t <- tes(dado_t$value, dado_t$sample_size_control, dado_t$sample_size_treatment)  
+#Convert the data. 
+es_t <- tes(dado_t$value, dado_t$sample_size_control,
+            dado_t$sample_size_treatment)  
 class(es_t)
 str(es_t)
 es_t_d_var <- cbind(es_t$g, es_t$var.g) #picking the data
@@ -125,7 +127,7 @@ es_t_prontos <- cbind(dado_t, es_t_d_var) #binding
 class(es_t_prontos)
 str(es_t_prontos)
 
-#Converting the r statistic to Hedges'g:
+#Convert the r statistic to Hedges' g:
 
 ########################################################################
 # Remember that:                                                       #
@@ -140,7 +142,7 @@ str(es_t_prontos)
 # n = Total sample size.                                               #            
 ########################################################################
 
-#Let's pick the data 
+#Let's pick the data.
 AG_cont
 dado_C0120 <- AG_cont[AG_cont$id_code == "C0120", ]
 dado_C0120
@@ -157,7 +159,7 @@ dado_r$sample_size_treatment <- as.numeric(dado_r$sample_size_treatment)
 class(dado_r)
 str(dado_r)
 
-#Convert  
+#Convert the data.  
 es_r <- res(dado_r$value, var.r = NULL, dado_r$total_sample_size)
 es_r
 str(es_r)
@@ -165,19 +167,19 @@ es_r_d_var <- cbind(es_r$d, es_r$var.d) #picking the data
 colnames(es_r_d_var) <- c("yi", "vi") #naming the columns 
 as.data.frame(es_r_d_var) #we need to convert to Hedges'g 
 
-#Let's make a function to convert hedges' d to hedges' g because the
-#function res only provides d and var.d values.
+#Let's make a function to convert hedges' d to hedges' g because the function
+#res only provides d and var.d values.
 
-#Pick the information needed
+#Pick the data.
 d <- es_r$d
 d
 vd <- es_r$var.d
 vd
 
-#df= degrees of freedom, which is n1 +n2 - 2 
+#df = degrees of freedom, calculated as n1 +n2 - 2.
 df <- dado_r$total_sample_size - 2
 
-#Calulate the "j" from hedge's g 
+#Calulate the j from hedge's g 
 j <- function(x){
         
         1-3/(4*x-1)
@@ -186,7 +188,7 @@ j <- function(x){
 Js <- j(df)
 Js
 
-#Calculate  g
+#Calculate g.
 g <- function(y){
         
         y*d
@@ -195,7 +197,7 @@ g <- function(y){
 G <- g(Js)
 G
 
-#Calculate the variance of g (i.e., var.g)
+#Calculate the variance of g (i.e., var.g).
 var.g <- function(z){
         
         Js^2*vd
@@ -203,14 +205,14 @@ var.g <- function(z){
 
 Var.g <- var.g(Js)
 
-#Now, let's bind them
+#Now, let's bind the data.
 es_r_g_var.g <- cbind(G, Var.g)
 colnames(es_r_g_var.g) <- c("yi", "vi")
 es_r_g_var.g
 es_r_prontos <- cbind(dado_r, es_r_g_var.g)  
 str(es_r_prontos)
 
-#Bind all the converted values  
+#Bind all the converted values. 
 es_cont <- rbind(es_r_prontos, es_F_prontos, es_t_prontos )
 str(es_cont)
 es_cont <- es_cont[-18,] #not related to bee pollination
@@ -222,7 +224,7 @@ es_cont <- es_cont[-18,] #not related to bee pollination
 #values of effect sizes do not make sense. Therefore, in this cases, we need
 #to manually multiply the effect size by -1. 
 
-#let's multiply by -1 the effect sizes of papers that reported a negative 
+#Let's multiply by -1 the effect sizes of papers that reported a negative 
 #effect of pesticide application. 
 es_cont$yi[c(1,2,3,4,5,8,9,12,14,15,18)] <- 
   es_cont$yi[c(1,2,3,4,5,8,9,12,14,15,18)] * -1
@@ -231,7 +233,7 @@ class(es_cont)
 str(es_cont)
 head(es_cont)
 
-#Save the results
+#Export the results.
 write.csv(es_cont, file = "../Results/effect_sizes_cont.csv", row.names = F)
 
 

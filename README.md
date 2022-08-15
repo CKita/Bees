@@ -1,6 +1,6 @@
 # Bees
 
-Supplement to chapter 1 of the M.Sc. dissertation "A meta-analysis of the effects of pesticides on bees and their pollination service in the context of intensive agricultural practices". Programa de Pós-Graduação em Ecologia, Instituto de Biociências, Universidade de São Paulo, Brazil.
+Supplement to chapter 1 of the M.Sc. dissertation "A meta-analysis of the effects of pesticides on bees and their pollination service in the context of intensive agricultural practices". Graduate School in Ecology, Institute of Biosciences, University of São Paulo, Brazil.
 
 [Ecological Synthesis Lab](https://marcomellolab.wordpress.com) (SintECO).
 
@@ -60,9 +60,7 @@ The data and scripts provided here aim at making our study fully reproducible. Y
 
         b.  effect_sizes_cat.csv -\> data frame with categorical data and effect sizes.
 
-        c.  just_effect_sizes.csv -\> data frame with only effect sizes.
-
-        d.  planilha_bruta.csv -\> raw data.
+        c.  planilha_bruta.csv -\> raw data.
 
     -   continuous (folder)
 

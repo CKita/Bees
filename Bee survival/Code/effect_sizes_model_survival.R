@@ -14,14 +14,14 @@
 
 #Let's get ready for running the code. 
 
-#Set the working directory to the origin of this script.  
+#Set the working directory to the source of this script file.  
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 getwd()
 
 #Delete all previous objects.
 rm(list= ls())
 
-#Load or install the required packages
+#Load or install the required packages.
 if(!require(metafor)){
   install.packages("metafor")
   library(metafor)
@@ -90,7 +90,7 @@ if(!require(orchaRd)){
 ############################ EFFECT SIZES  #####################################
 
 
-#Now, let's import and check the raw data
+#Now, let's import and check the data.
 dat <- read.csv("../Data/dados_sobrevivencia.csv", h= T, dec =".", sep = ",")
 class(dat)
 str(dat)
@@ -103,18 +103,18 @@ tail(dat)
 effects_t <- escalc("OR", dat$ai,dat$bi, dat$ci, dat$di, dat$n1i, dat$n2i)
 head(effects_t)
 
-#Now, let's bind the effect sizes with the raw data by columns 
+#Now, let's bind the effect sizes with the raw data by columns.
 dat_comp <- cbind(dat, effects_t)
 head(dat_comp)
 
-#OK. Let's save the complete data set
+#Export the complete data set.
 write.csv2(dat_comp, "../Data/data_comp.csv", row.names = F) 
 
 
 ############################ MODEL - MEAN EFFECT SIZE #########################
 
 
-##We are going to build a meta-analytic model to calculate the mean effect size.
+#We are going to build a meta-analytic model to calculate the mean effect size.
 #Let's use the complete data set to build our model.  
 dados <- read.table("../Data/data_comp.csv", h=T, dec=",", sep = ";")
 class(dados)
@@ -129,13 +129,13 @@ tail(dados)
 spp <- tnrs_match_names(unique(dados$bee_specie), context_name = "Animals") 
 spp
 
-#Create a sub tree with our bee species.
+#Create a subtree with our bee species.
 my_tree = tol_induced_subtree(ott_ids=spp$ott_id) 
 class(my_tree)
 str(my_tree)
 my_tree
 
-#Now we calculate the phylogenetic distances and build the covariance matrix. 
+#Now calculate the phylogenetic distances and build the covariance matrix. 
 otl_tips=strip_ott_ids(my_tree$tip.label, remove_underscores=TRUE)
 taxon_map=structure(spp$search_string, names=spp$unique_name)
 my_tree$tip.label=taxon_map[otl_tips]
@@ -144,9 +144,9 @@ plot(my_tree.ult,no.margin=T) #let's see
 cov.matrix = vcv(my_tree.ult,corr=T)
 cov.matrix[,0]
 
-#Now we are going to build a meta-analytic mixed-effects model.
-#We are going to use the function rma.mv from the metafor package because
-#of the non-independence of our data. 
+#Now we'll build a meta-analytic mixed-effects model.
+#We'll use the function rma.mv from the metafor package because of the 
+#non-independence of our data. 
 survival <- rma.mv(yi, vi, random = list( ~1|id_code,
                                           ~1|bee_specie,
                                           ~1|agrochemical,
@@ -156,7 +156,7 @@ survival <- rma.mv(yi, vi, random = list( ~1|id_code,
             R = list(bee_specie = cov.matrix),digits = 3, data = dados)                   
 summary(survival)
 
-#Let's plot the result 
+#Let's plot the result. 
 tiff("../Figures/survival.tiff", units="in", width=10,
      height=5, res=1200, compression = 'lzw')
 
@@ -173,24 +173,23 @@ orchaRd::orchard_plot(survival, data= dados,
 
 dev.off()
 
-#We can see that some effect sizes are outliers compared to the mean
-#effect size. So, let's do a sensibility test to analyse the influence of
-#these outliers.
-#In our sensibility test, let's evaluate the standardized residuals.   
+#We can see that some effect sizes are outliers compared to the mean effect 
+#size. So, let's do a sensibility test to analyse the influence of these
+#outliers. In our sensibility test, let's evaluate the standardized residuals.   
 #Calculate the standardized residuals.
 rs = rstandard(survival) 
 plot(rs$resid, ylim = c(-8.0,8), xlim =c(-8,50))
 
 #If our residuals are > or <3, it means that something extremely unusual is
-# happening. 
+#happening. 
 abline(h = -3)  #below this line
 abline(h = 3)   ##above this line
 #28 points. In other words, 28 outliers
 
-#let's identify them
+#let's identify the outliers.
 text(rs$resid, labels = dados$id_code, cex= 1, pos = 2)
 
-#let's check better creating a data frame
+#Build a data frame to further inspect the outliers.
 only_id_code <- dados$id_code
 only_id_code <- as.data.frame(only_id_code)
 
@@ -201,13 +200,13 @@ residuals
 
 #So, the effect sizes C0073, C0084, C0189 and C0191 are outliers
 # (28 effect sizes). 
-#Let's build a model without them
+#Let's run a new model without them.
 surv_sensi2<- read.csv("../Data/survival_sensi_out2.csv",
                        h= T, dec =".", sep = ",") #data frame without outliers 
 head(surv_sensi2)
 
-#Building a covariance matrix using only the bee species of our data set
-# without outliers.
+#Build a covariance matrix using only the bee species of our data set
+#without outliers.
 spp <- tnrs_match_names(unique(surv_sensi2$bee_specie),
                         context_name = "Animals") 
 my_tree = tol_induced_subtree(ott_ids=spp$ott_id)
@@ -219,7 +218,7 @@ plot(my_tree.ult,no.margin=T)
 cov.matrix = vcv(my_tree.ult,corr=T)
 cov.matrix[,0]
 
-#Our model without outliers 
+#Run the new model without the outliers.
 model.surv.sensi.out2 <- rma.mv(yi, vi, 
                                 random = list( ~1|id_code,
                                                        ~1|bee_specie,
@@ -259,16 +258,14 @@ dev.off()
 ############################ HETEROGENEITY #####################################
 
 
-#Now, we are going to calculate the heterogeneity of the model and the
-#heterogeneity of each random variable, using the I² statistic with a 
-#95% confidence interval (CI).
+#Now, we'll calculate the heterogeneity of the model and the heterogeneity of
+#each random variable, using the I² statistic with a 95% confidence interval (CI).
 dados$wi <- 1/sqrt(dados$vi)
 #precision = 1 / standard error of effect size (Equation 20; Nakagawa & Santos 2012)
 s2m.0 <- sum(dados$wi*(length(dados$wi)-1))/(sum(dados$wi)^2-sum(dados$wi^2)) # Equation 22
 
-#Let's calculate the total heterogeneity. In other words, the heterogeneity
-#that is explained by our model 
-#including predictor and response variables
+#Calculate the total heterogeneity. In other words, the heterogeneity that is
+#explained by our model including predictor and response variables.
 I2.survival <- ((survival$sigma2[1] + survival$sigma2[2] +
                    survival$sigma2[3] + survival$sigma2[4] +
                    survival$sigma2[5])/  
@@ -280,7 +277,7 @@ I2.survival <- ((survival$sigma2[1] + survival$sigma2[2] +
 #and high, respectively, as suggested by Higgins (2003).
 I2.survival #mean 
 
-## and 95% CI for I2.total:
+##95% CI for I2.total:
 I2.survival - qchisq(.95, df=1)/2; I2.survival + qchisq(.95, df=1)/2
 
 
@@ -292,7 +289,7 @@ I2.study.bee <- ((survival$sigma2[1])/(
 
 I2.study.bee
 
-## and 95% CI for I2.study.bee:
+##95% CI for I2.study.bee:
 I2.study.bee - qchisq(.95, df=1)/2; I2.study.bee + qchisq(.95, df=1)/2
 
 #--- bee_specie ---
@@ -302,7 +299,7 @@ I2.bee <- ((survival$sigma2[2])/(
 
 I2.bee
 
-## and 95% CI for I2.bee:
+##and 95% CI for I2.bee:
 I2.bee - qchisq(.95, df=1)/2; I2.bee + qchisq(.95, df=1)/2
 
 #--- agrochemical ---
@@ -312,7 +309,7 @@ I2.agro<- ((survival$sigma2[3])/(
 
 I2.agro
 
-## and 95% CI for I2.agro:
+##95% CI for I2.agro:
 I2.agro - qchisq(.95, df=1)/2; I2.agro + qchisq(.95, df=1)/2
 
 #----hours ---
@@ -322,20 +319,20 @@ I2.hours<- ((survival$sigma2[4])/(
 
 I2.hours
 
-## and 95% CI for I2.hours:
+## 95% CI for I2.hours:
 I2.hours - qchisq(.95, df=1)/2; I2.hours + qchisq(.95, df=1)/2
 
-#---exposure type
+#---exposure type ---
 I2.exp<- ((survival$sigma2[5])/(
         survival$sigma2[1]+survival$sigma2[2] +  survival$sigma2[3] + survival$sigma2[4] + survival$sigma2[5] +
                 s2m.0)) * 100
 
 I2.exp
 
-## and 95% CI for I2.exp:
+## 95% CI for I2.exp:
 I2.exp - qchisq(.95, df=1)/2; I2.exp + qchisq(.95, df=1)/2
 
-#confidence intervals for sigma2
+#Confidence intervals for sigma2.
 confint(survival)
 
 
