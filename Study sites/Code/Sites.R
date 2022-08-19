@@ -3,26 +3,25 @@
 
 #### Authors: Cristina A. Kita, Laura C. Leal & Marco A. R. Mello
 
-#### See README for further info:
-#### https://github.com/CKita/Bees#readme
+#### See README for further info: https://github.com/CKita/Bees#readme
 ################################################################################
 
 
 ################################################################################
-################# GEOGRAPHIC DISTRIBUTION OF EFFECT SIZES ######################
+######### GEOGRAPHIC DISTRIBUTION OF STUDY SITES AND EFFECT SIZES ##############
 ################################################################################
 
 
-#Let's get ready for running the code provided here. 
+#Let's get ready for running the code. 
 
-#Set the working directory that contains the sites coordinates data.  
+#Set the working directory to the source of this script file.  
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 getwd()
 
 #Delete all previous objects.
 rm(list= ls())
 
-#Load or install the required packages
+#Load or install the required packages.
 if (!require(dplyr)){
    install.packages('dplyr')
    library(dplyr)
@@ -72,7 +71,7 @@ if (!require(cowplot)){
 ##### A. Cartogram: geographic distribution of effect sizes by study type ######
 
 
-# First, let's import and check our data set
+# First, let's import and check our data set.
 sites <- read.csv("../Data/sites.csv", h= T, sep = ",")
 class(sites)
 str(sites)
@@ -80,31 +79,28 @@ head(sites)
 tail(sites)
 
 
-#Now, select the columns with the coordinates and study types
-
+#Now, select the columns with the coordinates and study type.
 sites_short <- sites %>% 
         dplyr::select(Latitude, Longitude, StudyType)
 
-#Let's check the data
+#Check the data.
 head(sites_short)
 
-#load the world map from the mapdata package
+#Load the world map from the mapdata package
 world <- rnaturalearth::ne_countries(scale = "medium", returnclass = "sf")
 
-#OK. Let's plot the map.
-
-# Make the base map
+#Plot the base map.
 g1 <- ggplot(data = world) +
-        geom_sf(colour = "white", fill = "#d3d3d3") +
+        geom_sf(colour = "white", fill = "lightgray") +
         coord_sf(xlim = c(-180, 180), ylim = c(-58,90), expand = FALSE) +
         theme_bw() + 
         
-        # Plot the sites
+        #Plot the sites
         geom_point(data = sites_short, aes(x = Longitude, y = Latitude, 
                                            colour = StudyType), 
                    alpha = 0.6, size = 2) +
        
-        # Customize the colors and labels
+        #Customize the colors and labels
         scale_color_manual(values = c("#E64B35B2","#00A087B2")) + 
         labs(colour = "Study type", x = "Longitude", y = "Latitude") +
         theme(panel.grid = element_blank(),
@@ -120,7 +116,7 @@ g1 <- ggplot(data = world) +
               legend.key = element_rect(fill = "NA"),
               plot.margin = unit(rep(0.5,4), "lines")) +
         
-        # Add a scale bar
+        #Add a scale bar
         ggspatial::annotation_scale(
              location = "bl", width_hint = 0.3,
              bar_cols = c("grey30", "white")) +
@@ -133,21 +129,20 @@ g1 <- ggplot(data = world) +
                 style = ggspatial::north_arrow_fancy_orienteering(
                                                   fill = c("white","grey30")))
 
-#Let's see the map
+#Check the map.
 g1
+
 
 ############ B. Barplot: Number of effect sizes per country ####################
 
 
-#Let's pick the countries 
-
+#Pick the countries.
 countries <- sites$Country
 
-#Let's see the number of effect sizes per country 
+#Check the number of effect size values per country.
 table(countries)
 
-#Let's make a barplot 
-
+#Make a barplot.
 g2 <- ggplot(data.frame(countries), aes(x=countries)) +
       labs( y = "Number of effect sizes", x = "Country") +
         theme(axis.line = element_line(colour = "black"),
@@ -162,25 +157,19 @@ g2 <- ggplot(data.frame(countries), aes(x=countries)) +
               axis.title.y = element_text(size = 12, colour = "black", vjust = 3,
                                           face = "bold"),
               plot.margin = unit(c(1,1,1,1), "lines")) +
-      geom_bar(fill ="#8491B4B2") 
+      geom_bar(fill ="lightgray") 
 
-#let's see the barplot
+#Check the barplot.
 g2
 
-
-#OK. Now, let's export both plots together as PNG image
-
+#Export both plots together as a single PNG image.
 png("../Figure/sites.png", res = 300,
     width = 4300, height = 1800, unit = "px")
-
 
 cowplot::plot_grid(g1, g2,  axis = "tb", align = "hv",rel_heights = c(1.5,0.5), 
                    rel_widths = c(2,1.5),
                   labels = c("A", "B"))
 
-
 dev.off()
 
 ############################ END ###############################################
-
-

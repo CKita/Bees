@@ -8,6 +8,8 @@ Authors: Cristina A. Kita, Laura C. Leal & Marco A. R. Mello.
 
 E-mail: [c.akemikita\@gmail.com](mailto:c.akemikita@gmail.com){.email}.
 
+Fisrt published on August 19th, 2022.
+
 Run in R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid".
 
 Disclaimer: You may freely use the software and data provided here for commercial or non-commercial purposes at your own risk. We assume no responsibility or liability for the use of this material, convey no license or title under any patent, copyright, or mask work right to the product. We reserve the right to make changes in the material without notification. We also make no representation or warranty that such application will be suitable for the specified use without further testing or modification. If this material helps you produce any academic work (paper, book, chapter, monograph, dissertation, thesis, report, talk, keynote, lecture or similar), please acknowledge the authors and cite the source.
@@ -90,19 +92,19 @@ The data and scripts provided here aim at making our study fully reproducible. Y
 
         a.  effect_sizes_cont.R -\> script formatted as a tutorial to help you calculate continuous effect sizes.
 
-### **Other (folder)**
+### **Study sites (folder)**
 
 1.  Data (folder)
-    
-    a.  sites.csv -\> data frame with study sites attributes. 
-    
-2.  Figure (folder)
-   
-    a.  sites.png -\> geographic distribution and number of effect sites per country.
-    
+
+    a.  sites.csv -\> data frame with attributes of the study sites where data collection was carried out.
+
+2.  Figures (folder)
+
+    a.  sites.png -\> geographic distribution of the study sites and number of effect size values recorded per country.
+
 3.  Code (folder)
-    
-    a. Sites.R -\> script formatted as a tutorial to help you reproduce the figure.
+
+    a.  Sites.R -\> script formatted as a tutorial to help you reproduce the figure.
 
 ### **Papers.xlsx (file)**
 
