@@ -94,11 +94,11 @@ The data and scripts provided here aim at making our study fully reproducible. Y
 
 1.  Data (folder)
     
-    a.  sites.csv -\> data frame with study sites attributes 
+    a.  sites.csv -\> data frame with study sites attributes. 
     
 2.  Figures (folder)
    
-    a.  sites.png -\> geographic distribution and number of effect sites per country
+    a.  sites.png -\> geographic distribution and number of effect sites per country.
     
 3.  Code (folder)
     
