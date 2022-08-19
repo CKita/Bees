@@ -72,7 +72,6 @@ if (!require(cowplot)){
 ##### A. Cartogram: geographic distribution of effect sizes by study type ######
 
 
-
 # First, let's import and check our data set
 sites <- read.csv("../Data/sites.csv", h= T, sep = ",")
 class(sites)
@@ -138,6 +137,7 @@ g1 <- ggplot(data = world) +
 g1
 
 ############ B. Barplot: Number of effect sizes per country ####################
+
 
 #Let's pick the countries 
 
