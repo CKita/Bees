@@ -96,7 +96,7 @@ The data and scripts provided here aim at making our study fully reproducible. Y
     
     a.  sites.csv -\> data frame with study sites attributes. 
     
-2.  Figures (folder)
+2.  Figure (folder)
    
     a.  sites.png -\> geographic distribution and number of effect sites per country.
     
