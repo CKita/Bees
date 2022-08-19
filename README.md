@@ -90,6 +90,20 @@ The data and scripts provided here aim at making our study fully reproducible. Y
 
         a.  effect_sizes_cont.R -\> script formatted as a tutorial to help you calculate continuous effect sizes.
 
+### **Other (folder)**
+
+1.  Data (folder)
+    
+    a.  sites.csv -\> data frame with study sites attributes 
+    
+2.  Figures (folder)
+   
+    a.  sites.png -\> geographic distribution and number of effect sites per country
+    
+3.  Code (folder)
+    
+    a. Sites.R -\> script formatted as a tutorial to help you reproduce the figure.
+
 ### **Papers.xlsx (file)**
 
 List of papers included in our meta-analysis.
