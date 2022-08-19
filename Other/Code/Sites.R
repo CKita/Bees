@@ -69,7 +69,7 @@ if (!require(cowplot)){
 } 
 
 
-########## Geographic distribution of effect sizes by study type ###############
+##### A. Cartogram: geographic distribution of effect sizes by study type ######
 
 
 
@@ -137,7 +137,7 @@ g1 <- ggplot(data = world) +
 #Let's see the map
 g1
 
-#################### Number of effect sizes per country ########################
+############ B. Barplot: Number of effect sizes per country ####################
 
 #Let's pick the countries 
 
@@ -167,7 +167,8 @@ g2 <- ggplot(data.frame(countries), aes(x=countries)) +
 #let's see the barplot
 g2
 
-# Let's export both plots together as PNG image
+
+#OK. Now, let's export both plots together as PNG image
 
 png("../Figure/sites.png", res = 300,
     width = 4300, height = 1800, unit = "px")
@@ -179,3 +180,7 @@ cowplot::plot_grid(g1, g2,  axis = "tb", align = "hv",rel_heights = c(1.5,0.5),
 
 
 dev.off()
+
+############################ END ###############################################
+
+
