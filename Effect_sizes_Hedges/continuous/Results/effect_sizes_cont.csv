@@ -1,0 +1,15 @@
+"id_code","study_type","nature_x","total_sample_size","sample_size_control","sample_size_treatment","statistic","value","effect_type","plant_specie","pesticide_effect","yi","vi"
+"C0120","field","continuous",12,6,6,"r",0.481352262,"community","Cajanus cajan","consequences",-1.01538461538462,0.400473372781065
+"C0135","field","continuous",15,2,13,"r",0.574456265,"community","Vaccinium corymbosum","consequences",-1.31764705882353,0.380899653979239
+"C0135","field","continuous",15,2,13,"r",0.538516481,"community","Vaccinium corymbosum","consequences",-1.20470588235294,0.354325259515571
+"C0135","field","continuous",15,2,13,"r",0.529150262,"community","Vaccinium corymbosum","consequences",-1.17647058823529,0.354325259515571
+"C0135","field","continuous",15,2,13,"F",4.58,"community","Vaccinium corymbosum","consequences",-1.53,0.59
+"C0135","field","continuous",15,2,13,"F",4.12,"community","Vaccinium corymbosum","consequences",1.45,0.58
+"C0135","field","continuous",15,2,13,"F",1.16,"community","Vaccinium corymbosum","consequences",0.77,0.53
+"C0135","field","continuous",15,2,13,"F",7.76,"community","Vaccinium corymbosum","consequences",-1.99,0.64
+"C0135","field","continuous",15,2,13,"F",10.08,"community","Vaccinium corymbosum","consequences",-2.27,0.68
+"C0135","field","continuous",15,2,13,"F",1.95,"community","Vaccinium corymbosum","consequences",1,0.54
+"C0135","field","continuous",15,2,13,"F",1.83,"community","Vaccinium corymbosum","consequences",0.97,0.54
+"C0135","field","continuous",15,2,13,"F",5.06,"community","Vaccinium corymbosum","consequences",-1.61,0.6
+"C0135","field","continuous",15,2,13,"F",2.79,"community","Vaccinium corymbosum","consequences",1.19,0.56
+"C0143","field","continuous",22,9,13,"t",3.19,"pollination","Citrullus lanatus","sub_lethal",-1.33,0.21

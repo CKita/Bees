@@ -67,6 +67,10 @@ if (!require(cowplot)){
         library(cowplot)        
 } 
 
+if (!require(tidyverse)){
+        install.packages('tidyverse') 
+        library(tidyverse)        
+} 
 
 ##### A. Cartogram: geographic distribution of effect sizes by study type ######
 
@@ -98,18 +102,19 @@ g1 <- ggplot(data = world) +
         #Plot the sites
         geom_point(data = sites_short, aes(x = Longitude, y = Latitude, 
                                            colour = StudyType), 
-                   alpha = 0.6, size = 2) +
+                   alpha = 0.5, size = 2) +
        
         #Customize the colors and labels
-        scale_color_manual(values = c("#E64B35B2","#00A087B2")) + 
+        
+        scale_color_manual(values = c("sienna1",  "#00A087B2", "slateblue1" )) + 
         labs(colour = "Study type", x = "Longitude", y = "Latitude") +
         theme(panel.grid = element_blank(),
-              legend.text = element_text(size = 10),
-              legend.title = element_text(face = "bold", size = 10),
-              axis.text = element_text(size = 11, colour = "black"),
-              axis.title.x = element_text(size = 12, colour= "black", vjust= -4,
+              legend.text = element_text(size = 12),
+              legend.title = element_text(face = "bold", size = 12),
+              axis.text = element_text(size = 13, colour = "black"),
+              axis.title.x = element_text(size = 13, colour= "black", vjust= -4,
                                           face = "bold"),
-              axis.title.y = element_text(size = 12, colour= "black", vjust = 3,
+              axis.title.y = element_text(size = 13, colour= "black", vjust = 3,
                                           face = "bold"),
               legend.position = c(0.15,0.3),
               legend.background = element_rect(fill = "NA"),
@@ -132,6 +137,12 @@ g1 <- ggplot(data = world) +
 #Check the map.
 g1
 
+#Export the map as PNG image.
+png("../Figure/study sites.png", res = 300,
+    width = 4000, height = 2000, unit = "px")
+g1
+
+dev.off()
 
 ############ B. Barplot: Number of effect sizes per country ####################
 
@@ -142,10 +153,11 @@ countries <- sites$Country
 #Check the number of effect size values per country.
 table(countries)
 
-#Make a barplot.
+#Make a barplot including all effect sizes used in this meta-analysis.
+
 g2 <- ggplot(data.frame(countries), aes(x=countries)) +
       labs( y = "Number of effect sizes", x = "Country") +
-        theme(axis.line = element_line(colour = "black"),
+               theme(axis.line = element_line(colour = "black"),
               panel.grid.major = element_blank(),
               panel.grid.minor = element_blank(),
               panel.border = element_blank(),
@@ -162,13 +174,145 @@ g2 <- ggplot(data.frame(countries), aes(x=countries)) +
 #Check the barplot.
 g2
 
+#Export the barplot as PNG image.
+png("../Figure/effect sizes.png", res = 300,
+    width = 2000, height = 2000, unit = "px")
+g2
+
+dev.off()
+
 #Export both plots together as a single PNG image.
 png("../Figure/sites.png", res = 300,
-    width = 4300, height = 1800, unit = "px")
+    width = 6500, height = 1800, unit = "px")
 
-cowplot::plot_grid(g1, g2,  axis = "tb", align = "hv",rel_heights = c(1.5,0.5), 
-                   rel_widths = c(2,1.5),
-                  labels = c("A", "B"))
+cowplot::plot_grid(g1, g2,  axis = "tb", rel_heights = c(1.5,0.5), 
+                   rel_widths = c(2,1.5), align = 'hv',
+                   labels = c("A", "B"))
+
+dev.off()
+
+#---
+
+#Make a barplot including all effect sizes of the lethal effects. 
+
+#select the lethal effects
+let <- sites %>%
+        filter_all(any_vars(str_detect(., pattern = "Lethal effect")))
+
+#Pick the countries.
+countriesLet <- let$Country
+
+#Check the number of effect size values per country.
+table(countriesLet)
+
+#plot
+g3 <- ggplot(data.frame(countriesLet), aes(x=countriesLet)) +
+        labs( y = "Number of effect sizes", x = "Country") +
+        theme(axis.line = element_line(colour = "black"),
+              panel.grid.major = element_blank(),
+              panel.grid.minor = element_blank(),
+              panel.border = element_blank(),
+              panel.background = element_blank(),          
+              panel.grid = element_blank(),
+              axis.text = element_text(size = 12, colour = "black"),
+              axis.title.x = element_text(size = 12, colour = "black", vjust =-3,
+                                          face = "bold"),
+              axis.title.y = element_text(size = 12, colour = "black", vjust = 3,
+                                          face = "bold"),
+              plot.margin = unit(c(1,1,1,1), "lines")) +
+        geom_bar(fill ="lightgray") 
+
+#Check the barplot.
+g3
+
+#Export the barplot as PNG image.
+png("../Figure/effect sizes lethal.png", res = 300,
+    width = 2000, height = 2000, unit = "px")
+g3
+
+dev.off()
+
+#---
+
+#Make a barplot including all effect sizes of the sublethal effects. 
+
+#select the sublethal effects
+
+sub <- sites %>%
+        filter_all(any_vars(str_detect(., pattern = "Sublethal effect")))
+
+#Pick the countries.
+countriesSub <- sub$Country
+
+#Check the number of effect size values per country.
+table(countriesSub)
+
+#plot
+g4 <- ggplot(data.frame(countriesSub), aes(x=countriesSub)) +
+        labs( y = "Number of effect sizes", x = "Country") +
+        theme(axis.line = element_line(colour = "black"),
+              panel.grid.major = element_blank(),
+              panel.grid.minor = element_blank(),
+              panel.border = element_blank(),
+              panel.background = element_blank(),          
+              panel.grid = element_blank(),
+              axis.text = element_text(size = 12, colour = "black"),
+              axis.title.x = element_text(size = 12, colour = "black", vjust =-3,
+                                          face = "bold"),
+              axis.title.y = element_text(size = 12, colour = "black", vjust = 3,
+                                          face = "bold"),
+              plot.margin = unit(c(1,1,1,1), "lines")) +
+        geom_bar(fill ="lightgray") 
+
+#Check the barplot.
+g4
+
+#Export the barplot as PNG image.
+png("../Figure/effect sizes sublethal.png", res = 300,
+    width = 2000, height = 2000, unit = "px")
+g4
+
+dev.off()
+
+#---
+
+#Make a barplot including all effect sizes of the consequences of pesticides 
+#application 
+
+conseq <- sites %>%
+        filter_all(any_vars(str_detect(., 
+                pattern="Consequences of pesticide application")))
+
+#Pick the countries.
+countriesConseq <- conseq$Country
+
+#Check the number of effect size values per country.
+table(countriesConseq)
+
+#plot
+g5 <- ggplot(data.frame(countriesConseq), aes(x=countriesConseq)) +
+        labs( y = "Number of effect sizes", x = "Country") +
+        theme(axis.line = element_line(colour = "black"),
+              panel.grid.major = element_blank(),
+              panel.grid.minor = element_blank(),
+              panel.border = element_blank(),
+              panel.background = element_blank(),          
+              panel.grid = element_blank(),
+              axis.text = element_text(size = 12, colour = "black"),
+              axis.title.x = element_text(size = 12, colour = "black", vjust =-3,
+                                          face = "bold"),
+              axis.title.y = element_text(size = 12, colour = "black", vjust = 3,
+                                          face = "bold"),
+              plot.margin = unit(c(1,1,1,1), "lines")) +
+        geom_bar(fill ="lightgray") 
+
+#Check the barplot.
+g5
+
+#Export the barplot as PNG image.
+png("../Figure/effect sizes consequences.png", res = 300,
+    width = 2000, height = 2000, unit = "px")
+g5
 
 dev.off()
 
