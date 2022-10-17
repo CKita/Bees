@@ -81,35 +81,37 @@ The data and scripts provided here aim at making our study fully reproducible. Y
 
 ### **Effect_sizes_Hedges (folder)**
 
-    *categorical (folder)*
+*categorical (folder)*
 
-    -   Data (folder)
+   -   Data (folder)
 
-        a.  cat.csv -\> data frame with raw categorical data.
-        b.  planilha_bruta.csv -\> raw data.
+       a.  cat.csv -\> data frame with raw categorical data.
+         
+       b.  planilha_bruta.csv -\> raw data.
         
-    -   Code (folder)
+   -   Code (folder)
     
-        a.  effect_sizes_cat.R -\> script formatted as a tutorial to help you calculate categorical effect sizes.
+       a.  effect_sizes_cat.R -\> script formatted as a tutorial to help you calculate categorical effect sizes.
         
-    -   Results (folder)
+   -   Results (folder)
         
-        a. effect_sizes_cat.csv -\> data frame with raw categorical data and effect sizes.
+       a.  effect_sizes_cat.csv -\> data frame with raw categorical data and effect sizes.
     
-    *continuous (folder)*
+ *continuous (folder)*
 
-    -   Data (folder)
+   -   Data (folder)
 
-        a.  continuous.csv -\> data frame with raw categorical data.
-        b.  planilha_bruta.csv -\> raw data.
+       a.  continuous.csv -\> data frame with raw categorical data.
+         
+       b.  planilha_bruta.csv -\> raw data.
         
-    -   Code (folder)
+   -   Code (folder)
     
-        a.  effect_sizes_cont.R -\> script formatted as a tutorial to help you calculate continuous effect sizes.
+       a.  effect_sizes_cont.R -\> script formatted as a tutorial to help you calculate continuous effect sizes.
         
-    -   Results (folder)
+  -   Results (folder)
         
-        a. effect_sizes_cont.csv -\> data frame with raw continuous data and effect sizes.
+       a. effect_sizes_cont.csv -\> data frame with raw continuous data and effect sizes.
         
 ### **Study sites (folder)**
 
@@ -120,10 +122,15 @@ The data and scripts provided here aim at making our study fully reproducible. Y
 2.  Figures (folder)
 
     a.  sites.png -\> geographic distribution of the study sites and number of effect size values recorded per country.
+    
     b.  study sites.png -\> geographic distribution of the study sites. 
+    
     c.  effect sizes.png -\> number of effect size values recorded per country of all studies used in our meta-analysis. 
+    
     d.  effect sizes lethal.png -\> number of lethal effect size values recorded per country.
+    
     e.  effect sizes sublethal.png -\> number of sublethal effect size values recorded per country.
+    
     f.  effect sizes consequences.png -\> number of effect size values of the consequences of lethal and sublethal effects recorded per country.
 
 3.  Code (folder)
