@@ -20,78 +20,97 @@ The data and scripts provided here aim at making our study fully reproducible. Y
 
 ## List of folders and files
 
-### **Bee survival (folder)**
+### **Lethal effect (folder)**
 
 1.  Data (folder)
 
-    a.  dados_sobrevivencia.csv -\> data frame with raw data.
+    a.  lethal.csv -\> data frame with raw data.
 
     b.  data.comp.csv -\> data frame with raw data and effect sizes.
 
-    c.  data.comp.2 -\> data frame with raw and effect sizes.
-
-    d.  survival_sensi_out2.csv -\> data frame used in the sensibility test.
+    c.  let_sensi_out.csv -\> data frame used in the sensibility test.
 
 2.  Figures (folder)
 
-    a.  survival.tiff -\> overall effect size of pesticide application on bee survival.
+    a.  lethal.tiff -\> mean lethal effect size of pesticide application on bees.
 
-    b.  survival_sensibility_test.tiff -\> overall effect size of pesticide application on bee survival without outliers.
+    b.  lethal_sensibility_test.tiff -\> mean lethal effect size of pesticide application on bees without outliers.
+    
+    c.  publication_bias.tiff -\> visual analysis of publication bias. 
 
 3.  Code (folder)
 
-    a.  effect_sizes_model_survival.R -\> main script formatted as a tutorial to help you reproduce the analyses and figures.
+    a.  Lethal effect.R -\> main script formatted as a tutorial to help you reproduce the analyses and figures.
 
-### **Lethal and Sublethal (folder)**
+### **Sublethal effect (folder)**
 
 1.  Data (folder)
 
-    a.  let_sublet.csv -\> data frame with raw data and effect sizes.
+    a.  sub.csv -\> data frame with raw data and effect sizes.
 
-    b.  let.csv -\> data frame with raw data and effect sizes of lethal effects.
-
-    c.  sub.csv -\> data frame with raw data and effect sizes of sublethal effects.
-
-    d.  sub_sensi_out.csv -\> data frame used in the sensibility test.
-
-    *effect sizes (folder)*
-
-    -   categorical (folder)
-
-        a.  cat.csv -\> data frame with raw categorical data.
-
-        b.  effect_sizes_cat.csv -\> data frame with categorical data and effect sizes.
-
-        c.  planilha_bruta.csv -\> raw data.
-
-    -   continuous (folder)
-
-        a.  continuous.csv -\> data frame with raw continuous data.
-
-        b.  effect_sizes_cont.csv -\> data frame with raw continuous data and effect sizes.
-
+    b.  sub_sensi_out.csv -\> data frame used in the sensibility test.
+            
 2.  Figures (folder)
 
-    a.  overall.tiff -\> overall effect sizes of pesticide application on the bee community and its pollination service.
+    a.  sublethal.tiff -\> mean sublethal effect size of pesticide application on bees. 
 
-    b.  let_sublet.tiff -\> mean effect sizes of lethal and sublethal effects of pesticide application on the bee community and its pollination service.
+    b.  sensibility_test_sublet.tiff -\> mean sublethal effect size of pesticide application on bees without outliers.
 
-    c.  sensibility_test_sublet.tiff -\> mean sublethal effect sizes of pesticide application on the bee community and its pollination service without outliers.
+    c.  publication_bias.tiff -\> visual analysis of publication bias.
 
 3.  Code (folder)
 
-    a.  script_modelos_letal_subletal.R -\> main script formatted as a tutorial to help you reproduce the analyses and figures.
+    a.  Sublethal effect.R -\> main script formatted as a tutorial to help you reproduce the analyses and figures.
 
-    *effect sizes(folder)*
+### **Consequences of lethal and sublethal effects (folder)**
 
-    -   categorical (folder)
+1.  Data (folder)
 
+    a.  consequences.csv -\> data frame with raw data and effect sizes.
+               
+2.  Figures (folder)
+
+    a.  consequences_let_sub.tiff -\> mean effect sizes of the consequences of lethal and sublethal effects for the bee
+        communities that could impair their pollination service within agricultural crop fields.
+
+    b.  publication_bias.tiff -\> visual analysis of publication bias.
+
+3.  Code (folder)
+
+    a.  Consequences.R -\> main script formatted as a tutorial to help you reproduce the analyses and figures.
+
+### **Effect_sizes_Hedges (folder)**
+
+    *categorical (folder)*
+
+    -   Data (folder)
+
+        a.  cat.csv -\> data frame with raw categorical data.
+        b.  planilha_bruta.csv -\> raw data.
+        
+    -   Code (folder)
+    
         a.  effect_sizes_cat.R -\> script formatted as a tutorial to help you calculate categorical effect sizes.
+        
+    -   Results (folder)
+        
+        a. effect_sizes_cat.csv -\> data frame with raw categorical data and effect sizes.
+    
+    *continuous (folder)*
 
-    -   continuous (folder)
+    -   Data (folder)
 
+        a.  continuous.csv -\> data frame with raw categorical data.
+        b.  planilha_bruta.csv -\> raw data.
+        
+    -   Code (folder)
+    
         a.  effect_sizes_cont.R -\> script formatted as a tutorial to help you calculate continuous effect sizes.
-
+        
+    -   Results (folder)
+        
+        a. effect_sizes_cont.csv -\> data frame with raw continuous data and effect sizes.
+        
 ### **Study sites (folder)**
 
 1.  Data (folder)
@@ -101,6 +120,11 @@ The data and scripts provided here aim at making our study fully reproducible. Y
 2.  Figures (folder)
 
     a.  sites.png -\> geographic distribution of the study sites and number of effect size values recorded per country.
+    b.  study sites.png -\> geographic distribution of the study sites. 
+    c.  effect sizes.png -\> number of effect size values recorded per country of all studies used in our meta-analysis. 
+    d.  effect sizes lethal.png -\> number of lethal effect size values recorded per country.
+    e.  effect sizes sublethal.png -\> number of sublethal effect size values recorded per country.
+    f.  effect sizes consequences.png -\> number of effect size values of the consequences of lethal and sublethal effects recorded per country.
 
 3.  Code (folder)
 
