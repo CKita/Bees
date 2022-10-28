@@ -8,7 +8,7 @@ Authors: Cristina A. Kita, Laura C. Leal & Marco A. R. Mello.
 
 E-mail: [c.akemikita\@gmail.com](mailto:c.akemikita@gmail.com){.email}.
 
-Fisrt published on August 19th, 2022.
+First published on August 19th, 2022.
 
 Run in R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid".
 
