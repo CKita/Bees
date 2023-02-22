@@ -1,58 +1,66 @@
-id_code,study_type,nature_x,total_sample_size,sample_size_control,mean_control,sd_control,sample_size_treatment,mean_treatment,sd_treatment,effect_type,plant_specie,pesticide_effect
-C0073,laboratory,categorical,30,15,71.72,56.25,15,20.78,45,pollination,NA,sub_lethal
-C0073,laboratory,categorical,30,15,71.72,56.25,15,11.41,20.78,pollination,NA,sub_lethal
-C0073,laboratory,categorical,30,15,71.72,56.25,15,14.37,20.47,pollination,NA,sub_lethal
-C0074,laboratory,categorical,68,34,91.42,22.04,34,83.09,33.82,community,NA,sub_lethal
-C0074,laboratory,categorical,68,34,32.7,16.91,34,19.1,11.08,community,NA,sub_lethal
-C0074,laboratory,categorical,68,34,0.42,0.93,34,0.29,0.82,community,NA,sub_lethal
-C0091,laboratory,categorical,60,30,714.13,154.96,30,421.6,60.48,community,NA,sub_lethal
-C0091,laboratory,categorical,60,30,714.13,154.96,30,407.2,54.94,community,NA,sub_lethal
-C0091,laboratory,categorical,60,30,714.13,154.96,30,606.4,73.81,community,NA,sub_lethal
-C0091,laboratory,categorical,60,30,714.13,154.96,30,305.6,56.88,community,NA,sub_lethal
-C0091,laboratory,categorical,60,30,679.2,98.71,30,56,4.2,community,NA,sub_lethal
-C0091,laboratory,categorical,60,30,679.2,98.71,30,147.2,19.89,community,NA,sub_lethal
-C0091,laboratory,categorical,60,30,679.2,98.71,30,292.8,24.53,community,NA,sub_lethal
-C0091,laboratory,categorical,60,30,679.2,98.71,30,115.2,12.47,community,NA,sub_lethal
-C0096,field,categorical,8,4,386.58,150.32,4,357.94,211.18,pollination,Mangifera spp.,sub_lethal
-C0096,field,categorical,8,4,117.41,97.24,4,229.13,48.62,pollination,Mangifera spp.,sub_lethal
-C0096,field,categorical,8,4,7224.08,1846.16,4,5979.93,4595.32,community,Mangifera spp.,sub_lethal
-C0096,field,categorical,8,4,496.86,252.92,4,377.58,71.76,community,Mangifera spp.,sub_lethal
-C0098,field,categorical,12,5,6.43,2.68,7,5.21,1.96,community,mixture,consequences
-C0098,field,categorical,12,5,1.66,0.8,7,0.39,0.21,community,mixture,consequences
-C0098,field,categorical,12,5,0.91,0.4,7,0.38,0.24,community,mixture,consequences
-C0141,laboratory,categorical,14,7,47.18,19.61,7,29.5,9.37,community,NA,sub_lethal
-C0141,laboratory,categorical,14,7,47.18,19.61,7,36.57,7.06,community,NA,sub_lethal
-C0141,laboratory,categorical,14,7,47.18,19.61,7,15.02,4.58,community,NA,sub_lethal
-C0144,field,categorical,10,4,628.07,618.24,6,287.05,222.34,pollination,Citrullus lanatus,sub_lethal
-C0144,field,categorical,10,4,3.98,0.84,6,3.59,1.49,community,Citrullus lanatus,consequences
-C0144,field,categorical,10,4,30.85,33.18,6,24.16,16.09,community,Citrullus lanatus,consequences
-C0151,laboratory,categorical,20,10,7.58,3.42,10,7.29,1.9,pollination,NA,sub_lethal
-C0151,laboratory,categorical,20,10,7.58,3.42,10,10.26,2.56,pollination,NA,sub_lethal
-C0151,laboratory,categorical,20,10,7.58,3.42,10,7.78,2.41,pollination,NA,sub_lethal
-C0151,laboratory,categorical,20,10,7.58,3.42,10,6.11,3.08,pollination,NA,sub_lethal
-C0151,laboratory,categorical,20,10,7.58,3.42,10,1.73,1.21,pollination,NA,sub_lethal
-C0151,laboratory,categorical,20,10,19.44,9.93,10,20.35,7.22,community,NA,sub_lethal
-C0151,laboratory,categorical,20,10,19.44,9.93,10,25.9,7.78,community,NA,sub_lethal
-C0151,laboratory,categorical,20,10,19.44,9.93,10,18.47,8.06,community,NA,sub_lethal
-C0151,laboratory,categorical,20,10,19.44,9.93,10,10.55,6.88,community,NA,sub_lethal
-C0151,laboratory,categorical,20,10,19.44,9.93,10,1.94,2.99,community,NA,sub_lethal
-C0161,field,categorical,18,9,165,33,9,158,31,community,Triticum ssp.,consequences
-C0161,field,categorical,18,9,27,3,9,25,2,community,Triticum ssp.,consequences
-C0161,field,categorical,18,9,0.8,0.02,9,0.85,0.02,community,Triticum ssp.,consequences
-C0177,field,categorical,36,18,17.11,9.42,18,15.46,13.45,community,Triticum ssp.,consequences
-C0177,field,categorical,36,18,6.18,6.96,18,5.97,9.55,community,Triticum ssp.,consequences
-C0177,field,categorical,36,18,42.13,42.72,18,31.73,19.22,community,Triticum ssp.,consequences
-C0177,field,categorical,36,18,55.17,57.87,18,38.59,60.75,community,Triticum ssp.,consequences
-C0177,field,categorical,36,18,3.78,1.32,18,3.56,1.23,community,Triticum ssp.,consequences
-C0177,field,categorical,36,18,2.89,1.74,18,2.11,2.04,community,Triticum ssp.,consequences
-C0177,field,categorical,36,18,10.54,6.83,18,9.62,5.01,community,Triticum ssp.,consequences
-C0177,field,categorical,36,18,13.64,10.78,18,10.4,10.39,community,Triticum ssp.,consequences
-C0180,laboratory,categorical,147,73,1.75,1.88,74,1.72,1.89,community,NA,sub_lethal
-C0180,laboratory,categorical,144,73,1.75,1.88,71,0.96,1.35,community,NA,sub_lethal
-C0189,laboratory,categorical,180,90,0.73,0.47,90,0.42,0.47,pollination,NA,sub_lethal
-C0189,laboratory,categorical,180,90,0.73,0.47,90,0.48,0.47,pollination,NA,sub_lethal
-C0189,laboratory,categorical,180,90,0.49,0.47,90,0.3,0.47,pollination,NA,sub_lethal
-C0189,laboratory,categorical,180,90,0.49,0.47,90,0.39,0.47,pollination,NA,sub_lethal
-C0189,laboratory,categorical,180,90,0.32,0.47,90,0.07,0.19,pollination,NA,sub_lethal
-C0189,laboratory,categorical,180,90,0.67,0.47,90,0.59,0.57,pollination,NA,sub_lethal
-C0197,field ,categorical,18,8,2.9,1.98,10,3.5,2.53,community,Prunus dulcis,consequences
+id_code;study_type;nature_x;total_sample_size;sample_size_control;mean_control;sd_control;sample_size_treatment;mean_treatment;sd_treatment;effect_type;plant_specie;pesticide_effect
+C0073;laboratory;categorical;30;15;71.72;56.25;15;20.78;45;pollination;NA;sub_lethal
+C0073;laboratory;categorical;30;15;71.72;56.25;15;11.41;20.78;pollination;NA;sub_lethal
+C0073;laboratory;categorical;30;15;71.72;56.25;15;14.37;20.47;pollination;NA;sub_lethal
+C0074;laboratory;categorical;68;34;91.42;22.04;34;83.09;33.82;community;NA;sub_lethal
+C0074;laboratory;categorical;68;34;32.7;16.91;34;19.1;11.08;community;NA;sub_lethal
+C0074;laboratory;categorical;68;34;0.42;0.93;34;0.29;0.82;community;NA;sub_lethal
+C0091;laboratory;categorical;60;30;714.13;848.75;30;421.6;331.26;community;NA;sub_lethal
+C0091;laboratory;categorical;60;30;714.13;848.75;30;407.2;300.92;community;NA;sub_lethal
+C0091;laboratory;categorical;60;30;714.13;848.75;30;606.4;404.27;community;NA;sub_lethal
+C0091;laboratory;categorical;60;30;714.13;848.75;30;305.6;311.54;community;NA;sub_lethal
+C0091;laboratory;categorical;60;30;679.2;540.66;30;56;23;community;NA;sub_lethal
+C0091;laboratory;categorical;60;30;679.2;540.66;30;147.2;108.94;community;NA;sub_lethal
+C0091;laboratory;categorical;60;30;679.2;540.66;30;292.8;134.36;community;NA;sub_lethal
+C0091;laboratory;categorical;60;30;679.2;540.66;30;115.2;68.3;community;NA;sub_lethal
+C0096;field;categorical;8;4;386.58;150.32;4;357.94;211.18;pollination;Mangifera spp.;sub_lethal
+C0096;field;categorical;8;4;117.41;97.24;4;229.13;48.62;pollination;Mangifera spp.;sub_lethal
+C0096;field;categorical;8;4;7224.08;1846.16;4;5979.93;4595.32;community;Mangifera spp.;sub_lethal
+C0096;field;categorical;8;4;496.86;252.92;4;377.58;71.76;community;Mangifera spp.;sub_lethal
+C0098;field;categorical;12;5;6.43;2.68;7;5.21;1.96;community;mixture;consequences
+C0098;field;categorical;12;5;1.66;0.8;7;0.39;0.21;community;mixture;consequences
+C0098;field;categorical;12;5;0.91;0.4;7;0.38;0.24;community;mixture;consequences
+C0141;laboratory;categorical;14;7;47.18;19.61;7;29.5;9.37;community;NA;sub_lethal
+C0141;laboratory;categorical;14;7;47.18;19.61;7;36.57;7.06;community;NA;sub_lethal
+C0141;laboratory;categorical;14;7;47.18;19.61;7;15.02;4.58;community;NA;sub_lethal
+C0144;field;categorical;10;4;628.07;618.24;6;287.05;222.34;pollination;Citrullus lanatus;sub_lethal
+C0144;field;categorical;10;4;3.98;0.84;6;3.59;1.49;community;Citrullus lanatus;consequences
+C0144;field;categorical;10;4;30.85;33.18;6;24.16;16.09;community;Citrullus lanatus;consequences
+C0151;laboratory;categorical;20;10;7.58;3.42;10;7.29;1.9;pollination;NA;sub_lethal
+C0151;laboratory;categorical;20;10;7.58;3.42;10;10.26;2.56;pollination;NA;sub_lethal
+C0151;laboratory;categorical;20;10;7.58;3.42;10;7.78;2.41;pollination;NA;sub_lethal
+C0151;laboratory;categorical;20;10;7.58;3.42;10;6.11;3.08;pollination;NA;sub_lethal
+C0151;laboratory;categorical;20;10;7.58;3.42;10;1.73;1.21;pollination;NA;sub_lethal
+C0151;laboratory;categorical;20;10;19.44;9.93;10;20.35;7.22;community;NA;sub_lethal
+C0151;laboratory;categorical;20;10;19.44;9.93;10;25.9;7.78;community;NA;sub_lethal
+C0151;laboratory;categorical;20;10;19.44;9.93;10;18.47;8.06;community;NA;sub_lethal
+C0151;laboratory;categorical;20;10;19.44;9.93;10;10.55;6.88;community;NA;sub_lethal
+C0151;laboratory;categorical;20;10;19.44;9.93;10;1.94;2.99;community;NA;sub_lethal
+C0161;field;categorical;18;9;165;93;9;158;99;community;Triticum ssp.;consequences
+C0161;field;categorical;18;9;27;9;9;25;6;community;Triticum ssp.;consequences
+C0161;field;categorical;18;9;0.8;0.06;9;0.85;0.06;community;Triticum ssp.;consequences
+C0177;field;categorical;36;18;17.11;9.42;18;15.46;13.45;community;Triticum ssp.;consequences
+C0177;field;categorical;36;18;6.18;6.96;18;5.97;9.55;community;Triticum ssp.;consequences
+C0177;field;categorical;36;18;42.13;42.72;18;31.73;19.22;community;Triticum ssp.;consequences
+C0177;field;categorical;36;18;55.17;57.87;18;38.59;60.75;community;Triticum ssp.;consequences
+C0177;field;categorical;36;18;3.78;1.32;18;3.56;1.23;community;Triticum ssp.;consequences
+C0177;field;categorical;36;18;2.89;1.74;18;2.11;2.04;community;Triticum ssp.;consequences
+C0177;field;categorical;36;18;10.54;6.83;18;9.62;5.01;community;Triticum ssp.;consequences
+C0177;field;categorical;36;18;13.64;10.78;18;10.4;10.39;community;Triticum ssp.;consequences
+C0180;laboratory;categorical;147;73;1.75;1.88;74;1.72;1.89;community;NA;sub_lethal
+C0180;laboratory;categorical;144;73;1.75;1.88;71;0.96;1.35;community;NA;sub_lethal
+C0189;laboratory;categorical;180;90;0.73;0.47;90;0.42;0.47;pollination;NA;sub_lethal
+C0189;laboratory;categorical;180;90;0.73;0.47;90;0.48;0.47;pollination;NA;sub_lethal
+C0189;laboratory;categorical;180;90;0.49;0.47;90;0.3;0.47;pollination;NA;sub_lethal
+C0189;laboratory;categorical;180;90;0.49;0.47;90;0.39;0.47;pollination;NA;sub_lethal
+C0189;laboratory;categorical;180;90;0.32;0.47;90;0.07;0.19;pollination;NA;sub_lethal
+C0189;laboratory;categorical;180;90;0.67;0.47;90;0.59;0.57;pollination;NA;sub_lethal
+C0197;field ;categorical;18;8;2.9;1.98;10;3.5;2.53;community;Prunus dulcis;consequences
+C2003;field;categorical;8;4;85.5;131;4;57.5;111;community;Brassica napus;consequences
+C2019;laboratory;categorical;40;20;1600;447.21;20;1320;223.61;pollination;NA;sub_lethal
+C2019;laboratory;categorical;40;20;1600;447.21;20;4320;2414.95;pollination;NA;sub_lethal
+C2019;laboratory;categorical;40;20;1111.11;479.37;20;1267.97;257.24;pollination;NA;sub_lethal
+C2019;laboratory;categorical;40;20;1111.11;479.37;20;562.09;409.2;pollination;NA;sub_lethal
+C2020;laboratory;categorical;10;5;43.2;25;5;12.2;8.5;community;NA;sub_lethal
+C2020;laboratory;categorical;10;5;2.36;1.2;5;0.91;0.3;community;NA;sub_lethal
+C2020;laboratory;categorical;10;5;0.27;0.02;5;0.14;0.09;community;NA;sub_lethal

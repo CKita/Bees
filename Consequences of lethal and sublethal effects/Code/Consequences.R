@@ -59,11 +59,12 @@ if(!require(tidyverse)){
 
 # First, let's see our data set
 
-conseq <- read.csv("../Data/consequences.csv", h= T, dec =".", sep = ",")
+conseq <- read.csv("../Data/consequences.csv", h= T, dec =".", sep = ";")
 class(conseq)
 str(conseq)
 head(conseq)
 tail(conseq)
+
 
 #Change some columns to the class "factor" 
 

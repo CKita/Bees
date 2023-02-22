@@ -76,12 +76,11 @@ if (!require(tidyverse)){
 
 
 # First, let's import and check our data set.
-sites <- read.csv("../Data/sites.csv", h= T, sep = ",")
+sites <- read.csv("../Data/sites.csv", h= T, sep = ";")
 class(sites)
 str(sites)
 head(sites)
 tail(sites)
-
 
 #Now, select the columns with the coordinates and study type.
 sites_short <- sites %>% 
@@ -136,6 +135,10 @@ g1 <- ggplot(data = world) +
 
 #Check the map.
 g1
+
+#obs: if the degree symbol of the coordinates did not appear, try this: 
+#Change the graphics to Cairo 
+#Tools -> Global Options -> Graphics -> Backend 
 
 #Export the map as PNG image.
 png("../Figure/study sites.png", res = 300,
@@ -313,6 +316,56 @@ g5
 png("../Figure/effect sizes consequences.png", res = 300,
     width = 2000, height = 2000, unit = "px")
 g5
+
+dev.off()
+
+############ C. Barplot: Number of studies per country #########################
+
+studies <- read.csv("../Data/sites_country.csv", h= T, sep = ";")
+class(studies)
+str(studies)
+head(studies)
+tail(studies)
+
+#Now, select the columns with the coordinates and study type.
+studies_short <- studies %>% 
+  dplyr::select(Latitude, Longitude, StudyType)
+
+#Check the data.
+head(studies_short)
+
+#Pick the countries.
+studies_c <- studies$Country
+
+#Check the number of effect size values per country.
+table(studies_c)
+
+
+#Make a barplot including all studies used in this meta-analysis.
+
+g6 <- ggplot(data.frame(studies_c), aes(x=studies_c)) +
+  labs( y = "Number of studies", x = "Country") +
+  theme(axis.line = element_line(colour = "black"),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_blank(),
+        panel.background = element_blank(),          
+        panel.grid = element_blank(),
+        axis.text = element_text(size = 8.5, colour = "black"),
+        axis.title.x = element_text(size = 12, colour = "black", vjust =-3,
+                                    face = "bold"),
+        axis.title.y = element_text(size = 12, colour = "black", vjust = 3,
+                                    face = "bold"),
+        plot.margin = unit(c(1,1,1,1), "lines")) +
+  geom_bar(fill ="lightgray") 
+
+#Check the barplot.
+g6
+
+#Export the barplot as PNG image.
+png("../Figure/studies.png", res = 300,
+    width = 2000, height = 2000, unit = "px")
+g6
 
 dev.off()
 

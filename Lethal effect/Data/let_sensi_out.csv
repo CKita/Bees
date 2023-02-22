@@ -1,13 +1,14 @@
-id_code,ai,bi,ci,di,n1i,n2i,bee_specie,exposure_type,agrochemical,hours_after_exposure ,yi,vi
-C0069,0,80,20,60,80,80,melipona_scutellaris,orally,pyraclostrobin,360,-3.999185886,2.077731774
-C0069,0,80,10,70,80,80,melipona_scutellaris,orally,pyraclostrobin,456,-3.177166912,2.121844853
-C0069,0,80,5,75,80,80,melipona_scutellaris,orally,pyraclostrobin,552,-2.462019801,2.207485575
-C0084,31,29,60,0,60,60,tetragonisca_fiebrigi,orally,acetamiprid,48,-4.730193263,2.082173262
-C0084,49,11,60,0,60,60,plebeia_emerina,topically,acetamiprid,48,-3.336164911,2.123687468
-C0084,26,34,60,0,60,60,tetragonisca_fiebrigi,topically,acetamiprid,48,-5.059605137,2.083250282
-C0093,0,15,10,5,15,15,melipona_quadrifasciata,orally,imidacloroprid,960,-4.080614369,2.341572406
-C0093,0,15,10,5,15,15,melipona_quadrifasciata,orally,imidacloroprid,960,-4.080614369,2.341572406
-C0191,27,3,30,0,30,30,scaptotrigona_xanthotrica,topically,azadirachtin,24,-2.049450828,2.354864807
-C0191,26,4,30,0,30,30,scaptotrigona_xanthotrica,topically,chlorantraniliprole,24,-2.337806528,2.292744957
-C0191,25,5,30,0,30,30,partamona_helleri,orally,chlorantraniliprole,24,-2.576943504,2.253820753
-C0191,27,3,30,0,30,30,scaptotrigona_xanthotrica,orally,azadirachtin,24,-2.049450828,2.354864807
+id_code;ai;bi;ci;di;n1i;n2i;bee_species;exposure_type;pesticide_applied;hours_after_exposure;bee_stage;yi;vi
+C0069;0;80;20;60;80;80;melipona_scutellaris;orally;pyraclostrobin;360;adult;-3.9991859;2.0777318
+C0069;0;80;10;70;80;80;melipona_scutellaris;orally;pyraclostrobin;456;adult;-3.1771669;2.1218449
+C0069;0;80;5;75;80;80;melipona_scutellaris;orally;pyraclostrobin;552;adult;-2.4620198;2.2074856
+C0073;4;11;10;5;15;15;melipona_quadrifasciata;orally;imidacloroprid;168;adult;-1.7047481;0.6409091
+C0084;31;29;60;0;60;60;tetragonisca_fiebrigi;orally;acetamiprid;48;adult;-4.7301933;2.0821733
+C0084;49;11;60;0;60;60;plebeia_emerina;topically;acetamiprid;48;adult;-3.3361649;2.1236875
+C0084;26;34;60;0;60;60;tetragonisca_fiebrigi;topically;acetamiprid;48;adult;-5.0596051;2.0832503
+C0093;0;75;50;25;75;75;melipona_quadrifasciata;orally;imidacloroprid;960;larvae;-5.7005747;2.0722627
+C0093;0;75;50;25;75;75;melipona_quadrifasciata;orally;imidacloroprid;960;larvae;-5.7005747;2.0722627
+C0191;27;3;30;0;30;30;scaptotrigona_xanthotrica;topically;azadirachtin;24;adult;-2.0494508;2.3548648
+C0191;26;4;30;0;30;30;scaptotrigona_xanthotrica;topically;chlorantraniliprole;24;adult;-2.3378065;2.292745
+C0191;25;5;30;0;30;30;partamona_helleri;orally;chlorantraniliprole;24;adult;-2.5769435;2.2538208
+C0191;27;3;30;0;30;30;scaptotrigona_xanthotrica;orally;azadirachtin;24;adult;-2.0494508;2.3548648

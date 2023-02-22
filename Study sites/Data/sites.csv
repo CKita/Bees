@@ -1,114 +1,117 @@
-id_code,Country,Location,StudyType,Latitude,Longitude ,Precision
-C0069,Brazil,Sao Paulo,Lethal effect,-22.39575685,-47.54413552,Not Precise 
-C0069,Brazil,Sao Paulo,Lethal effect,-22.39575685,-47.54413552,Not Precise 
-C0069,Brazil,Sao Paulo,Lethal effect,-22.39575685,-47.54413552,Not Precise 
-C0073,Brazil,Goias,Lethal effect,-16.60302552,-49.26056135,Not Precise 
-C0073,Brazil,Goias,Lethal effect,-16.60302552,-49.26056135,Not Precise 
-C0073,Brazil,Goias,Lethal effect,-16.60302552,-49.26056135,Not Precise 
-C0084,Brazil,Rio Grande do Sul,Lethal effect,-31.802349,-52.41556572,Not Precise 
-C0084,Brazil,Rio Grande do Sul,Lethal effect,-31.802349,-52.41556572,Not Precise 
-C0084,Brazil,Rio Grande do Sul,Lethal effect,-31.802349,-52.41556572,Not Precise 
-C0084,Brazil,Rio Grande do Sul,Lethal effect,-31.802349,-52.41556572,Not Precise 
-C0084,Brazil,Rio Grande do Sul,Lethal effect,-31.802349,-52.41556572,Not Precise 
-C0084,Brazil,Rio Grande do Sul,Lethal effect,-31.802349,-52.41556572,Not Precise 
-C0084,Brazil,Rio Grande do Sul,Lethal effect,-31.802349,-52.41556572,Not Precise 
-C0084,Brazil,Rio Grande do Sul,Lethal effect,-31.802349,-52.41556572,Not Precise 
-C0084,Brazil,Rio Grande do Sul,Lethal effect,-31.802349,-52.41556572,Not Precise 
-C0084,Brazil,Rio Grande do Sul,Lethal effect,-31.802349,-52.41556572,Not Precise 
-C0084,Brazil,Rio Grande do Sul,Lethal effect,-31.802349,-52.41556572,Not Precise 
-C0084,Brazil,Rio Grande do Sul,Lethal effect,-31.802349,-52.41556572,Not Precise 
-C0084,Brazil,Rio Grande do Sul,Lethal effect,-31.802349,-52.41556572,Not Precise 
-C0084,Brazil,Rio Grande do Sul,Lethal effect,-31.802349,-52.41556572,Not Precise 
-C0084,Brazil,Rio Grande do Sul,Lethal effect,-31.802349,-52.41556572,Not Precise 
-C0084,Brazil,Rio Grande do Sul,Lethal effect,-31.802349,-52.41556572,Not Precise 
-C0093,Brazil,Minas Gerais ,Lethal effect,-20.76763505,-42.85878545,Precise 
-C0093,Brazil,Minas Gerais ,Lethal effect,-20.76763505,-42.85878545,Precise 
-C0189,China ,Yunnan,Lethal effect,25.0464,102.7094,Not Precise 
-C0191,Brazil,Minas Gerais ,Lethal effect,-20.76763505,-42.85878545,Precise 
-C0191,Brazil,Minas Gerais ,Lethal effect,-20.76763505,-42.85878545,Precise 
-C0191,Brazil,Minas Gerais ,Lethal effect,-20.76763505,-42.85878545,Precise 
-C0191,Brazil,Minas Gerais ,Lethal effect,-20.76763505,-42.85878545,Precise 
-C0191,Brazil,Minas Gerais ,Lethal effect,-20.76763505,-42.85878545,Precise 
-C0191,Brazil,Minas Gerais ,Lethal effect,-20.76763505,-42.85878545,Precise 
-C0191,Brazil,Minas Gerais ,Lethal effect,-20.76763505,-42.85878545,Precise 
-C0191,Brazil,Minas Gerais ,Lethal effect,-20.76763505,-42.85878545,Precise 
-C0191,Brazil,Minas Gerais ,Lethal effect,-20.76763505,-42.85878545,Precise 
-C0191,Brazil,Minas Gerais ,Lethal effect,-20.76763505,-42.85878545,Precise 
-C0191,Brazil,Minas Gerais ,Lethal effect,-20.76763505,-42.85878545,Precise 
-C0191,Brazil,Minas Gerais ,Lethal effect,-20.76763505,-42.85878545,Precise 
-C0191,Brazil,Minas Gerais ,Lethal effect,-20.76763505,-42.85878545,Precise 
-C0191,Brazil,Minas Gerais ,Lethal effect,-20.76763505,-42.85878545,Precise 
-C0191,Brazil,Minas Gerais ,Lethal effect,-20.76763505,-42.85878545,Precise 
-C0073,Brazil,Goias, Sublethal effect,-16.606667,-49.259444,Precise 
-C0073,Brazil,Goias, Sublethal effect,-16.606667,-49.259444,Precise 
-C0073,Brazil,Goias, Sublethal effect,-16.606667,-49.259444,Precise 
-C0074,United States,California, Sublethal effect,36.7014631,-118.755997,Not Precise 
-C0074,United States,California, Sublethal effect,36.7014631,-118.755997,Not Precise 
-C0074,United States,California, Sublethal effect,36.7014631,-118.755997,Not Precise 
-C0091,Brazil,Sao Paulo, Sublethal effect,-21.978611,-47.881111,Precise 
-C0091,Brazil,Sao Paulo, Sublethal effect,-21.978611,-47.881111,Precise 
-C0091,Brazil,Sao Paulo, Sublethal effect,-21.978611,-47.881111,Precise 
-C0091,Brazil,Sao Paulo, Sublethal effect,-21.978611,-47.881111,Precise 
-C0091,Brazil,Sao Paulo, Sublethal effect,-21.978611,-47.881111,Precise 
-C0091,Brazil,Sao Paulo, Sublethal effect,-21.978611,-47.881111,Precise 
-C0091,Brazil,Sao Paulo, Sublethal effect,-21.978611,-47.881111,Precise 
-C0091,Brazil,Sao Paulo, Sublethal effect,-21.978611,-47.881111,Precise 
-C0096,Mexico,Chiapas, Sublethal effect,16.383862,-91.8649031,Not Precise 
-C0096,Mexico,Chiapas, Sublethal effect,16.383862,-91.8649031,Not Precise 
-C0096,Mexico,Chiapas, Sublethal effect,16.383862,-91.8649031,Not Precise 
-C0096,Mexico,Chiapas, Sublethal effect,16.383862,-91.8649031,Not Precise 
-C0141,Canada,Ontario , Sublethal effect,50.000678,-86.000977,Not Precise 
-C0141,Canada,Ontario , Sublethal effect,50.000678,-86.000977,Not Precise 
-C0141,Canada,Ontario , Sublethal effect,50.000678,-86.000977,Not Precise 
-C0144,United States,California, Sublethal effect,38.7184542,-121.9059001,Not Precise 
-C0151,United States,Michigan , Sublethal effect,42.233889,-83.3830438,Not Precise 
-C0151,United States,Michigan , Sublethal effect,42.233889,-83.3830438,Not Precise 
-C0151,United States,Michigan , Sublethal effect,42.233889,-83.3830438,Not Precise 
-C0151,United States,Michigan , Sublethal effect,42.233889,-83.3830438,Not Precise 
-C0151,United States,Michigan , Sublethal effect,42.233889,-83.3830438,Not Precise 
-C0151,United States,Michigan , Sublethal effect,42.233889,-83.3830438,Not Precise 
-C0151,United States,Michigan , Sublethal effect,42.233889,-83.3830438,Not Precise 
-C0151,United States,Michigan , Sublethal effect,42.233889,-83.3830438,Not Precise 
-C0151,United States,Michigan , Sublethal effect,42.233889,-83.3830438,Not Precise 
-C0151,United States,Michigan , Sublethal effect,42.233889,-83.3830438,Not Precise 
-C0180,United States,Michigan , Sublethal effect,43.6211955,-84.6824346,Not Precise 
-C0180,United States,Michigan , Sublethal effect,43.6211955,-84.6824346,Not Precise 
-C0189,China ,Yunnan, Sublethal effect,25.0464,102.7094,Not Precise 
-C0189,China ,Yunnan, Sublethal effect,25.0464,102.7094,Not Precise 
-C0189,China ,Yunnan, Sublethal effect,25.0464,102.7094,Not Precise 
-C0189,China ,Yunnan, Sublethal effect,25.0464,102.7094,Not Precise 
-C0189,China ,Yunnan, Sublethal effect,25.0464,102.7094,Not Precise 
-C0189,China ,Yunnan, Sublethal effect,25.0464,102.7094,Not Precise 
-C0143,United States,California , Sublethal effect,38.67366346,-122.1985588,Not Precise 
-C0098,England,East Anglia,Consequences of pesticide application,52.3729017,-0.04493599,Not Precise 
-C0098,England,East Anglia,Consequences of pesticide application,52.3729017,-0.04493599,Not Precise 
-C0098,England,East Anglia,Consequences of pesticide application,52.3729017,-0.04493599,Not Precise 
-C0144,United States,California,Consequences of pesticide application,38.7184542,-121.9059001,Not Precise 
-C0144,United States,California,Consequences of pesticide application,38.7184542,-121.9059001,Not Precise 
-C0161,United States,Montana ,Consequences of pesticide application,48.179976,-110.111445,Not Precise 
-C0161,United States,Montana ,Consequences of pesticide application,48.179976,-110.111445,Not Precise 
-C0161,United States,Montana ,Consequences of pesticide application,48.179976,-110.111445,Not Precise 
-C0177,Germany ,Lower Saxony,Consequences of pesticide application,52.8398531,9.075962,Not Precise 
-C0177,Germany ,Thuringia,Consequences of pesticide application,50.9014721,11.0377839,Not Precise 
-C0177,Germany ,Lower Saxony,Consequences of pesticide application,52.8398531,9.075962,Not Precise 
-C0177,Germany ,Thuringia,Consequences of pesticide application,50.9014721,11.0377839,Not Precise 
-C0177,Germany ,Lower Saxony,Consequences of pesticide application,52.8398531,9.075962,Not Precise 
-C0177,Germany ,Thuringia,Consequences of pesticide application,50.9014721,11.0377839,Not Precise 
-C0177,Germany ,Lower Saxony,Consequences of pesticide application,52.8398531,9.075962,Not Precise 
-C0177,Germany ,Thuringia,Consequences of pesticide application,50.9014721,11.0377839,Not Precise 
-C0197,United States,California ,Consequences of pesticide application,38.553889,-121.738056,Not Precise 
-C0142,United States,Virginia,Consequences of pesticide application,39.075553,-77.785685,Not Precise 
-C0142,United States,Virginia,Consequences of pesticide application,39.075553,-77.785685,Not Precise 
-C0120,Kenya,Makueni County,Consequences of pesticide application,-2.25,37.75,Precise 
-C0135,United States,Michigan ,Consequences of pesticide application,41.85906189,-86.5444994,Not Precise 
-C0135,United States,Michigan ,Consequences of pesticide application,41.85906189,-86.5444994,Not Precise 
-C0135,United States,Michigan ,Consequences of pesticide application,41.85906189,-86.5444994,Not Precise 
-C0135,United States,Michigan ,Consequences of pesticide application,41.85906189,-86.5444994,Not Precise 
-C0135,United States,Michigan ,Consequences of pesticide application,41.85906189,-86.5444994,Not Precise 
-C0135,United States,Michigan ,Consequences of pesticide application,41.85906189,-86.5444994,Not Precise 
-C0135,United States,Michigan ,Consequences of pesticide application,41.85906189,-86.5444994,Not Precise 
-C0135,United States,Michigan ,Consequences of pesticide application,41.85906189,-86.5444994,Not Precise 
-C0135,United States,Michigan ,Consequences of pesticide application,41.85906189,-86.5444994,Not Precise 
-C0135,United States,Michigan ,Consequences of pesticide application,41.85906189,-86.5444994,Not Precise 
-C0135,United States,Michigan ,Consequences of pesticide application,41.85906189,-86.5444994,Not Precise 
-C0135,United States,Michigan ,Consequences of pesticide application,41.85906189,-86.5444994,Not Precise 
+id_code;Country;Location;StudyType;Latitude;Longitude;Precision
+C0069;Brazil;Sao Paulo;Lethal effect;-22.39575685;-47.54413552;Not Precise
+C0069;Brazil;Sao Paulo;Lethal effect;-22.39575685;-47.54413552;Not Precise
+C0069;Brazil;Sao Paulo;Lethal effect;-22.39575685;-47.54413552;Not Precise
+C0073;Brazil;Goias;Lethal effect;-16.60302552;-49.26056135;Not Precise
+C0073;Brazil;Goias;Lethal effect;-16.60302552;-49.26056135;Not Precise
+C0073;Brazil;Goias;Lethal effect;-16.60302552;-49.26056135;Not Precise
+C0084;Brazil;Rio Grande do Sul;Lethal effect;-31.802349;-52.41556572;Not Precise
+C0084;Brazil;Rio Grande do Sul;Lethal effect;-31.802349;-52.41556572;Not Precise
+C0084;Brazil;Rio Grande do Sul;Lethal effect;-31.802349;-52.41556572;Not Precise
+C0084;Brazil;Rio Grande do Sul;Lethal effect;-31.802349;-52.41556572;Not Precise
+C0084;Brazil;Rio Grande do Sul;Lethal effect;-31.802349;-52.41556572;Not Precise
+C0084;Brazil;Rio Grande do Sul;Lethal effect;-31.802349;-52.41556572;Not Precise
+C0084;Brazil;Rio Grande do Sul;Lethal effect;-31.802349;-52.41556572;Not Precise
+C0084;Brazil;Rio Grande do Sul;Lethal effect;-31.802349;-52.41556572;Not Precise
+C0084;Brazil;Rio Grande do Sul;Lethal effect;-31.802349;-52.41556572;Not Precise
+C0084;Brazil;Rio Grande do Sul;Lethal effect;-31.802349;-52.41556572;Not Precise
+C0084;Brazil;Rio Grande do Sul;Lethal effect;-31.802349;-52.41556572;Not Precise
+C0084;Brazil;Rio Grande do Sul;Lethal effect;-31.802349;-52.41556572;Not Precise
+C0084;Brazil;Rio Grande do Sul;Lethal effect;-31.802349;-52.41556572;Not Precise
+C0084;Brazil;Rio Grande do Sul;Lethal effect;-31.802349;-52.41556572;Not Precise
+C0084;Brazil;Rio Grande do Sul;Lethal effect;-31.802349;-52.41556572;Not Precise
+C0084;Brazil;Rio Grande do Sul;Lethal effect;-31.802349;-52.41556572;Not Precise
+C0093;Brazil;Minas Gerais;Lethal effect;-20.76763505;-42.85878545;Precise
+C0093;Brazil;Minas Gerais;Lethal effect;-20.76763505;-42.85878545;Precise
+C0189;China;Yunnan;Lethal effect;25.0464;102.7094;Not Precise
+C0191;Brazil;Minas Gerais;Lethal effect;-20.76763505;-42.85878545;Precise
+C0191;Brazil;Minas Gerais;Lethal effect;-20.76763505;-42.85878545;Precise
+C0191;Brazil;Minas Gerais;Lethal effect;-20.76763505;-42.85878545;Precise
+C0191;Brazil;Minas Gerais;Lethal effect;-20.76763505;-42.85878545;Precise
+C0191;Brazil;Minas Gerais;Lethal effect;-20.76763505;-42.85878545;Precise
+C0191;Brazil;Minas Gerais;Lethal effect;-20.76763505;-42.85878545;Precise
+C0191;Brazil;Minas Gerais;Lethal effect;-20.76763505;-42.85878545;Precise
+C0191;Brazil;Minas Gerais;Lethal effect;-20.76763505;-42.85878545;Precise
+C0191;Brazil;Minas Gerais;Lethal effect;-20.76763505;-42.85878545;Precise
+C0191;Brazil;Minas Gerais;Lethal effect;-20.76763505;-42.85878545;Precise
+C0191;Brazil;Minas Gerais;Lethal effect;-20.76763505;-42.85878545;Precise
+C0191;Brazil;Minas Gerais;Lethal effect;-20.76763505;-42.85878545;Precise
+C0191;Brazil;Minas Gerais;Lethal effect;-20.76763505;-42.85878545;Precise
+C0191;Brazil;Minas Gerais;Lethal effect;-20.76763505;-42.85878545;Precise
+C0191;Brazil;Minas Gerais;Lethal effect;-20.76763505;-42.85878545;Precise
+C0073;Brazil;Goias;Sublethal effect;-16.606667;-49.259444;Precise
+C0073;Brazil;Goias;Sublethal effect;-16.606667;-49.259444;Precise
+C0073;Brazil;Goias;Sublethal effect;-16.606667;-49.259444;Precise
+C0074;United States;California;Sublethal effect;36.7014631;-118.755997;Not Precise
+C0074;United States;California;Sublethal effect;36.7014631;-118.755997;Not Precise
+C0074;United States;California;Sublethal effect;36.7014631;-118.755997;Not Precise
+C0091;Brazil;Sao Paulo;Sublethal effect;-21.978611;-47.881111;Precise
+C0091;Brazil;Sao Paulo;Sublethal effect;-21.978611;-47.881111;Precise
+C0091;Brazil;Sao Paulo;Sublethal effect;-21.978611;-47.881111;Precise
+C0091;Brazil;Sao Paulo;Sublethal effect;-21.978611;-47.881111;Precise
+C0091;Brazil;Sao Paulo;Sublethal effect;-21.978611;-47.881111;Precise
+C0091;Brazil;Sao Paulo;Sublethal effect;-21.978611;-47.881111;Precise
+C0091;Brazil;Sao Paulo;Sublethal effect;-21.978611;-47.881111;Precise
+C0091;Brazil;Sao Paulo;Sublethal effect;-21.978611;-47.881111;Precise
+C0096;Mexico;Chiapas;Sublethal effect;16.383862;-91.8649031;Not Precise
+C0096;Mexico;Chiapas;Sublethal effect;16.383862;-91.8649031;Not Precise
+C0096;Mexico;Chiapas;Sublethal effect;16.383862;-91.8649031;Not Precise
+C0096;Mexico;Chiapas;Sublethal effect;16.383862;-91.8649031;Not Precise
+C0141;Canada;Ontario;Sublethal effect;50.000678;-86.000977;Not Precise
+C0141;Canada;Ontario;Sublethal effect;50.000678;-86.000977;Not Precise
+C0141;Canada;Ontario;Sublethal effect;50.000678;-86.000977;Not Precise
+C0144;United States;California;Sublethal effect;38.7184542;-121.9059001;Not Precise
+C0151;United States;Michigan;Sublethal effect;42.233889;-83.3830438;Not Precise
+C0151;United States;Michigan;Sublethal effect;42.233889;-83.3830438;Not Precise
+C0151;United States;Michigan;Sublethal effect;42.233889;-83.3830438;Not Precise
+C0151;United States;Michigan;Sublethal effect;42.233889;-83.3830438;Not Precise
+C0151;United States;Michigan;Sublethal effect;42.233889;-83.3830438;Not Precise
+C0151;United States;Michigan;Sublethal effect;42.233889;-83.3830438;Not Precise
+C0151;United States;Michigan;Sublethal effect;42.233889;-83.3830438;Not Precise
+C0151;United States;Michigan;Sublethal effect;42.233889;-83.3830438;Not Precise
+C0151;United States;Michigan;Sublethal effect;42.233889;-83.3830438;Not Precise
+C0151;United States;Michigan;Sublethal effect;42.233889;-83.3830438;Not Precise
+C0180;United States;Michigan;Sublethal effect;43.6211955;-84.6824346;Not Precise
+C0180;United States;Michigan;Sublethal effect;43.6211955;-84.6824346;Not Precise
+C0189;China;Yunnan;Sublethal effect;25.0464;102.7094;Not Precise
+C0189;China;Yunnan;Sublethal effect;25.0464;102.7094;Not Precise
+C0189;China;Yunnan;Sublethal effect;25.0464;102.7094;Not Precise
+C0189;China;Yunnan;Sublethal effect;25.0464;102.7094;Not Precise
+C0189;China;Yunnan;Sublethal effect;25.0464;102.7094;Not Precise
+C0189;China;Yunnan;Sublethal effect;25.0464;102.7094;Not Precise
+C0143;United States;California;Sublethal effect;38.67366346;-122.1985588;Not Precise
+C0098;England;East Anglia;Consequences of pesticide application;52.3729017;-0.04493599;Not Precise
+C0098;England;East Anglia;Consequences of pesticide application;52.3729017;-0.04493599;Not Precise
+C0098;England;East Anglia;Consequences of pesticide application;52.3729017;-0.04493599;Not Precise
+C0144;United States;California;Consequences of pesticide application;38.7184542;-121.9059001;Not Precise
+C0144;United States;California;Consequences of pesticide application;38.7184542;-121.9059001;Not Precise
+C0161;United States;Montana;Consequences of pesticide application;48.179976;-110.111445;Not Precise
+C0161;United States;Montana;Consequences of pesticide application;48.179976;-110.111445;Not Precise
+C0161;United States;Montana;Consequences of pesticide application;48.179976;-110.111445;Not Precise
+C0177;Germany;Lower Saxony;Consequences of pesticide application;52.8398531;9.075962;Not Precise
+C0177;Germany;Thuringia;Consequences of pesticide application;50.9014721;11.0377839;Not Precise
+C0177;Germany;Lower Saxony;Consequences of pesticide application;52.8398531;9.075962;Not Precise
+C0177;Germany;Thuringia;Consequences of pesticide application;50.9014721;11.0377839;Not Precise
+C0177;Germany;Lower Saxony;Consequences of pesticide application;52.8398531;9.075962;Not Precise
+C0177;Germany;Thuringia;Consequences of pesticide application;50.9014721;11.0377839;Not Precise
+C0177;Germany;Lower Saxony;Consequences of pesticide application;52.8398531;9.075962;Not Precise
+C0177;Germany;Thuringia;Consequences of pesticide application;50.9014721;11.0377839;Not Precise
+C0197;United States;California;Consequences of pesticide application;38.553889;-121.738056;Not Precise
+C0142;United States;Virginia;Consequences of pesticide application;39.075553;-77.785685;Not Precise
+C0142;United States;Virginia;Consequences of pesticide application;39.075553;-77.785685;Not Precise
+C0120;Kenya;Makueni County;Consequences of pesticide application;-2.25;37.75;Precise
+C0135;United States;Michigan;Consequences of pesticide application;41.85906189;-86.5444994;Not Precise
+C0135;United States;Michigan;Consequences of pesticide application;41.85906189;-86.5444994;Not Precise
+C0135;United States;Michigan;Consequences of pesticide application;41.85906189;-86.5444994;Not Precise
+C0135;United States;Michigan;Consequences of pesticide application;41.85906189;-86.5444994;Not Precise
+C0135;United States;Michigan;Consequences of pesticide application;41.85906189;-86.5444994;Not Precise
+C0135;United States;Michigan;Consequences of pesticide application;41.85906189;-86.5444994;Not Precise
+C0135;United States;Michigan;Consequences of pesticide application;41.85906189;-86.5444994;Not Precise
+C0135;United States;Michigan;Consequences of pesticide application;41.85906189;-86.5444994;Not Precise
+C0135;United States;Michigan;Consequences of pesticide application;41.85906189;-86.5444994;Not Precise
+C0135;United States;Michigan;Consequences of pesticide application;41.85906189;-86.5444994;Not Precise
+C0135;United States;Michigan;Consequences of pesticide application;41.85906189;-86.5444994;Not Precise
+C0135;United States;Michigan;Consequences of pesticide application;41.85906189;-86.5444994;Not Precise
+C2003;Canada;Alberta;Consequences of pesticide application;58.1104;-116.2463;Not Precise
+C2019;Brazil;Minas Gerais;Sublethal effect;-20.758461;-42.86896;Not Precise
+C2020;United States;Wisconsin;Sublethal effect;43.06404;-89.534707;Precise

@@ -29,7 +29,7 @@ if(!require(compute.es)){
 }
 
 #First, let's see our data.
-AG_cont <- read.csv("../Data/continuous.csv", h=T, dec = ",")
+AG_cont <- read.csv("../Data/continuous.csv", h=T, dec = ".", sep = ";")
 class(AG_cont)
 str(AG_cont)
 head(AG_cont)
@@ -84,9 +84,55 @@ colnames(es_f_g_var) <- c("yi", "vi") #name the columns
 class(es_f_g_var)
 str(es_f_g_var)
 
-es_F_prontos <- cbind(C0135_, es_f_g_var) ##bind the data
+C0135_ef <- cbind(C0135_, es_f_g_var) ##bind the data
+
+
+#Let's pick the data.
+
+AG_cont
+C0142_ <- AG_cont[AG_cont$id_code == "C0142", ]
+C0142_
+
+#fixing plant species name.
+
+C0142_[c(1,2), 10] <- "Curcubita ssp."
+
+str(C0142_)
+
+#Change some columns to the class "numeric".
+
+for (i in 4:6){
+  C0142_ [ ,i] <- as.numeric(C0142_[,i] )
+}
+
+summary(C0142_)
+
+#Convert the data. 
+
+effect_c0142 <- fes(C0142_$value, 
+                    C0142_$sample_size_control, 
+                    C0142_$sample_size_treatment)
+
+class(effect_c0142)
+str(effect_c0142)
+head(effect_c0142)
+tail(effect_c0142)
+
+es_f_d_var2 <- cbind(effect_c0142$g, effect_c0142$var.g) #pick g and var.g 
+colnames(es_f_d_var2) <- c("yi", "vi") #name the columns 
+es_f_d_var2
+
+C0142_ef <- cbind(C0142_, es_f_d_var2) #bind the data
+
+str(C0142_ef)
+
+#binding
+
+es_F_prontos <- rbind(C0135_ef, C0142_ef) 
+
 class(es_F_prontos)
 str(es_F_prontos)
+
 
 #Convert the t statistic to Hedges' g: 
 
@@ -221,8 +267,8 @@ str(es_cont)
 
 #Let's multiply by -1 the effect sizes of papers that reported a negative 
 #effect of pesticide application. 
-es_cont$yi[c(1,2,3,4,5,8,9,12,14)] <- 
-  es_cont$yi[c(1,2,3,4,5,8,9,12,14)] * -1
+es_cont$yi[c(1,2,3,4,5,8,9,12,16)] <- 
+  es_cont$yi[c(1,2,3,4,5,8,9,12,16)] * -1
 
 class(es_cont)
 str(es_cont)
@@ -230,6 +276,5 @@ head(es_cont)
 
 #Export the results.
 write.csv(es_cont, file = "../Results/effect_sizes_cont.csv", row.names = F)
-
 
 ############################ END ###############################################

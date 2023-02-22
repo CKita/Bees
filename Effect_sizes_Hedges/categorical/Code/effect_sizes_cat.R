@@ -28,13 +28,8 @@ if(!require(metafor)){
   library(metafor)
 }
 
-if(!require(compute.es)){
-  install.packages("compute.es")
-  library(compute.es)
-}
-
 #First, let's see our data.
-AG_cat <- read.csv("../Data/cat.csv", h=T, dec = ",")
+AG_cat <- read.csv("../Data/cat.csv", h=T, dec = ".", sep = ";")
 class(AG_cat)
 str(AG_cat)
 head(AG_cat)
@@ -86,95 +81,8 @@ str(effect_sizes)
 head(effect_sizes) #effect size (yi) and variance (vi)
 tail(effect_sizes)
 
-#Now, let's use the compute.es function to calculate the Hedge's g value from
-#the statistic F reported in the paper C0142. 
-#First, let's pick the data from C0142. 
-d_brutos <- read.csv("../Data/planilha_bruta.csv", h =T, dec= ",")
-C0142_BRUTO <- d_brutos[d_brutos$id_code == "C0142", ]
-
-class(C0142_BRUTO)
-str(C0142_BRUTO)
-summary(C0142_BRUTO)
-
-C0142_BRUTO$value[1]<- 0.62
-C0142_BRUTO$value <- as.numeric(C0142_BRUTO$value)
-C0142_BRUTO$value
-
-#Now, Let's convert the data.
-effect_c0142 <- fes(C0142_BRUTO$value, 
-                    C0142_BRUTO$sample_size_control, 
-                    C0142_BRUTO$sample_size_treatment)
-
-class(effect_c0142)
-str(effect_c0142)
-head(effect_c0142)
-tail(effect_c0142)
-
-es_f_d_var <- cbind(effect_c0142$g, effect_c0142$var.g) #pick g and var.g 
-colnames(es_f_d_var) <- c("yi", "vi") #name the columns 
-es_f_d_var
-
-C0142_stat <- cbind (C0142_BRUTO$id_code, C0142_BRUTO$study_type,
-                     C0142_BRUTO$nature_x, C0142_BRUTO$total_sample_size,
-                     C0142_BRUTO$sample_size_control, 
-                     C0142_BRUTO$sample_size_treatment, 
-                     C0142_BRUTO$statistic, 
-                     C0142_BRUTO$value)
-
-colnames(C0142_stat) <- c("id_code", "study_type", "nature_x",
-                          "total_sample_size", "sample_size_control",
-                          "sample_size_treatment", "statistic", "value")
-
-es_F_prontos <- cbind(C0142_stat, es_f_d_var) #bind the data
-
-es_F_prontos
-
-#Add some information 
-effect_type <- as.data.frame(rep("community", 2))
-plant_specie <- as.data.frame(rep("Cucurbita ssp.", 2))
-pesticide_effect <- as.data.frame(rep("consequences", 2))
-
-colnames(effect_type) <- "effect_type"
-colnames(plant_specie) <- "plant_specie"
-colnames(pesticide_effect) <- "pesticide_effect"
-
-effect_type
-plant_specie
-pesticide_effect
-
-ef_plant <- cbind(effect_type, plant_specie, pesticide_effect)
-pronto <- cbind(es_F_prontos, ef_plant)
-
-class(pronto)
-str(pronto)
-head(pronto)
-tail(pronto)
-
-#Change the class of some columns.
-for (i in 4:6){
-        pronto [ ,i] <- as.numeric(pronto[,i] )
-}
-
-str(pronto)
-
-for (i in 8:10){
-        pronto [ ,i] <- as.numeric(pronto[,i] )
-}
-
-str(pronto)
-
-#Combine the results from the "escalc" and "fes" functions.
-str(effect_sizes)
-str(pronto)
-
-effects_prontos <- dplyr::bind_rows( effect_sizes, pronto)
-class(effects_prontos)
-str(effects_prontos)
-head(effects_prontos)
-tail(effects_prontos)
-
 #Export the results. 
-write.csv(effects_prontos, "../Results/effect_sizes_cat.csv", row.names = F)
+write.csv(effect_sizes, "../Results/effect_sizes_cat.csv", row.names = F)
 
 
 ############################ END ###############################################

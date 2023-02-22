@@ -1,33 +1,34 @@
-id_code,study_type,nature_x,total_sample_size,sample_size_control,mean_control,sd_control,sample_size_treatment,mean_treatment,sd_treatment,effect_type,plant_species,yi,vi,statistic,value,country,sampling_method,farm_type,pesticide_applied,exposure_type
-C0098,field,categorical,12,5,6.43,2.68,7,5.21,1.96,community,mixture,-0.494725333,0.353055191,NA,NA,england,observation ,polyculture,NA,NA
-C0098,field,categorical,12,5,1.66,0.8,7,0.39,0.21,community,mixture,-2.204993077,0.545440246,NA,NA,england,observation ,polyculture,NA,NA
-C0098,field,categorical,12,5,0.91,0.4,7,0.38,0.24,community,mixture,-1.557784969,0.443969393,NA,NA,england,observation ,polyculture,NA,NA
-C0144,field,categorical,10,4,3.98,0.84,6,3.59,1.49,community,Citrullus lanatus,-0.273894476,0.420417576,NA,NA,usa,observation ,monoculture ,mixture,NA
-C0144,field,categorical,10,4,30.85,33.18,6,24.16,16.09,community,Citrullus lanatus,-0.251924562,0.419839966,NA,NA,usa,observation ,monoculture ,mixture,NA
-C0161,field,categorical,18,9,165,33,9,158,31,community,Triticum ssp.,-0.208203889,0.223426357,NA,NA,usa,pan_trap,monoculture ,NA,NA
-C0161,field,categorical,18,9,27,3,9,25,2,community,Triticum ssp.,-0.747009367,0.237722861,NA,NA,usa,pan_trap,monoculture ,NA,NA
-C0161,field,categorical,18,9,0.8,0.02,9,0.85,0.02,community,Triticum ssp.,2.380634587,0.379650584,NA,NA,usa,pan_trap,monoculture ,NA,NA
-C0177,field,categorical,36,18,17.11,9.42,18,15.46,13.45,community,Triticum ssp.,-0.138942649,0.111379237,NA,NA,germany ,pan_trap ,monoculture ,NA,NA
-C0177,field,categorical,36,18,6.18,6.96,18,5.97,9.55,community,Triticum ssp.,-0.024572588,0.111119497,NA,NA,germany ,pan_trap ,monoculture ,NA,NA
-C0177,field,categorical,36,18,42.13,42.72,18,31.73,19.22,community,Triticum ssp.,-0.306985365,0.11242,NA,NA,germany ,pan_trap ,monoculture ,NA,NA
-C0177,field,categorical,36,18,55.17,57.87,18,38.59,60.75,community,Triticum ssp.,-0.273247716,0.112148115,NA,NA,germany ,pan_trap ,monoculture ,NA,NA
-C0177,field,categorical,36,18,3.78,1.32,18,3.56,1.23,community,Triticum ssp.,-0.168604854,0.111505939,NA,NA,germany ,pan_trap ,monoculture ,NA,NA
-C0177,field,categorical,36,18,2.89,1.74,18,2.11,2.04,community,Triticum ssp.,-0.402251083,0.113358416,NA,NA,germany ,pan_trap ,monoculture ,NA,NA
-C0177,field,categorical,36,18,10.54,6.83,18,9.62,5.01,community,Triticum ssp.,-0.150183701,0.111424377,NA,NA,germany ,pan_trap ,monoculture ,NA,NA
-C0177,field,categorical,36,18,13.64,10.78,18,10.4,10.39,community,Triticum ssp.,-0.29923223,0.112354721,NA,NA,germany ,pan_trap ,monoculture ,NA,NA
-C0197,field,categorical,18,8,2.9,1.98,10,3.5,2.53,community,Prunus dulcis,0.247813245,0.226705872,NA,NA,usa,observation,monoculture ,NA,NA
-C0142,field,categorical,25,12,NA,NA,13,NA,NA,community,Cucurbita ssp.,0.32,0.16,F,0.62,usa,observation ,polyculture,NA,NA
-C0142,field,categorical,25,12,NA,NA,13,NA,NA,community,Cucurbita ssp.,0,0.16,F,0,usa,observation ,polyculture,NA,NA
-C0120,field,continuous,12,6,NA,NA,6,NA,NA,community,Cajanus cajan,-1.015384615,0.400473373,r,0.481352262,kenya,observation ,monoculture ,mixture ,NA
-C0135,field,continuous,15,2,NA,NA,13,NA,NA,community,Vaccinium corymbosum,-1.317647059,0.380899654,r,0.574456265,usa,pan_trap ,monoculture ,mixture,NA
-C0135,field,continuous,15,2,NA,NA,13,NA,NA,community,Vaccinium corymbosum,-1.204705882,0.35432526,r,0.538516481,usa,pan_trap ,monoculture ,mixture,NA
-C0135,field,continuous,15,2,NA,NA,13,NA,NA,community,Vaccinium corymbosum,-1.176470588,0.35432526,r,0.529150262,usa,pan_trap ,monoculture ,mixture,NA
-C0135,field,continuous,15,2,NA,NA,13,NA,NA,community,Vaccinium corymbosum,-1.53,0.59,F,4.58,usa,pan_trap ,monoculture ,mixture,NA
-C0135,field,continuous,15,2,NA,NA,13,NA,NA,community,Vaccinium corymbosum,1.45,0.58,F,4.12,usa,pan_trap ,monoculture ,mixture,NA
-C0135,field,continuous,15,2,NA,NA,13,NA,NA,community,Vaccinium corymbosum,0.77,0.53,F,1.16,usa,pan_trap ,monoculture ,mixture,NA
-C0135,field,continuous,15,2,NA,NA,13,NA,NA,community,Vaccinium corymbosum,-1.99,0.64,F,7.76,usa,pan_trap ,monoculture ,mixture,NA
-C0135,field,continuous,15,2,NA,NA,13,NA,NA,community,Vaccinium corymbosum,-2.27,0.68,F,10.08,usa,pan_trap ,monoculture ,mixture,NA
-C0135,field,continuous,15,2,NA,NA,13,NA,NA,community,Vaccinium corymbosum,1,0.54,F,1.95,usa,pan_trap ,monoculture ,mixture,NA
-C0135,field,continuous,15,2,NA,NA,13,NA,NA,community,Vaccinium corymbosum,0.97,0.54,F,1.83,usa,pan_trap ,monoculture ,mixture,NA
-C0135,field,continuous,15,2,NA,NA,13,NA,NA,community,Vaccinium corymbosum,-1.61,0.6,F,5.06,usa,pan_trap ,monoculture ,mixture,NA
-C0135,field,continuous,15,2,NA,NA,13,NA,NA,community,Vaccinium corymbosum,1.19,0.56,F,2.79,usa,pan_trap ,monoculture ,mixture,NA
+id_code;study_type;nature_x;total_sample_size;sample_size_control;mean_control;sd_control;sample_size_treatment;mean_treatment;sd_treatment;effect_type;plant_species;pesticide_effect;yi;vi;statistic;value;country;sampling_method;farm_type;pesticide_applied;exposure_type
+C0098;field;categorical;12;5;6.43;2.68;7;5.21;1.96;community;mixture;consequences;-0.49472533;0.35305519;NA;NA;england;observation;polyculture;NA;NA
+C0098;field;categorical;12;5;1.66;0.8;7;0.39;0.21;community;mixture;consequences;-2.20499308;0.54544025;NA;NA;england;observation;polyculture;NA;NA
+C0098;field;categorical;12;5;0.91;0.4;7;0.38;0.24;community;mixture;consequences;-1.55778497;0.44396939;NA;NA;england;observation;polyculture;NA;NA
+C0144;field;categorical;10;4;3.98;0.84;6;3.59;1.49;community;Citrullus_lanatus;consequences;-0.27389448;0.42041758;NA;NA;usa;observation;monoculture;mixture;NA
+C0144;field;categorical;10;4;30.85;33.18;6;24.16;16.09;community;Citrullus_lanatus;consequences;-0.25192456;0.41983997;NA;NA;usa;observation;monoculture;mixture;NA
+C0161;field;categorical;18;9;165;93;9;158;99;community;Triticum_ssp.;consequences;-0.0694013;0.22235601;NA;NA;usa;pan_trap;monoculture;NA;NA
+C0161;field;categorical;18;9;27;9;9;25;6;community;Triticum_ssp.;consequences;-0.24900312;0.22394452;NA;NA;usa;pan_trap;monoculture;NA;NA
+C0161;field;categorical;18;9;0.8;0.06;9;0.85;0.06;community;Triticum_ssp.;consequences;0.79354486;0.23971426;NA;NA;usa;pan_trap;monoculture;NA;NA
+C0177;field;categorical;36;18;17.11;9.42;18;15.46;13.45;community;Triticum_ssp.;consequences;-0.13894265;0.11137924;NA;NA;germany;pan_trap;monoculture;NA;NA
+C0177;field;categorical;36;18;6.18;6.96;18;5.97;9.55;community;Triticum_ssp.;consequences;-0.02457259;0.1111195;NA;NA;germany;pan_trap;monoculture;NA;NA
+C0177;field;categorical;36;18;42.13;42.72;18;31.73;19.22;community;Triticum_ssp.;consequences;-0.30698536;0.11242;NA;NA;germany;pan_trap;monoculture;NA;NA
+C0177;field;categorical;36;18;55.17;57.87;18;38.59;60.75;community;Triticum_ssp.;consequences;-0.27324772;0.11214812;NA;NA;germany;pan_trap;monoculture;NA;NA
+C0177;field;categorical;36;18;3.78;1.32;18;3.56;1.23;community;Triticum_ssp.;consequences;-0.16860485;0.11150594;NA;NA;germany;pan_trap;monoculture;NA;NA
+C0177;field;categorical;36;18;2.89;1.74;18;2.11;2.04;community;Triticum_ssp.;consequences;-0.40225108;0.11335842;NA;NA;germany;pan_trap;monoculture;NA;NA
+C0177;field;categorical;36;18;10.54;6.83;18;9.62;5.01;community;Triticum_ssp.;consequences;-0.1501837;0.11142438;NA;NA;germany;pan_trap;monoculture;NA;NA
+C0177;field;categorical;36;18;13.64;10.78;18;10.4;10.39;community;Triticum_ssp.;consequences;-0.29923223;0.11235472;NA;NA;germany;pan_trap;monoculture;NA;NA
+C0197;field;categorical;18;8;2.9;1.98;10;3.5;2.53;community;Prunus_dulcis;consequences;0.24781325;0.22670587;NA;NA;usa;observation;monoculture;NA;NA
+C2003;field;categorical;8;4;85.5;131;4;57.5;111;community;Brassica_napus;consequences;-0.20032158;0.50250805;NA;NA;canada;pan_trap;monoculture;roundap;NA
+C0142;field;continuous;25;12;NA;NA;13;NA;NA;community;Cucurbita_ssp.;consequences;0.3;0.15;F;0.62;usa;observation;polyculture;NA;NA
+C0142;field;continuous;25;12;NA;NA;13;NA;NA;community;Cucurbita_ssp.;consequences;0;0.15;F;0;usa;observation;polyculture;NA;NA
+C0120;field;continuous;12;6;NA;NA;6;NA;NA;community;Cajanus_cajan;consequences;-1.015385;0.4004734;r;0.4813523;kenya;observation;monoculture;mixture;NA
+C0135;field;continuous;15;2;NA;NA;13;NA;NA;community;Vaccinium_corymbosum;consequences;-1.317647;0.3808997;r;0.5744563;usa;pan_trap;monoculture;mixture;NA
+C0135;field;continuous;15;2;NA;NA;13;NA;NA;community;Vaccinium corymbosum;consequences;-1.204706;0.3543253;r;0.5385165;usa;pan_trap;monoculture;mixture;NA
+C0135;field;continuous;15;2;NA;NA;13;NA;NA;community;Vaccinium corymbosum;consequences;-1.176471;0.3543253;r;0.5291503;usa;pan_trap;monoculture;mixture;NA
+C0135;field;continuous;15;2;NA;NA;13;NA;NA;community;Vaccinium corymbosum;consequences;-1.53;0.59;F;4.58;usa;pan_trap;monoculture;mixture;NA
+C0135;field;continuous;15;2;NA;NA;13;NA;NA;community;Vaccinium corymbosum;consequences;1.45;0.58;F;4.12;usa;pan_trap;monoculture;mixture;NA
+C0135;field;continuous;15;2;NA;NA;13;NA;NA;community;Vaccinium corymbosum;consequences;0.77;0.53;F;1.16;usa;pan_trap;monoculture;mixture;NA
+C0135;field;continuous;15;2;NA;NA;13;NA;NA;community;Vaccinium corymbosum;consequences;-1.99;0.64;F;7.76;usa;pan_trap;monoculture;mixture;NA
+C0135;field;continuous;15;2;NA;NA;13;NA;NA;community;Vaccinium corymbosum;consequences;-2.27;0.68;F;10.08;usa;pan_trap;monoculture;mixture;NA
+C0135;field;continuous;15;2;NA;NA;13;NA;NA;community;Vaccinium corymbosum;consequences;1;0.54;F;1.95;usa;pan_trap;monoculture;mixture;NA
+C0135;field;continuous;15;2;NA;NA;13;NA;NA;community;Vaccinium corymbosum;consequences;0.97;0.54;F;1.83;usa;pan_trap;monoculture;mixture;NA
+C0135;field;continuous;15;2;NA;NA;13;NA;NA;community;Vaccinium corymbosum;consequences;-1.61;0.6;F;5.06;usa;pan_trap;monoculture;mixture;NA
+C0135;field;continuous;15;2;NA;NA;13;NA;NA;community;Vaccinium corymbosum;consequences;1.19;0.56;F;2.79;usa;pan_trap;monoculture;mixture;NA

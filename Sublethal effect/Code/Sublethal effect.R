@@ -57,7 +57,7 @@ if(!require(tidyverse)){
 ################### MODEL - MEAN SUBLETHAL EFFECT SIZE #########################
 
 # First, let's see our data set
-sub <- read.csv("../Data/sub.csv", h= T, dec =".", sep = ",")
+sub <- read.csv("../Data/sub.csv", h= T, dec =".", sep = ";")
 class(sub)
 str(sub)
 head(sub)
@@ -133,44 +133,7 @@ abline(h = 3) #above this line
 #let's identify them
 text(rs$resid, labels = sub$id_code, cex= 1, pos = 4)
 
-# There are four outliers (C0091)
-#Let's build a model without outliers 
-sub.sensi.out <- read.csv("../Data/sub_sensi_out.csv", h= T, dec =".", sep = ",")
-class(sub.sensi.out)
-str(sub.sensi.out)
-head(sub.sensi.out)
-tail(sub.sensi.out)
-
-model.sub.sensi.out <- rma.mv(yi, vi, random = 
-                                      list( ~1|id_code, ~1|study_type,
-                                            ~1|sampling_method),
-                              method="REML",  # "REML" = multi-level 
-                              digits = 3, data = sub.sensi.out)
-
-summary(model.sub.sensi.out)
-
-#Plot the result 
-tiff("../Figures/sensibility_test_sublet.tiff", units="in",
-     width=5, height=6, res=1200, compression = 'lzw')
-
-orchaRd::orchard_plot(model.sub.sensi.out, xlab = "Hedges' g",
-                      data = sub.sensi.out, group = "id_code", branch.size = 1.4, 
-                      trunk.size = 8) +
-        labs(x= "Sublethal effect") +
-        scale_color_manual(values = "sienna1") + 
-        scale_fill_manual(values = "sienna1") + 
-        theme_classic() + 
-        theme(axis.text = element_text(size = 14, colour = "black"), 
-              axis.title = element_text(size = 16), 
-              axis.text.y = element_blank(), 
-              legend.position = "top") 
-
-dev.off() 
-
-#Result: mean effect size is negative and different from zero. In other words,
-# sublethal effects are strong enough to be detected even when we remove
-# the outliers. 
-
+# There are no outliers
 
 ############################# HETEROGENEITY ####################################
 
@@ -258,7 +221,7 @@ effect.sizes.vi<- sqrt(sub$vi) #variances of each effect size (vi)
 bias <- cbind(model.residuals, effect.sizes.vi)
 bias <- as.data.frame(bias)
 
-tiff("../Figures/publication_bias.tiff", units="in", width=5,
+tiff("../Figures/publication_bias.tiff", units="in", width=10,
      height=6, res=1200, compression = 'lzw')
 
 ggplot(bias, aes(effect.sizes.vi, model.residuals)) + 
