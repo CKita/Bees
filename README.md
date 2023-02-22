@@ -10,7 +10,7 @@ E-mail: [c.akemikita\@gmail.com](mailto:c.akemikita@gmail.com){.email}.
 
 First published on August 19th, 2022.
 
-Run in R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid".
+Run in R version 4.2.2 (2022-10-31) -- "Innocent and Trusting".
 
 Disclaimer: You may freely use the software and data provided here for commercial or non-commercial purposes at your own risk. We assume no responsibility or liability for the use of this material, convey no license or title under any patent, copyright, or mask work right to the product. We reserve the right to make changes in the material without notification. We also make no representation or warranty that such application will be suitable for the specified use without further testing or modification. If this material helps you produce any academic work (paper, book, chapter, monograph, dissertation, thesis, report, talk, keynote, lecture or similar), please acknowledge the authors and cite the source.
 
@@ -26,7 +26,7 @@ The data and scripts provided here aim at making our study fully reproducible. Y
 
     a.  lethal.csv -\> data frame with raw data.
 
-    b.  data.comp.csv -\> data frame with raw data and effect sizes.
+    b.  lethal_effects.csv -\> data frame with raw data and effect sizes.
 
     c.  let_sensi_out.csv -\> data frame used in the sensibility test.
 
@@ -47,16 +47,12 @@ The data and scripts provided here aim at making our study fully reproducible. Y
 1.  Data (folder)
 
     a.  sub.csv -\> data frame with raw data and effect sizes.
-
-    b.  sub_sensi_out.csv -\> data frame used in the sensibility test.
-
+   
 2.  Figures (folder)
 
     a.  sublethal.tiff -\> mean sublethal effect size of pesticide application on bees.
-
-    b.  sensibility_test_sublet.tiff -\> mean sublethal effect size of pesticide application on bees without outliers.
-
-    c.  publication_bias.tiff -\> visual analysis of publication bias.
+   
+    b.  publication_bias.tiff -\> visual analysis of publication bias.
 
 3.  Code (folder)
 
@@ -85,9 +81,7 @@ The data and scripts provided here aim at making our study fully reproducible. Y
 -   Data (folder)
 
     a.  cat.csv -\> data frame with raw categorical data.
-
-    b.  planilha_bruta.csv -\> raw data.
-
+   
 -   Code (folder)
 
     a.  effect_sizes_cat.R -\> script formatted as a tutorial to help you calculate categorical effect sizes.
@@ -101,9 +95,7 @@ The data and scripts provided here aim at making our study fully reproducible. Y
 -   Data (folder)
 
     a.  continuous.csv -\> data frame with raw categorical data.
-
-    b.  planilha_bruta.csv -\> raw data.
-
+    
 -   Code (folder)
 
     a.  effect_sizes_cont.R -\> script formatted as a tutorial to help you calculate continuous effect sizes.
@@ -116,7 +108,9 @@ The data and scripts provided here aim at making our study fully reproducible. Y
 
 1.  Data (folder)
 
-    a.  sites.csv -\> data frame with attributes of the study sites where data collection was carried out.
+    a.  sites.csv -\> data frame with attributes of the study sites where data collection was carried out of all effect sizes.
+    
+    b.  sites_country -\> data frame with attributes of the study sites where data collection was carried out of per studies used in meta-analysis. 
 
 2.  Figures (folder)
 
@@ -131,15 +125,29 @@ The data and scripts provided here aim at making our study fully reproducible. Y
     e.  effect sizes sublethal.png -\> number of sublethal effect size values recorded per country.
 
     f.  effect sizes consequences.png -\> number of effect size values of the consequences of lethal and sublethal effects recorded per country.
+    
+    g.  studies.png -\> number of studies per country.
 
 3.  Code (folder)
 
     a.  Sites.R -\> script formatted as a tutorial to help you reproduce the figure.
 
-### **Papers.xlsx (file)**
+### **Papers (folder)**
 
-List of papers included in our meta-analysis.
+1.  Code (folder)
 
+    a.  litserchr.R -\> script formatted as a tutorial to help you reproduce the list of papers included in our meta-analysis.
+
+2.  Data (folder)
+
+    a.  records_wos.csv -\> list of papers exported from Web of Science database.
+
+    b.  records_scopus.csv -\> list of papers exported from Scopus database. 
+     
+    c.  duplicate_records_removed -\> list of papers from Web of Science and Scopus after duplicate removal. 
+
+    f.  Papers included in meta-analysis -\> final list of papers included in meta-analysis.
+    
 ## Instructions
 
 1.  Choose between the type of analysis you want to reproduce (lethal, sublethal or consequences) and go to the respective folder;
@@ -154,4 +162,4 @@ If you have any questions, corrections, or suggestions, please feel free to open
 
 ## Acknowledgments
 
-We are sincerely grateful to the authors of all studies included in our meta-analysis, whose effort made this synthesis possible. Tereza C. Giannini and Isabel A. Santos, members of the thesis committee of CAK, made invaluable suggestions to study design and interpretation of results. CAK thanks the Coordination for the Improvement of Higher Education Personnel (CAPES, 88887.470293/2019-00) and the Graduate School in Ecology of the University of São Paulo (PPGE-IB-USP) for the M.Sc. scholarship. MARM was funded by the Alexander von Humboldt Foundation (AvH, 3.4-8151/15037 and 3.2-BRA/1134644), National Council for Scientific and Technological Development (CNPq, 304498/2019-0), São Paulo Research Foundation (FAPESP, 2018/20695-7), and Dean of Research of the University of São Paulo (PRP-USP, 18.1.660.41.7). We also thank the [Stack Overflow](https://stackoverflow.com/) community, where we solve most of our coding dilemmas.
+We are sincerely grateful to the authors of all studies included in our meta-analysis, whose effort made this synthesis possible. Tereza C. Giannini and Isabel A. Santos, members of the thesis committee of CAK, made invaluable suggestions to study design and interpretation of results. Roberta C. F. Nocelli, Astrid M. P. Kleinert, and Osmar Malaspina, members of the thesis defense committee of CAK, helped us improve our study considerably with their insightful suggestions. CAK thanks the Coordination for the Improvement of Higher Education Personnel (CAPES, 88887.470293/2019-00) and the Graduate School in Ecology of the University of São Paulo (PPGE-IB-USP) for the M.Sc. scholarship. MARM was funded by the Alexander von Humboldt Foundation (AvH, 3.4-8151/15037 and 3.2-BRA/1134644), National Council for Scientific and Technological Development (CNPq, 304498/2019-0), São Paulo Research Foundation (FAPESP, 2018/20695-7), and Dean of Research of the University of São Paulo (PRP-USP, 18.1.660.41.7). We also thank the [Stack Overflow](https://stackoverflow.com/) community, where we solve most of our coding dilemmas.
