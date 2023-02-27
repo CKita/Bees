@@ -117,7 +117,7 @@ tiff("../Figures/consequences_let_sub.tiff", units="in",
 
 orchaRd::orchard_plot(model.conseq, xlab = "Hedges' g", data = conseq,
                       group = "id_code", branch.size = 1.4, 
-                      trunk.size = 8 ) +
+                      trunk.size = 8, k.pos = "none" ) +
         labs(x = "Consequences of pesticide application" ) + 
         scale_fill_manual(values = "#00A087B2") +
         theme_classic() + 

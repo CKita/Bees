@@ -171,7 +171,7 @@ tiff("../Figures/lethal.tiff", units="in", width=5.5,
 
 orchaRd::orchard_plot(lethal, data= dados,
                       group = "id_code", xlab = "Odds ratio", branch.size = 1.4, 
-                      trunk.size = 8, k.pos = "right") +
+                      trunk.size = 8, k.pos = "none") +
         labs(x = "Lethal effect") +
         scale_fill_manual(values="slateblue1") +
         scale_colour_manual(values="slateblue1")+
@@ -248,7 +248,7 @@ tiff("../Figures/lethal_sensibility_test.tiff", units="in", width=5.5,
 
 orchaRd::orchard_plot(model.let.sensi.out, data= let_sensi,
                       group = "id_code", xlab = "Odds ratio", branch.size = 1.4, 
-                      trunk.size = 8) +
+                      trunk.size = 8, k.pos = "none") +
         labs(x = "Lethal effect") + 
         scale_fill_manual(values="slateblue1") +
         scale_colour_manual(values="slateblue1")+

@@ -107,7 +107,7 @@ tiff("../Figures/sublethal.tiff", units="in", width=7,
 
 orchaRd::orchard_plot(model.sub, xlab = "Hedges' g", data = sub , 
                       group = "id_code", branch.size = 1.4, 
-                      trunk.size = 8) +
+                      trunk.size = 8, k.pos = "none") +
         labs(x= "Sublethal effect") +
         scale_color_manual(values = "sienna1") + 
         scale_fill_manual(values = "sienna1") + 
