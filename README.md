@@ -10,6 +10,8 @@ E-mail: [c.akemikita\@gmail.com](mailto:c.akemikita@gmail.com){.email}.
 
 First published on August 19th, 2022.
 
+[![DOI](https://zenodo.org/badge/513542240.svg)](https://zenodo.org/badge/latestdoi/513542240)
+
 Run in R version 4.2.2 (2022-10-31) -- "Innocent and Trusting".
 
 Disclaimer: You may freely use the software and data provided here for commercial or non-commercial purposes at your own risk. We assume no responsibility or liability for the use of this material, convey no license or title under any patent, copyright, or mask work right to the product. We reserve the right to make changes in the material without notification. We also make no representation or warranty that such application will be suitable for the specified use without further testing or modification. If this material helps you produce any academic work (paper, book, chapter, monograph, dissertation, thesis, report, talk, keynote, lecture or similar), please acknowledge the authors and cite the source.
