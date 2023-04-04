@@ -60,7 +60,7 @@ The data and scripts provided here aim at making our study fully reproducible. Y
 
     a.  Sublethal effect.R -\> main script formatted as a tutorial to help you reproduce the analyses and figures.
 
-### **Consequences of lethal and sublethal effects (folder)**
+### **Consequences of for bee communities (folder)**
 
 1.  Data (folder)
 
@@ -149,6 +149,25 @@ The data and scripts provided here aim at making our study fully reproducible. Y
     c.  duplicate_records_removed -\> list of papers from Web of Science and Scopus after duplicate removal. 
 
     f.  Papers included in meta-analysis -\> final list of papers included in meta-analysis.
+
+### **Figure (folder)**
+
+1.  Data (folder)
+
+    a.  consequences.csv -\> data frame with raw data and effect sizes.
+    
+    b.  lethal_effects.csv -\> data frame with raw data and effect sizes.
+    
+    a.  sub.csv -\> data frame with raw data and effect sizes.
+
+2.  Figures (folder)
+
+    a.  mean_effect_sizes.png -\> lethal and sublethal pesticide effects on bees, and their consequences for bee communities in crops.
+
+3.  Code (folder)
+
+    a.  Mean effect sizes.R -\> main script formatted as a tutorial to help you reproduce the analyses and figures.
+
     
 ## Instructions
 
@@ -164,4 +183,4 @@ If you have any questions, corrections, or suggestions, please feel free to open
 
 ## Acknowledgments
 
-We are sincerely grateful to the authors of all studies included in our meta-analysis, whose efforts made this synthesis possible. Tereza C. Giannini and Isabel A. Santos, members of the thesis committee of CAK, made invaluable suggestions to study design and results interpretation. Roberta C. F. Nocelli, Astrid M. P. Kleinert, and Osmar Malaspina, members of the thesis defense committee of CAK, helped us improve our study considerably with their expert opinions and insightful suggestions. CAK thanks the Coordination for the Improvement of Higher Education Personnel (CAPES, 88887.470293/2019-00) and the Graduate School in Ecology of the University of São Paulo (PPGE-IB-USP) for the M.Sc. scholarship. MARM was funded by the Alexander von Humboldt Foundation (AvH, 3.2-BRA/1134644 and 3.4–1134644–BRA-GA), National Council for Scientific and Technological Development (CNPq, 304498/2019-0), São Paulo Research Foundation (FAPESP, 2018/20695-7), and Dean of Research of the University of São Paulo (PRP-USP, 18.1.660.41.7). We also thank the Stack Overflow community (https://stackoverflow.com/), where we solve most of our coding dilemmas.
+We thank the authors of all studies included in our meta-analysis, who made this synthesis possible. Isabel Santos and Tereza Giannini made invaluable suggestions to study design. Astrid Kleinert, Osmar Malaspina, and Roberta Nocelli helped us see our findings from a broader perspective. CAK thanks the Coordination for the Improvement of Higher Education Personnel (CAPES, 88887.470293/2019-00) and the Graduate School in Ecology of the University of São Paulo (PPGE/IB-USP) for the M.Sc. scholarship. MARM was funded by the Alexander von Humboldt Foundation (AvH, 3.2-BRA/1134644 and 3.4–1134644–BRA-GA), National Council for Scientific and Technological Development (CNPq, 304498/2019-0), São Paulo Research Foundation (FAPESP, 2018/20695-7), and Dean of Research of the University of São Paulo (PRP-USP, 18.1.660.41.7). We also thank the Stack Overflow community (https://stackoverflow.com/), where we solve most of our coding dilemmas. 
