@@ -2,7 +2,6 @@ id_code;ai;bi;ci;di;n1i;n2i;bee_species;exposure_type;pesticide_applied;hours_af
 C0069;0;80;20;60;80;80;melipona_scutellaris;orally;pyraclostrobin;360;adult;-3.9991859;2.0777318
 C0069;0;80;10;70;80;80;melipona_scutellaris;orally;pyraclostrobin;456;adult;-3.1771669;2.1218449
 C0069;0;80;5;75;80;80;melipona_scutellaris;orally;pyraclostrobin;552;adult;-2.4620198;2.2074856
-C0073;4;11;10;5;15;15;melipona_quadrifasciata;orally;imidacloroprid;168;adult;-1.7047481;0.6409091
 C0084;31;29;60;0;60;60;tetragonisca_fiebrigi;orally;acetamiprid;48;adult;-4.7301933;2.0821733
 C0084;49;11;60;0;60;60;plebeia_emerina;topically;acetamiprid;48;adult;-3.3361649;2.1236875
 C0084;26;34;60;0;60;60;tetragonisca_fiebrigi;topically;acetamiprid;48;adult;-5.0596051;2.0832503

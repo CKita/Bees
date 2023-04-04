@@ -87,6 +87,11 @@ if(!require(minqa)){
   library(minqa)
 }
 
+if(!require(dfoptim)){
+  install.packages("dfoptim")
+  library(dfoptim)
+}
+
 ############################ EFFECT SIZES  #####################################
 
 
@@ -194,7 +199,7 @@ plot(rs$resid, ylim = c(-8.0,8), xlim =c(-8,50))
 #happening. 
 abline(h = -3)  #below this line
 abline(h = 3)   ##above this line
-#27 points. In other words, 27 outliers
+#28 points. In other words, 28 outliers
 
 #let's identify the outliers.
 text(rs$resid, labels = dados$id_code, cex= 1, pos = 2)
@@ -238,7 +243,7 @@ model.let.sensi.out <- rma.mv(yi, vi,
                                 method="REML",  # "REML" = multi-level 
                                 R = list(bee_species = cov.matrix),
                                 digits = 3, 
-                                control=list(optimizer="BFGS"),
+                                control=list(optimizer="mads"),
                                 data = let_sensi)
 
 summary(model.let.sensi.out)
