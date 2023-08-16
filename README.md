@@ -60,7 +60,7 @@ The data and scripts provided here aim at making our study fully reproducible. Y
 
     a.  Sublethal effect.R -\> main script formatted as a tutorial to help you reproduce the analyses and figures.
 
-### **Consequences of for bee communities (folder)**
+### **Consequences for bee communities (folder)**
 
 1.  Data (folder)
 
@@ -183,4 +183,4 @@ If you have any questions, corrections, or suggestions, please feel free to open
 
 ## Acknowledgments
 
-We thank the authors of all studies included in our meta-analysis, who made this synthesis possible. Isabel Santos and Tereza Giannini made invaluable suggestions to study design. Astrid Kleinert, Osmar Malaspina, and Roberta Nocelli helped us see our findings from a broader perspective. CAK thanks the Coordination for the Improvement of Higher Education Personnel (CAPES, 88887.470293/2019-00) and the Graduate School in Ecology of the University of São Paulo (PPGE/IB-USP) for the M.Sc. scholarship. MARM was funded by the Alexander von Humboldt Foundation (AvH, 3.2-BRA/1134644 and 3.4–1134644–BRA-GA), National Council for Scientific and Technological Development (CNPq, 304498/2019-0), São Paulo Research Foundation (FAPESP, 2018/20695-7), and Dean of Research of the University of São Paulo (PRP-USP, 18.1.660.41.7). We also thank the Stack Overflow community (https://stackoverflow.com/), where we solve most of our coding dilemmas. 
+We thank the authors of all primary studies included in our meta-analysis, who made this synthesis possible. Isabel Santos and Tereza Giannini made invaluable suggestions to study design and scope, greatly improving the quality of our research. Astrid Kleinert, Osmar Malaspina, and Roberta Nocelli helped us see the big picture, by providing us with key information about crop pollination by bees, which helped put our findings into perspective. CAK thanks the Coordination for the Improvement of Higher Education Personnel (CAPES, 88887.470293/2019-00) and the Graduate School in Ecology of the University of São Paulo (PPGE/IB-USP) for the M.Sc. scholarship. MARM was funded by the Alexander von Humboldt Foundation (AvH, 1134644), National Council for Scientific and Technological Development (CNPq, 304498/2019-0), São Paulo Research Foundation (FAPESP, 2018/20695-7 and 2023/02881-6), and Dean of Research of the University of São Paulo (PRP-USP, 18.1.660.41.7). We also thank the Stack Overflow community (https://stackoverflow.com/), where we solve most of our coding dilemmas. We have no conflicts of interest to declare. 
